@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Github,
   Linkedin,
@@ -20,54 +20,107 @@ import {
   ChevronDown,
   Menu,
   X,
-} from "lucide-react"
-import Image from "next/image"
+} from "lucide-react";
+import Image from "next/image";
 
 export default function Portfolio() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("home")
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [testimonialPages, setTestimonialPages] = useState(1);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["home", "about", "experience", "projects", "testimonials", "contact"]
-      const scrollPosition = window.scrollY + 100
-
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const offsetTop = element.offsetTop
-          const offsetHeight = element.offsetHeight
-
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-    setIsMenuOpen(false)
-  }
+  const testimonials = [
+    {
+      name: "Qemer Software Technology",
+      role: "Software Development Company",
+      image: "/placeholder.svg?height=80&width=80&text=QT",
+      content:
+        "Adonias is a skilled Full-Stack Mobile Developer, a true all-rounder in the world of mobile applications. He possesses the unique ability to handle every aspect of mobile development, from crafting intuitive user interfaces to building robust server-side infrastructure.",
+      url: "https://www.qemertech.com/team/adonias-haile/",
+    },
+    {
+      name: "Natnael Mahetem",
+      role: "CTO, Cofounder at Ewenet Communication PLC",
+      image: "/placeholder.svg?height=80&width=80&text=NM",
+      content:
+        "Adonias consistently impressed me with his exceptional problem-solving, coding skills, and communication abilities throughout his internship and work at Ewenet Communication under my supervision.",
+    },
+    {
+      name: "ab-majid-mohaqiq",
+      role: "Software Engineer",
+      image: "/placeholder.svg?height=80&width=80&text=AM",
+      content:
+        "Adonias is a resourceful and hardworking person. His ability to speak and express himself in English was excellent. I felt very comfortable when we cooperated together.",
+    },
+    {
+      name: "Amedee Erns Baptiste",
+      role: "Bachelor's in Economics | Front-end Dev | AI Enthusiast | Social Media Manager",
+      image: "/placeholder.svg?height=80&width=80&text=AE",
+      content:
+        "Adonias is a good solution thinker. His capacity of analysis to come with a solution is incredible. We worked together on a project and I will totally recommend him to anyone.",
+    },
+    {
+      name: "Samuel Abera",
+      role: "Backend Developer at Ewenet Communication",
+      image: "/placeholder.svg?height=80&width=80&text=SA",
+      content:
+        "Working with Adonias was a great experience. His dedication to mobile development and ability to integrate complex backend systems seamlessly made our collaboration very productive.",
+    },
+  ];
 
   const skills = [
-    { name: "Flutter", icon: <Smartphone className="w-6 h-6" />, color: "bg-blue-500" },
-    { name: "Dart", icon: <Code className="w-6 h-6" />, color: "bg-cyan-500" },
-    { name: "Python", icon: <Server className="w-6 h-6" />, color: "bg-yellow-500" },
-    { name: "Django", icon: <Database className="w-6 h-6" />, color: "bg-green-500" },
-    { name: "Firebase", icon: <Database className="w-6 h-6" />, color: "bg-orange-500" },
-    { name: "UI/UX Design", icon: <Figma className="w-6 h-6" />, color: "bg-purple-500" },
-  ]
+    {
+      name: "Flutter",
+      icon: <Smartphone className="w-6 h-6" />,
+      color: "bg-blue-500",
+    },
+    { name: "Java", icon: <Code className="w-6 h-6" />, color: "bg-red-500" },
+    {
+      name: "Spring Boot",
+      icon: <Server className="w-6 h-6" />,
+      color: "bg-green-600",
+    },
+    {
+      name: "Python",
+      icon: <Server className="w-6 h-6" />,
+      color: "bg-yellow-500",
+    },
+    {
+      name: "Django",
+      icon: <Database className="w-6 h-6" />,
+      color: "bg-green-500",
+    },
+    {
+      name: "Docker",
+      icon: <Database className="w-6 h-6" />,
+      color: "bg-blue-600",
+    },
+    {
+      name: "REST APIs",
+      icon: <Server className="w-6 h-6" />,
+      color: "bg-purple-500",
+    },
+    {
+      name: "CI/CD",
+      icon: <Figma className="w-6 h-6" />,
+      color: "bg-orange-500",
+    },
+  ];
 
   const experiences = [
+    {
+      title: "Backend Developer (Java Spring Boot)",
+      company: "Lion International Bank",
+      period: "May 26, 2025 - Present",
+      type: "Full-time",
+      url: "#",
+      achievements: [
+        "Developed airtime top-up system using Spring Boot, WSO2 Micro Integrator and Application Manager",
+        "Built SMS service using Redis, Spring Boot, WSO2 Micro Integrator and Application Manager",
+        "Created loan calculator app using React",
+        "Dockerized existing projects for improved deployment and scalability",
+        "Implemented microservices architecture with WSO2 integration",
+      ],
+    },
     {
       title: "Flutter Developer and Trainer",
       company: "Qemer Software Technology",
@@ -122,7 +175,7 @@ export default function Portfolio() {
         "Utilized Scrum development with Jira",
       ],
     },
-  ]
+  ];
 
   const projects = [
     {
@@ -130,8 +183,10 @@ export default function Portfolio() {
       description:
         "A comprehensive mobile marketplace that allows users to buy and sell products with an intuitive interface and secure payment integration.",
       image: "/placeholder.svg?height=300&width=400&text=Alibo+Market",
-      liveUrl: "https://play.google.com/store/apps/details?id=com.aliboMarket.alibo",
-      designUrl: "https://www.figma.com/design/XQCmuvZWGZX70BLxMihXgU/Alibo-Market",
+      liveUrl:
+        "https://play.google.com/store/apps/details?id=com.aliboMarket.alibo",
+      designUrl:
+        "https://www.figma.com/design/XQCmuvZWGZX70BLxMihXgU/Alibo-Market",
       tags: ["Flutter", "Firebase", "Payment Integration", "UI/UX"],
     },
     {
@@ -139,7 +194,8 @@ export default function Portfolio() {
       description:
         "An efficient delivery service mobile application that connects customers with delivery partners for seamless package transportation.",
       image: "/placeholder.svg?height=300&width=400&text=Swift+Delivery",
-      liveUrl: "https://play.google.com/store/apps/details?id=com.ecleul.swiftdelivery",
+      liveUrl:
+        "https://play.google.com/store/apps/details?id=com.ecleul.swiftdelivery",
       tags: ["Flutter", "Google Maps", "Real-time Tracking", "Firebase"],
     },
     {
@@ -147,7 +203,8 @@ export default function Portfolio() {
       description:
         "A comprehensive ride-hailing platform with separate user and driver applications for efficient transportation services.",
       image: "/placeholder.svg?height=300&width=400&text=Swift+Ride",
-      liveUrl: "https://play.google.com/store/apps/details?id=com.swiftrideuser.flutter",
+      liveUrl:
+        "https://play.google.com/store/apps/details?id=com.swiftrideuser.flutter",
       tags: ["Flutter", "Google Maps", "Payment Gateway", "Real-time"],
     },
     {
@@ -155,42 +212,69 @@ export default function Portfolio() {
       description:
         "The driver companion app for Swift Ride, enabling drivers to accept rides, navigate efficiently, and manage their earnings.",
       image: "/placeholder.svg?height=300&width=400&text=Swift+Ride+Driver",
-      liveUrl: "https://play.google.com/store/apps/details?id=com.swiftridedriver.flutter",
+      liveUrl:
+        "https://play.google.com/store/apps/details?id=com.swiftridedriver.flutter",
       tags: ["Flutter", "Driver Management", "Navigation", "Earnings"],
     },
-  ]
+  ];
 
-  const testimonials = [
-    {
-      name: "Qemer Software Technology",
-      role: "Software Development Company",
-      image: "/placeholder.svg?height=80&width=80&text=QT",
-      content:
-        "Adonias is a skilled Full-Stack Mobile Developer, a true all-rounder in the world of mobile applications. He possesses the unique ability to handle every aspect of mobile development, from crafting intuitive user interfaces to building robust server-side infrastructure.",
-      url: "https://www.qemertech.com/team/adonias-haile/",
-    },
-    {
-      name: "Natnael Mahetem",
-      role: "CTO, Cofounder at Ewenet Communication PLC",
-      image: "/placeholder.svg?height=80&width=80&text=NM",
-      content:
-        "Adonias consistently impressed me with his exceptional problem-solving, coding skills, and communication abilities throughout his internship and work at Ewenet Communication under my supervision.",
-    },
-    {
-      name: "ab-majid-mohaqiq",
-      role: "Software Engineer",
-      image: "/placeholder.svg?height=80&width=80&text=AM",
-      content:
-        "Adonias is a resourceful and hardworking person. His ability to speak and express himself in English was excellent. I felt very comfortable when we cooperated together.",
-    },
-        {
-      name: "Amedee-erns-baptiste",
-      role: "Bachelor's in Economics | Front-end Dev | Ai Enthousiasmer",
-      image: "/placeholder.svg?height=80&width=80&text=AM",
-      content:
-        "Adonias is a good solution thinker. His capacity of analysis to come with a solution is incredible. We worked together on a project and I will totally recommend him to anyone.",
-    },
-  ]
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = [
+        "home",
+        "about",
+        "experience",
+        "projects",
+        "testimonials",
+        "contact",
+      ];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const calculatePages = () => {
+      const containerWidth = window.innerWidth;
+      const cardWidth = containerWidth >= 768 ? 384 + 16 : 320 + 16; // w-96 or w-80 + gap
+      const visibleCards = Math.floor((containerWidth - 64) / cardWidth); // subtract padding
+      const pages = Math.max(
+        1,
+        Math.ceil(testimonials.length / Math.max(1, visibleCards))
+      );
+      setTestimonialPages(pages);
+    };
+
+    calculatePages();
+    window.addEventListener("resize", calculatePages);
+    return () => window.removeEventListener("resize", calculatePages);
+  }, [testimonials.length]);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -204,7 +288,14 @@ export default function Portfolio() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {["home", "about", "experience", "projects", "testimonials", "contact"].map((item) => (
+              {[
+                "home",
+                "about",
+                "experience",
+                "projects",
+                "testimonials",
+                "contact",
+              ].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -218,15 +309,29 @@ export default function Portfolio() {
             </div>
 
             {/* Mobile Navigation Toggle */}
-            <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <button
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
 
           {/* Mobile Navigation Menu */}
           {isMenuOpen && (
             <div className="md:hidden py-4 border-t border-gray-800">
-              {["home", "about", "experience", "projects", "testimonials", "contact"].map((item) => (
+              {[
+                "home",
+                "about",
+                "experience",
+                "projects",
+                "testimonials",
+                "contact",
+              ].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -241,7 +346,10 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section
+        id="home"
+        className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      >
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="mb-8">
@@ -256,12 +364,12 @@ export default function Portfolio() {
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
-                Flutter Developer
+                Fullstack Developer
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Crafting beautiful, performant mobile applications with clean code architecture and modern design
-              principles
+              Building scalable mobile and backend solutions with modern
+              technologies, clean code architecture, and industry best practices
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -274,7 +382,10 @@ export default function Portfolio() {
                 variant="outline"
                 className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3 text-lg bg-transparent"
                 onClick={() =>
-                  window.open("https://drive.google.com/file/d/1BN-oNVs1nRWXMgswDoCiQkPSSM1jHqu9/view", "_blank")
+                  window.open(
+                    "https://drive.google.com/file/d/1BN-oNVs1nRWXMgswDoCiQkPSSM1jHqu9/view",
+                    "_blank"
+                  )
                 }
               >
                 <FileText className="w-5 h-5 mr-2" />
@@ -293,32 +404,44 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-4xl font-bold mb-2">About Me</h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Passionate software engineer with expertise in mobile development and a commitment to creating exceptional
-              user experiences
-            </p>
+            {/* <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Fullstack software engineer specializing in mobile and backend
+              development with expertise in modern technologies and scalable
+              solutions
+            </p> */}
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 items-start">
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-blue-400">What I Do</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-blue-400">
+                What I Do
+              </h3>
               <div className="space-y-3 text-gray-300 leading-relaxed text-sm">
                 <p>
-                  I'm a dedicated software engineer graduated from Bahir Dar Institute of Technology, specializing in
-                  mobile application development with Flutter and backend API development.
+                  I am a software engineer with a degree from Bahir Dar
+                  Institute of Technology, specializing in mobile and backend
+                  development as a fullstack developer. I have expertise in
+                  Flutter, Django, Python, Django REST Framework, Java, and
+                  Spring Boot.
                 </p>
                 <p>
-                  With experience in developing scalable mobile applications, I focus on clean code architecture, SOLID
-                  principles, and modern design patterns to deliver high-quality solutions.
+                  With experience in Docker and CI/CD, I build scalable
+                  solutions and integrate RESTful APIs while following clean
+                  code and SOLID principles to deliver high-quality
+                  applications.
                 </p>
                 <p>
-                  I excel at integrating RESTful APIs, third-party services, and implementing complex features like
-                  payment gateways, real-time tracking, and cloud services integration.
+                  I enjoy collaborating with teams, reviewing code, and
+                  debugging projects to ensure high performance and quality. My
+                  focus is on creating maintainable, efficient solutions that
+                  meet business requirements and user needs.
                 </p>
               </div>
 
               <div className="mt-6">
-                <h4 className="text-lg font-semibold mb-3 text-blue-400">Personal Info</h4>
+                <h4 className="text-lg font-semibold mb-3 text-blue-400">
+                  Personal Info
+                </h4>
                 <div className="grid sm:grid-cols-2 gap-3 text-sm">
                   <div className="flex items-center gap-2">
                     <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
@@ -347,11 +470,13 @@ export default function Portfolio() {
 
             {/* Skills and Education section with horizontal scroll */}
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-blue-400">Skills & Technologies</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-blue-400">
+                Skills & Technologies
+              </h3>
 
               {/* Horizontal Scrollable Skills */}
               <div className="relative mb-6">
-                <div className="flex overflow-x-auto scrollbar-hide gap-3 pb-2 snap-x snap-mandatory">
+                <div className="flex overflow-x-auto scrollbar-hide-complete gap-3 pb-2 snap-x snap-mandatory">
                   {skills.map((skill, index) => (
                     <Card
                       key={index}
@@ -363,7 +488,9 @@ export default function Portfolio() {
                         >
                           {skill.icon}
                         </div>
-                        <h4 className="font-medium text-white text-xs leading-tight">{skill.name}</h4>
+                        <h4 className="font-medium text-white text-xs leading-tight">
+                          {skill.name}
+                        </h4>
                       </CardContent>
                     </Card>
                   ))}
@@ -371,17 +498,24 @@ export default function Portfolio() {
 
                 {/* Scroll Indicators for Skills */}
                 <div className="flex justify-center mt-2 gap-1">
-                  {Array.from({ length: Math.ceil(skills.length / 3) }).map((_, index) => (
-                    <div
-                      key={index}
-                      className="w-1.5 h-1.5 rounded-full bg-gray-600 hover:bg-blue-400 transition-colors cursor-pointer"
-                      onClick={() => {
-                        const container = document.querySelector("#about .overflow-x-auto")
-                        const cardWidth = 96 + 12 // w-24 + gap
-                        container?.scrollTo({ left: index * (cardWidth * 3), behavior: "smooth" })
-                      }}
-                    />
-                  ))}
+                  {Array.from({ length: Math.ceil(skills.length / 3) }).map(
+                    (_, index) => (
+                      <div
+                        key={index}
+                        className="w-1.5 h-1.5 rounded-full bg-gray-600 hover:bg-blue-400 transition-colors cursor-pointer"
+                        onClick={() => {
+                          const container = document.querySelector(
+                            "#about .overflow-x-auto"
+                          );
+                          const cardWidth = 96 + 12; // w-24 + gap
+                          container?.scrollTo({
+                            left: index * (cardWidth * 3),
+                            behavior: "smooth",
+                          });
+                        }}
+                      />
+                    )
+                  )}
                 </div>
 
                 <div className="text-center mt-2 md:hidden">
@@ -390,12 +524,20 @@ export default function Portfolio() {
               </div>
 
               <div className="mt-6">
-                <h4 className="text-lg font-semibold mb-3 text-blue-400">Education</h4>
+                <h4 className="text-lg font-semibold mb-3 text-blue-400">
+                  Education
+                </h4>
                 <Card className="bg-gray-800 border-gray-700">
                   <CardContent className="p-4">
-                    <h5 className="font-semibold text-white mb-1 text-sm">Bachelor's Degree in Software Engineering</h5>
-                    <p className="text-gray-400 mb-1 text-sm">BIT (Poly Campus), Bahir Dar, Ethiopia</p>
-                    <p className="text-xs text-gray-500">2019 - 2024 | CGPA: 3.86/4.00</p>
+                    <h5 className="font-semibold text-white mb-1 text-sm">
+                      Bachelor's Degree in Software Engineering
+                    </h5>
+                    <p className="text-gray-400 mb-1 text-sm">
+                      BIT (Poly Campus), Bahir Dar, Ethiopia
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      2019 - 2024 | CGPA: 3.86/4.00
+                    </p>
                   </CardContent>
                 </Card>
               </div>
@@ -409,12 +551,15 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-4xl font-bold mb-2">Work Experience</h2>
-            <p className="text-gray-400 text-lg">Professional journey in mobile development and software engineering</p>
+            <p className="text-gray-400 text-lg">
+              Professional journey in mobile development and software
+              engineering
+            </p>
           </div>
 
           {/* Horizontal Scrollable Experience */}
           <div className="relative">
-            <div className="flex overflow-x-auto scrollbar-hide gap-4 pb-4 snap-x snap-mandatory">
+            <div className="flex overflow-x-auto scrollbar-hide-complete gap-4 pb-4 snap-x snap-mandatory">
               {experiences.map((exp, index) => (
                 <Card
                   key={index}
@@ -423,7 +568,9 @@ export default function Portfolio() {
                   <CardContent className="p-4">
                     <div className="flex flex-col justify-between mb-3">
                       <div>
-                        <h3 className="text-lg font-semibold text-white mb-1 leading-tight">{exp.title}</h3>
+                        <h3 className="text-lg font-semibold text-white mb-1 leading-tight">
+                          {exp.title}
+                        </h3>
                         <div className="flex items-center gap-2 mb-2">
                           <a
                             href={exp.url}
@@ -433,7 +580,10 @@ export default function Portfolio() {
                           >
                             {exp.company}
                           </a>
-                          <Badge variant="secondary" className="bg-gray-700 text-gray-300 text-xs px-2 py-0">
+                          <Badge
+                            variant="secondary"
+                            className="bg-gray-700 text-gray-300 text-xs px-2 py-0"
+                          >
                             {exp.type}
                           </Badge>
                         </div>
@@ -442,7 +592,10 @@ export default function Portfolio() {
                     </div>
                     <ul className="space-y-1.5">
                       {exp.achievements.slice(0, 4).map((achievement, i) => (
-                        <li key={i} className="text-gray-300 flex items-start gap-2 text-sm leading-relaxed">
+                        <li
+                          key={i}
+                          className="text-gray-300 flex items-start gap-2 text-sm leading-relaxed"
+                        >
                           <div className="w-1 h-1 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
                           {achievement}
                         </li>
@@ -465,9 +618,14 @@ export default function Portfolio() {
                   key={index}
                   className="w-2 h-2 rounded-full bg-gray-600 hover:bg-blue-400 transition-colors cursor-pointer"
                   onClick={() => {
-                    const container = document.querySelector("#experience .overflow-x-auto")
-                    const cardWidth = 384 + 16 // w-96 + gap
-                    container?.scrollTo({ left: index * cardWidth, behavior: "smooth" })
+                    const container = document.querySelector(
+                      "#experience .overflow-x-auto"
+                    );
+                    const cardWidth = 384 + 16; // w-96 + gap
+                    container?.scrollTo({
+                      left: index * cardWidth,
+                      behavior: "smooth",
+                    });
                   }}
                 />
               ))}
@@ -487,7 +645,8 @@ export default function Portfolio() {
           <div className="text-center mb-8">
             <h2 className="text-4xl font-bold mb-2">Featured Projects</h2>
             <p className="text-gray-400 text-lg">
-              Mobile applications I've built with modern technologies and best practices
+              Mobile applications I've built with modern technologies and best
+              practices
             </p>
           </div>
 
@@ -508,8 +667,12 @@ export default function Portfolio() {
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <CardContent className="p-4">
-                  <h3 className="text-lg font-semibold text-white mb-2">{project.title}</h3>
-                  <p className="text-gray-300 mb-3 leading-relaxed text-sm line-clamp-2">{project.description}</p>
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-300 mb-3 leading-relaxed text-sm line-clamp-2">
+                    {project.description}
+                  </p>
 
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {project.tags.map((tag, i) => (
@@ -556,12 +719,14 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-4xl font-bold mb-2">What People Say</h2>
-            <p className="text-gray-400 text-lg">Feedback from colleagues and clients I've worked with</p>
+            <p className="text-gray-400 text-lg">
+              Feedback from colleagues and clients I've worked with
+            </p>
           </div>
 
           {/* Horizontal Scrollable Container */}
           <div className="relative">
-            <div className="flex overflow-x-auto scrollbar-hide gap-4 pb-4 snap-x snap-mandatory">
+            <div className="flex overflow-x-auto scrollbar-hide-complete gap-4 pb-4 snap-x snap-mandatory">
               {testimonials.map((testimonial, index) => (
                 <Card
                   key={index}
@@ -577,11 +742,17 @@ export default function Portfolio() {
                         className="rounded-full flex-shrink-0"
                       />
                       <div className="min-w-0">
-                        <h4 className="font-semibold text-white truncate text-sm">{testimonial.name}</h4>
-                        <p className="text-xs text-gray-400 line-clamp-2">{testimonial.role}</p>
+                        <h4 className="font-semibold text-white truncate text-sm">
+                          {testimonial.name}
+                        </h4>
+                        <p className="text-xs text-gray-400 line-clamp-2">
+                          {testimonial.role}
+                        </p>
                       </div>
                     </div>
-                    <p className="text-gray-300 leading-relaxed italic line-clamp-4 text-sm">"{testimonial.content}"</p>
+                    <p className="text-gray-300 leading-relaxed italic line-clamp-4 text-sm">
+                      "{testimonial.content}"
+                    </p>
                     {testimonial.url && (
                       <a
                         href={testimonial.url}
@@ -598,20 +769,28 @@ export default function Portfolio() {
               ))}
             </div>
 
-            {/* Scroll Indicators */}
-            <div className="flex justify-center mt-4 gap-2">
-              {testimonials.map((_, index) => (
-                <div
-                  key={index}
-                  className="w-2 h-2 rounded-full bg-gray-600 hover:bg-blue-400 transition-colors cursor-pointer"
-                  onClick={() => {
-                    const container = document.querySelector("#testimonials .overflow-x-auto")
-                    const cardWidth = 384 + 16 // w-96 + gap
-                    container?.scrollTo({ left: index * cardWidth, behavior: "smooth" })
-                  }}
-                />
-              ))}
-            </div>
+            {/* Scroll Indicators - Only show if multiple pages needed */}
+            {testimonialPages > 1 && (
+              <div className="flex justify-center mt-4 gap-2">
+                {Array.from({ length: testimonialPages }).map((_, index) => (
+                  <div
+                    key={index}
+                    className="w-2 h-2 rounded-full bg-gray-600 hover:bg-blue-400 transition-colors cursor-pointer"
+                    onClick={() => {
+                      const container = document.querySelector(
+                        "#testimonials .overflow-x-auto"
+                      );
+                      const cardWidth =
+                        window.innerWidth >= 768 ? 384 + 16 : 320 + 16; // w-96 or w-80 + gap
+                      container?.scrollTo({
+                        left: index * cardWidth,
+                        behavior: "smooth",
+                      });
+                    }}
+                  />
+                ))}
+              </div>
+            )}
 
             {/* Mobile scroll hint */}
             <div className="text-center mt-3 md:hidden">
@@ -626,7 +805,9 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-4xl font-bold mb-2">Get In Touch</h2>
-            <p className="text-gray-400 text-lg">Ready to work together? Let's discuss your next project</p>
+            <p className="text-gray-400 text-lg">
+              Ready to work together? Let's discuss your next project
+            </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -634,15 +815,21 @@ export default function Portfolio() {
               <Card className="bg-gray-800 border-gray-700 text-center">
                 <CardContent className="p-4">
                   <Mail className="w-6 h-6 text-blue-400 mx-auto mb-3" />
-                  <h3 className="font-semibold text-white mb-1 text-sm">Email</h3>
-                  <p className="text-gray-400 text-sm">adoniashaile1@gmail.com</p>
+                  <h3 className="font-semibold text-white mb-1 text-sm">
+                    Email
+                  </h3>
+                  <p className="text-gray-400 text-sm">
+                    adoniashaile1@gmail.com
+                  </p>
                 </CardContent>
               </Card>
 
               <Card className="bg-gray-800 border-gray-700 text-center">
                 <CardContent className="p-4">
                   <Phone className="w-6 h-6 text-blue-400 mx-auto mb-3" />
-                  <h3 className="font-semibold text-white mb-1 text-sm">Phone</h3>
+                  <h3 className="font-semibold text-white mb-1 text-sm">
+                    Phone
+                  </h3>
                   <p className="text-gray-400 text-sm">+251989858377</p>
                 </CardContent>
               </Card>
@@ -650,7 +837,9 @@ export default function Portfolio() {
               <Card className="bg-gray-800 border-gray-700 text-center">
                 <CardContent className="p-4">
                   <MapPin className="w-6 h-6 text-blue-400 mx-auto mb-3" />
-                  <h3 className="font-semibold text-white mb-1 text-sm">Location</h3>
+                  <h3 className="font-semibold text-white mb-1 text-sm">
+                    Location
+                  </h3>
                   <p className="text-gray-400 text-sm">Addis Ababa, Ethiopia</p>
                 </CardContent>
               </Card>
@@ -661,7 +850,10 @@ export default function Portfolio() {
                 size="lg"
                 className="bg-blue-600 hover:bg-blue-700 px-6 py-2.5 text-base"
                 onClick={() =>
-                  window.open("https://drive.google.com/file/d/1BN-oNVs1nRWXMgswDoCiQkPSSM1jHqu9/view", "_blank")
+                  window.open(
+                    "https://drive.google.com/file/d/1BN-oNVs1nRWXMgswDoCiQkPSSM1jHqu9/view",
+                    "_blank"
+                  )
                 }
               >
                 <FileText className="w-4 h-4 mr-2" />
@@ -676,9 +868,14 @@ export default function Portfolio() {
       <footer className="py-8 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 mb-4 md:mb-0">© 2024 Adonias Haile. All rights reserved.</div>
+            <div className="text-gray-400 mb-4 md:mb-0">
+              © {new Date().getFullYear()} Adonias Haile. All rights reserved.
+            </div>
             <div className="flex space-x-6">
-              <a href="https://github.com/habeshacoder" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a
+                href="https://github.com/habeshacoder"
+                className="text-gray-400 hover:text-blue-400 transition-colors"
+              >
                 <Github className="w-5 h-5" />
               </a>
               <a
@@ -687,7 +884,10 @@ export default function Portfolio() {
               >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="mailto:adoniashaile1@gmail.com" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a
+                href="mailto:adoniashaile1@gmail.com"
+                className="text-gray-400 hover:text-blue-400 transition-colors"
+              >
                 <Mail className="w-5 h-5" />
               </a>
             </div>
@@ -695,5 +895,5 @@ export default function Portfolio() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
