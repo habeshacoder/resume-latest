@@ -406,8 +406,7 @@ export default function Portfolio() {
                 className="border-gray-600 text-white hover:bg-gray-800 px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg bg-transparent w-full sm:w-auto"
                 onClick={() =>
                   window.open(
-                    "https://drive.google.com/file/d/1BN-oNVs1nRWXMgswDoCiQkPSSM1jHqu9/view",
-                    "_blank"
+                    "https://drive.google.com/file/d/1vuVcKVgYn6bImVL3UxSGDRpwPVjGgIHm/view?usp=sharing"
                   )
                 }
               >
@@ -918,7 +917,7 @@ export default function Portfolio() {
                 className="bg-blue-600 hover:bg-blue-700 px-6 py-2.5 text-sm sm:text-base w-full sm:w-auto"
                 onClick={() =>
                   window.open(
-                    "https://drive.google.com/file/d/1BN-oNVs1nRWXMgswDoCiQkPSSM1jHqu9/view",
+                    "https://drive.google.com/file/d/1vuVcKVgYn6bImVL3UxSGDRpwPVjGgIHm/view?usp=sharing",
                     "_blank"
                   )
                 }
