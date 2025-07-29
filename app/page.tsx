@@ -12,10 +12,6 @@ import {
   MapPin,
   ExternalLink,
   FileText,
-  Code,
-  Smartphone,
-  Server,
-  Database,
   Figma,
   ChevronDown,
   Menu,
@@ -34,7 +30,7 @@ export default function Portfolio() {
     {
       name: "Qemer Software Technology",
       role: "Software Development Company",
-      image: "/placeholder.svg?height=80&width=80&text=QT",
+      image: "/testimonials/qemer tech logo.png",
       content:
         "Adonias is a skilled Full-Stack Mobile Developer, a true all-rounder in the world of mobile applications. He possesses the unique ability to handle every aspect of mobile development, from crafting intuitive user interfaces to building robust server-side infrastructure.",
       url: "https://www.qemertech.com/team/adonias-haile/",
@@ -42,72 +38,65 @@ export default function Portfolio() {
     {
       name: "Natnael Mahetem",
       role: "CTO, Cofounder at Ewenet Communication PLC",
-      image: "/placeholder.svg?height=80&width=80&text=NM",
+      image: "/testimonials/testi_natan.jpeg",
       content:
         "Adonias consistently impressed me with his exceptional problem-solving, coding skills, and communication abilities throughout his internship and work at Ewenet Communication under my supervision.",
     },
     {
       name: "ab-majid-mohaqiq",
       role: "Software Engineer",
-      image: "/placeholder.svg?height=80&width=80&text=AM",
+      image: "/testimonials/testimonial-abi_majid.jpeg",
       content:
         "Adonias is a resourceful and hardworking person. His ability to speak and express himself in English was excellent. I felt very comfortable when we cooperated together.",
     },
     {
       name: "Amedee Erns Baptiste",
       role: "Bachelor's in Economics | Front-end Dev | AI Enthusiast | Social Media Manager",
-      image: "/placeholder.svg?height=80&width=80&text=AE",
+      image: "/testimonials/testi_amedee.jpeg",
       content:
         "Adonias is a good solution thinker. His capacity of analysis to come with a solution is incredible. We worked together on a project and I will totally recommend him to anyone.",
-    },
-    {
-      name: "Samuel Abera",
-      role: "Backend Developer at Ewenet Communication",
-      image: "/placeholder.svg?height=80&width=80&text=SA",
-      content:
-        "Working with Adonias was a great experience. His dedication to mobile development and ability to integrate complex backend systems seamlessly made our collaboration very productive.",
     },
   ];
 
   const skills = [
     {
       name: "Flutter",
-      icon: <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />,
+      image: "/skills/4691465_flutter_icon.png",
       color: "bg-blue-500",
     },
     {
       name: "Java",
-      icon: <Code className="w-4 h-4 sm:w-5 sm:h-5" />,
-      color: "bg-red-500",
+      image: "/skills/4373217_java_logo_logos_icon.png",
+      color: "bg-yellow-100",
     },
     {
       name: "Spring Boot",
-      icon: <Server className="w-4 h-4 sm:w-5 sm:h-5" />,
-      color: "bg-green-600",
+      image: "/skills/spring boot.png",
+      color: "bg-blue-600",
     },
     {
       name: "Python",
-      icon: <Server className="w-4 h-4 sm:w-5 sm:h-5" />,
-      color: "bg-yellow-500",
+      image: "/skills/4375050_logo_python_icon.png",
+      color: "bg-green-500",
     },
     {
       name: "Django",
-      icon: <Database className="w-4 h-4 sm:w-5 sm:h-5" />,
+      image: "/skills/9055848_bxl_django_icon.png",
       color: "bg-green-500",
     },
     {
       name: "Docker",
-      icon: <Database className="w-4 h-4 sm:w-5 sm:h-5" />,
-      color: "bg-blue-600",
+      image: "/skills/2993785_docker_social media_icon.png",
+      color: "bg-yellow-600",
     },
     {
-      name: "REST APIs",
-      icon: <Server className="w-4 h-4 sm:w-5 sm:h-5" />,
-      color: "bg-purple-500",
+      name: "CI/CD GitHub Actions",
+      image: "/skills/pngaaa.com-4882357.png",
+      color: "bg-orange-500",
     },
     {
-      name: "CI/CD",
-      icon: <Figma className="w-4 h-4 sm:w-5 sm:h-5" />,
+      name: "Redis",
+      image: "/skills/4691219_redis_icon.png",
       color: "bg-orange-500",
     },
   ];
@@ -188,7 +177,7 @@ export default function Portfolio() {
       title: "Alibo Market",
       description:
         "A comprehensive mobile marketplace that allows users to buy and sell products with an intuitive interface and secure payment integration.",
-      image: "/placeholder.svg?height=300&width=400&text=Alibo+Market",
+      image: "/project_thumbnails/alibo market.png",
       liveUrl:
         "https://play.google.com/store/apps/details?id=com.aliboMarket.alibo",
       designUrl:
@@ -199,7 +188,7 @@ export default function Portfolio() {
       title: "Swift Delivery",
       description:
         "An efficient delivery service mobile application that connects customers with delivery partners for seamless package transportation.",
-      image: "/placeholder.svg?height=300&width=400&text=Swift+Delivery",
+      image: "/project_thumbnails/swift delivery.png",
       liveUrl:
         "https://play.google.com/store/apps/details?id=com.ecleul.swiftdelivery",
       tags: ["Flutter", "Google Maps", "Real-time Tracking", "Firebase"],
@@ -208,7 +197,7 @@ export default function Portfolio() {
       title: "Swift Ride",
       description:
         "A comprehensive ride-hailing platform with separate user and driver applications for efficient transportation services.",
-      image: "/placeholder.svg?height=300&width=400&text=Swift+Ride",
+      image: "/project_thumbnails/swift ride.png",
       liveUrl:
         "https://play.google.com/store/apps/details?id=com.swiftrideuser.flutter",
       tags: ["Flutter", "Google Maps", "Payment Gateway", "Real-time"],
@@ -217,7 +206,7 @@ export default function Portfolio() {
       title: "Swift Ride Driver",
       description:
         "The driver companion app for Swift Ride, enabling drivers to accept rides, navigate efficiently, and manage their earnings.",
-      image: "/placeholder.svg?height=300&width=400&text=Swift+Ride+Driver",
+      image: "/project_thumbnails/swift ride driverr.png",
       liveUrl:
         "https://play.google.com/store/apps/details?id=com.swiftridedriver.flutter",
       tags: ["Flutter", "Driver Management", "Navigation", "Earnings"],
@@ -389,7 +378,7 @@ export default function Portfolio() {
           <div className="mb-8">
             <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden border-4 border-blue-400/50">
               <Image
-                src="/placeholder.svg?height=128&width=128&text=Profile"
+                src="/profile-img.jpg"
                 alt="Adonias Haile"
                 width={128}
                 height={128}
@@ -438,11 +427,6 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-4xl font-bold mb-2">About Me</h2>
-            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
-              Fullstack software engineer specializing in mobile and backend
-              development with expertise in modern technologies and scalable
-              solutions
-            </p>
           </div>
 
           <div className="space-y-8">
@@ -547,9 +531,15 @@ export default function Portfolio() {
                       >
                         <CardContent className="p-2 sm:p-3 text-center">
                           <div
-                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${skill.color} flex items-center justify-center mx-auto mb-1 sm:mb-2`}
+                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${skill.color} flex items-center justify-center mx-auto mb-1 sm:mb-2 p-1`}
                           >
-                            {skill.icon}
+                            <Image
+                              src={skill.image || "/placeholder.svg"}
+                              alt={skill.name}
+                              width={24}
+                              height={24}
+                              className="w-full h-full object-contain"
+                            />
                           </div>
                           <h4 className="font-medium text-white text-xs leading-tight break-words">
                             {skill.name}
@@ -830,7 +820,7 @@ export default function Portfolio() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center mt-3 text-blue-400 hover:text-blue-300 transition-colors text-xs break-words"
                         >
-                          View Profile
+                          View Source
                           <ExternalLink className="w-3 h-3 ml-1 flex-shrink-0" />
                         </a>
                       )}
@@ -946,7 +936,7 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-400 text-xs sm:text-sm text-center md:text-left break-words">
-              © 2024 Adonias Haile. All rights reserved.
+              © {new Date().getFullYear()} Adonias Haile. All rights reserved.
             </div>
             <div className="flex space-x-4 sm:space-x-6">
               <a
