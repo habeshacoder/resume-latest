@@ -368,56 +368,122 @@ export default function Portfolio() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - Redesigned */}
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center relative overflow-hidden"
+        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 sm:pt-20"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full">
-          <div className="mb-8">
-            <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden border-4 border-blue-400/50">
-              <Image
-                src="/profile-img.jpg"
-                alt="Adonias Haile"
-                width={128}
-                height={128}
-                className="w-full h-full object-cover"
-              />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid gap-8 lg:grid-cols-5 lg:gap-12 xl:gap-16 items-center">
+            {/* Left Column - Content */}
+            <div className="flex flex-col justify-center space-y-6 lg:space-y-8 order-2 lg:order-1 lg:col-span-2">
+              <div className="space-y-4 lg:space-y-6">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+                  <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
+                    Fullstack Developer
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl">
+                  Building scalable mobile and backend solutions with modern
+                  technologies, clean code architecture, and industry best
+                  practices
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 lg:gap-6">
+                <Button
+                  onClick={() => scrollToSection("projects")}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-medium"
+                  size="lg"
+                >
+                  View My Work
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3 text-lg font-medium bg-transparent"
+                  size="lg"
+                  onClick={() =>
+                    window.open(
+                      "https://drive.google.com/file/d/1ZyhhhZrio0hjOosQPIeELvocLdLFufpG/view?usp=sharing"
+                    )
+                  }
+                >
+                  <FileText className="w-5 h-5 mr-2" />
+                  Resume
+                </Button>
+              </div>
+
+              {/* Social Links */}
+              <div className="flex space-x-6 pt-4">
+                <a
+                  href="https://github.com/habeshacoder"
+                  className="text-gray-400 hover:text-blue-400 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="w-6 h-6" />
+                </a>
+                <a
+                  href="https://linkedin.com/in/adonias-haile-668312322"
+                  className="text-gray-400 hover:text-blue-400 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="w-6 h-6" />
+                </a>
+                <a
+                  href="mailto:adoniashaile1@gmail.com"
+                  className="text-gray-400 hover:text-blue-400 transition-colors"
+                >
+                  <Mail className="w-6 h-6" />
+                </a>
+              </div>
             </div>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
-                Fullstack Developer
-              </span>
-            </h1>
-            <p className="text-base sm:text-xl md:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
-              Building scalable mobile and backend solutions with modern
-              technologies, clean code architecture, and industry best practices
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-              <Button
-                onClick={() => scrollToSection("projects")}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg w-full sm:w-auto"
-              >
-                View My Work
-              </Button>
-              <Button
-                variant="outline"
-                className="border-gray-600 text-white hover:bg-gray-800 px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg bg-transparent w-full sm:w-auto"
-                onClick={() =>
-                  window.open(
-                    "https://drive.google.com/file/d/1vuVcKVgYn6bImVL3UxSGDRpwPVjGgIHm/view?usp=sharing"
-                  )
-                }
-              >
-                <FileText className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                Resume
-              </Button>
+
+            {/* Right Column - Profile Image - Takes 3/5 of the space on large screens */}
+            <div className="flex justify-center lg:justify-end order-1 lg:order-2 lg:col-span-3 px-4 sm:px-6 lg:px-8">
+              <div className="relative p-6 sm:p-8 lg:p-8 xl:p-12">
+                {/* Decorative background elements - scaled for larger images */}
+                <div className="absolute inset-2 lg:inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
+                <div className="absolute inset-4 lg:inset-6 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-full blur-2xl"></div>
+                <div className="absolute inset-6 lg:inset-8 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 rounded-full blur-xl"></div>
+
+                {/* Profile Image - Much larger on desktop */}
+                <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-[20rem] lg:h-[20rem] xl:w-[24rem] xl:h-[24rem] 2xl:w-[28rem] 2xl:h-[28rem] rounded-full overflow-hidden border-4 lg:border-6 border-blue-400/50 shadow-2xl mx-auto">
+                  <Image
+                    src="/profile-img.jpg"
+                    alt="Adonias Haile"
+                    width={448}
+                    height={448}
+                    className="w-full h-full object-contain"
+                    priority
+                  />
+                </div>
+
+                {/* Floating badges - positioned for larger images */}
+                <div className="absolute top-2 right-2 sm:top-0 sm:right-0 lg:top-4 lg:right-4 xl:top-6 xl:right-6 bg-blue-600 text-white px-3 py-1.5 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-full text-xs sm:text-sm lg:text-base font-medium shadow-lg animate-pulse">
+                  Available for hire
+                </div>
+                <div className="absolute bottom-2 left-2 sm:bottom-0 sm:left-0 lg:bottom-4 lg:left-4 xl:bottom-6 xl:left-6 bg-purple-600 text-white px-3 py-1.5 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-full text-xs sm:text-sm lg:text-base font-medium shadow-lg">
+                  2+ Years Experience
+                </div>
+
+                {/* Additional floating elements for larger screens */}
+                {/* <div className="hidden lg:block absolute top-1/2 -left-4 xl:-left-6 bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-4 py-2 xl:px-6 xl:py-3 rounded-full text-sm xl:text-base font-medium shadow-lg transform -rotate-12">
+                  Full Stack
+                </div>
+                <div className="hidden lg:block absolute top-1/3 -right-4 xl:-right-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 xl:px-6 xl:py-3 rounded-full text-sm xl:text-base font-medium shadow-lg transform rotate-12">
+                  Mobile Expert
+                </div> */}
+              </div>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <ChevronDown className="w-6 h-6 text-gray-400" />
         </div>
       </section>
 
@@ -635,6 +701,7 @@ export default function Portfolio() {
                           {exp.period}
                         </div>
                       </div>
+
                       <ul className="space-y-1.5">
                         {exp.achievements.slice(0, 4).map((achievement, i) => (
                           <li
@@ -729,7 +796,6 @@ export default function Portfolio() {
                   <p className="text-gray-300 mb-3 leading-relaxed text-xs sm:text-sm line-clamp-2 break-words">
                     {project.description}
                   </p>
-
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {project.tags.map((tag, i) => (
                       <Badge
@@ -741,7 +807,6 @@ export default function Portfolio() {
                       </Badge>
                     ))}
                   </div>
-
                   <div className="flex gap-2 flex-wrap">
                     <Button
                       size="sm"
@@ -917,7 +982,7 @@ export default function Portfolio() {
                 className="bg-blue-600 hover:bg-blue-700 px-6 py-2.5 text-sm sm:text-base w-full sm:w-auto"
                 onClick={() =>
                   window.open(
-                    "https://drive.google.com/file/d/1vuVcKVgYn6bImVL3UxSGDRpwPVjGgIHm/view?usp=sharing",
+                    "https://drive.google.com/file/d/1ZyhhhZrio0hjOosQPIeELvocLdLFufpG/view?usp=sharing",
                     "_blank"
                   )
                 }
@@ -945,7 +1010,7 @@ export default function Portfolio() {
                 <Github className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/adonias-haile"
+                href="https://linkedin.com/in/adonias-haile-668312322"
                 className="text-gray-400 hover:text-blue-400 transition-colors"
               >
                 <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
