@@ -6,31 +6,28 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Adonias Haile | Full-Stack Software Engineer & Mobile Specialist",
+  title: "Adonias Haile | Software Engineer & Flutter Specialist",
   description:
-    "Portfolio of Adonias Haile - Software Engineer specializing in Mobile (Flutter, Kotlin, Swift), Backend (Java Spring Boot, WSO2 MI, ISO 8583, Fayda, IPS), and Modern Frontend (React, Next.js, TypeScript, Tailwind CSS). Based in Addis Ababa, Ethiopia.",
+    "Portfolio of Adonias Haile - Software Engineer specializing in Mobile (Flutter), Backend (Java Spring Boot, WSO2 MI, ISO 8583, Fayda, IPS), and DevOps. Based in Addis Ababa, Ethiopia.",
   keywords: [
     "Adonias Haile",
-    "Full-Stack Developer",
+    "Software Engineer",
     "Flutter Developer",
     "Java Spring Boot",
-    "React Developer",
-    "Next.js",
-    "TypeScript",
-    "Frontend Engineer",
     "Mobile Engineer",
-    "Kotlin",
-    "Swift",
     "Fintech Integration",
     "WSO2 Micro Integrator",
     "ISO 8583",
+    "Fayda National ID",
+    "Instant Payment System",
+    "Docker",
     "Software Engineer Ethiopia",
   ],
   authors: [{ name: "Adonias Haile", url: "https://adoniashaile.netlify.app" }],
   openGraph: {
-    title: "Adonias Haile | Full-Stack Software Engineer & Mobile Specialist",
+    title: "Adonias Haile | Software Engineer & Flutter Specialist",
     description:
-      "Full-stack & mobile software engineer with proven enterprise banking, fintech integration, and modern frontend experience.",
+      "Software engineer specializing in Flutter mobile development, Java Spring Boot microservices, and fintech integrations.",
     url: "https://adoniashaile.netlify.app",
     siteName: "Adonias Haile Portfolio",
     locale: "en_US",
