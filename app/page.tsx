@@ -57,7 +57,9 @@ export default function Portfolio() {
 
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isTestimonialAutoPlay, setIsTestimonialAutoPlay] = useState(true);
-  const [testimonialViewMode, setTestimonialViewMode] = useState<"carousel" | "grid">("carousel");
+  const [testimonialViewMode, setTestimonialViewMode] = useState<
+    "carousel" | "grid"
+  >("carousel");
 
   // All Recommendations from colleagues, leaders, and clients
   const testimonials = [
@@ -581,7 +583,8 @@ export default function Portfolio() {
 
   const filteredSkills = skills.filter((skill) => {
     const matchesCategory =
-      selectedSkillCategory === "all" || skill.category === selectedSkillCategory;
+      selectedSkillCategory === "all" ||
+      skill.category === selectedSkillCategory;
     const query = skillSearchQuery.toLowerCase().trim();
     const matchesSearch =
       !query ||
@@ -1011,7 +1014,7 @@ export default function Portfolio() {
                   Banking & Fintech
                 </div>
                 <div className="text-xs text-gray-400">
-                  Lion Bank • CBE Connect • Star Pay
+                  Banking and Fintech Integration Experience
                 </div>
               </div>
             </div>
@@ -1136,7 +1139,9 @@ export default function Portfolio() {
           {/* Skills Grid with Concrete Competencies & Production Application (no arbitrary % bar) */}
           {filteredSkills.length === 0 ? (
             <div className="text-center py-16 bg-gray-900/30 rounded-2xl border border-gray-800">
-              <p className="text-gray-400 text-sm">No technologies match &ldquo;{skillSearchQuery}&rdquo;.</p>
+              <p className="text-gray-400 text-sm">
+                No technologies match &ldquo;{skillSearchQuery}&rdquo;.
+              </p>
               <Button
                 variant="outline"
                 size="sm"
@@ -1450,7 +1455,8 @@ export default function Portfolio() {
               What People Say
             </h2>
             <p className="text-gray-400 text-base sm:text-lg">
-              Endorsements and feedback from colleagues, engineering leaders, and clients I&apos;ve collaborated with
+              Endorsements and feedback from colleagues, engineering leaders,
+              and clients I&apos;ve collaborated with
             </p>
             <div className="w-12 h-1 bg-blue-500 mx-auto mt-3 rounded-full" />
 
@@ -1488,13 +1494,19 @@ export default function Portfolio() {
               {testimonialViewMode === "carousel" && (
                 <button
                   type="button"
-                  onClick={() => setIsTestimonialAutoPlay(!isTestimonialAutoPlay)}
+                  onClick={() =>
+                    setIsTestimonialAutoPlay(!isTestimonialAutoPlay)
+                  }
                   className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-medium transition-all ${
                     isTestimonialAutoPlay
                       ? "bg-gray-800/80 border-emerald-500/30 text-emerald-400 hover:bg-gray-700/80"
                       : "bg-gray-800/80 border-gray-700 text-gray-400 hover:text-white"
                   }`}
-                  title={isTestimonialAutoPlay ? "Pause Auto-rotation" : "Resume Auto-rotation"}
+                  title={
+                    isTestimonialAutoPlay
+                      ? "Pause Auto-rotation"
+                      : "Resume Auto-rotation"
+                  }
                 >
                   {isTestimonialAutoPlay ? (
                     <>
@@ -1535,7 +1547,9 @@ export default function Portfolio() {
                             {String(activeTestimonial + 1).padStart(2, "0")}
                           </span>
                           <span className="mx-1.5 text-gray-600">/</span>
-                          <span>{String(testimonials.length).padStart(2, "0")}</span>
+                          <span>
+                            {String(testimonials.length).padStart(2, "0")}
+                          </span>
                         </div>
 
                         {/* Navigation arrows */}
@@ -1544,7 +1558,9 @@ export default function Portfolio() {
                             type="button"
                             onClick={() =>
                               setActiveTestimonial(
-                                (prev) => (prev - 1 + testimonials.length) % testimonials.length
+                                (prev) =>
+                                  (prev - 1 + testimonials.length) %
+                                  testimonials.length,
                               )
                             }
                             className="p-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white border border-gray-700 transition-colors"
@@ -1555,7 +1571,9 @@ export default function Portfolio() {
                           <button
                             type="button"
                             onClick={() =>
-                              setActiveTestimonial((prev) => (prev + 1) % testimonials.length)
+                              setActiveTestimonial(
+                                (prev) => (prev + 1) % testimonials.length,
+                              )
                             }
                             className="p-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white border border-gray-700 transition-colors"
                             aria-label="Next recommendation"
