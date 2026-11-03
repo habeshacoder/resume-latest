@@ -67,7 +67,6 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home");
   const [selectedSkillCategory, setSelectedSkillCategory] = useState("all");
   const [skillSearchQuery, setSkillSearchQuery] = useState("");
-  const [skillViewMode, setSkillViewMode] = useState<"matrix" | "topology">("matrix");
   const [activeTelemetryTab, setActiveTelemetryTab] = useState<"switch" | "mobile" | "middleware">("switch");
 
   // Expanded project architecture cards
@@ -122,7 +121,7 @@ export default function Portfolio() {
       initials: "AT",
       avatarBg: "bg-orange-600",
       content:
-        "Adonias demonstrated sharp analytical skills and a solid grasp of backend development. Responsible for developing and integrating APIs, writing clean code in Java, and troubleshooting financial platforms. In addition he worked on front-end projects on Android and iOS app upgrades. A fast learner who quickly adapts to new tools and frameworks.",
+        "Adonias demonstrated sharp analytical skills and a solid grasp of backend development. Responsible for developing and integrating APIs, writing clean code in Java, and troubleshooting financial platforms. In addition he worked on mobile client projects on Android and iOS app upgrades. A fast learner who quickly adapts to new tools and frameworks.",
     },
     {
       name: "Kinfe Guesh",
@@ -173,7 +172,7 @@ export default function Portfolio() {
     },
     {
       name: "Amedee Erns Baptiste",
-      role: "Front-end Developer & AI Enthusiast",
+      role: "Software Engineer & AI Enthusiast",
       image: "/testimonials/testi_amedee.jpeg",
       content:
         "Adonias is a good solution thinker. His capacity of analysis to come with a solution is incredible. We worked together on a project and I will totally recommend him to anyone.",
@@ -504,12 +503,12 @@ export default function Portfolio() {
       location: "Addis Ababa, Ethiopia",
       url: "https://www.qemertech.com",
       badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
-      highlightMetric: "Ride-Hailing & Payment Gateways",
+      highlightMetric: "Mobile Commerce & Payments",
       achievements: [
         "Developed Mood Ride User App with cloud services, backend REST APIs, Google Maps APIs, and WebSockets.",
         "Integrated secure payment gateways with Chapa and Campay for in-app mobile transactions.",
         "Designed comprehensive UI/UX for Alibo Market using Figma, transforming wireframes into production Flutter interfaces.",
-        "Maintained Swift Ride user and driver applications with real-time ride tracking and driver dispatch.",
+        "Implemented real-time geolocation tracking and driver dispatch workflows across mobile applications.",
       ],
       technologies: [
         "Flutter",
@@ -667,22 +666,6 @@ export default function Portfolio() {
       },
     },
     {
-      title: "resuCV Platform",
-      subtitle: "Intelligent Resume & Career Platform (Personal SaaS)",
-      category: "saas",
-      description:
-        "Full-Stack SaaS platform empowering job seekers and professionals to build ATS-optimized resumes with live PDF export, structured data schemas, and career management tools.",
-      liveUrl: "https://www.resucv.com",
-      tags: ["Full-Stack SaaS", "TypeScript", "PDF Generation", "Cloud Platform", "Live Product"],
-      highlights: "Live SaaS at resucv.com • Production Users • End-to-End Delivery",
-      architectureSpecs: {
-        architecture: "High-Performance Cloud Architecture with Distributed Asset Generation",
-        integration: "Dynamic PDF Vector Renderer, Structured JSON Resume Schemas",
-        security: "OAuth 2.0 Identity Management, Encrypted Document Storage, Rate Limiting",
-        protocols: "RESTful APIs, Headless Rendering Engine, Edge CDN Distribution",
-      },
-    },
-    {
       title: "GoSkyHy Mobile App",
       subtitle: "Flight, Hotel & Travel Booking Solution",
       category: "mobile",
@@ -744,32 +727,6 @@ export default function Portfolio() {
         integration: "Chapa Payment Gateway, Campay Mobile Money, Firebase Backend",
         security: "Signed Webhook Verification, Tokenized Payment Requests",
         protocols: "RESTful JSON, Multi-Currency Calculation, Push Alerts",
-      },
-    },
-    {
-      title: "Swift Ride & Swift Ride Driver",
-      subtitle: "Dual Passenger & Driver Ride-Hailing Platform",
-      category: "mobile",
-      description:
-        "Full-fledged urban mobility system featuring twin mobile applications for passengers and drivers. Incorporates live GPS geolocation, automated dispatch algorithms, fare estimation engines, and in-app messaging.",
-      androidUrl:
-        "https://play.google.com/store/apps/details?id=com.aliboMarket.alibo",
-      driverUrl:
-        "https://play.google.com/store/apps/details?id=com.aliboMarket.alibo",
-      tags: [
-        "Flutter",
-        "Google Maps",
-        "WebSockets",
-        "Ride-Hailing",
-        "Dual Apps",
-        "Qemer Tech",
-      ],
-      highlights: "Live Driver Dispatch • Turn-by-Turn GPS • Real-time Pricing",
-      architectureSpecs: {
-        architecture: "Dual Codebase with Shared Core Domain and State Models",
-        integration: "Custom WebSocket Dispatch Server, Distance Matrix Calculation",
-        security: "Driver License & Vehicle Verification, Secure Location Streams",
-        protocols: "Low-Latency WebSocket Frames, Background Geofence Triggers",
       },
     },
   ];
@@ -867,7 +824,7 @@ export default function Portfolio() {
                 { id: "home", label: "Home" },
                 { id: "skills", label: "Skills & Architecture" },
                 { id: "experience", label: "Experience" },
-                { id: "projects", label: "Projects (8)" },
+                { id: "projects", label: "Projects (6)" },
                 { id: "testimonials", label: "Recommendations" },
                 { id: "contact", label: "Contact" },
               ].map((item) => (
@@ -938,7 +895,7 @@ export default function Portfolio() {
                   { id: "home", label: "Home" },
                   { id: "skills", label: "Skills & Architecture" },
                   { id: "experience", label: "Work Experience" },
-                  { id: "projects", label: "Featured Projects (8)" },
+                  { id: "projects", label: "Featured Projects (6)" },
                   { id: "testimonials", label: "Recommendations" },
                   { id: "contact", label: "Get In Touch" },
                 ].map((item) => (
@@ -991,12 +948,12 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-16 lg:pt-28 lg:pb-20 z-10"
+        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-20 z-10"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="grid gap-10 lg:grid-cols-12 items-center">
+          <div className="grid gap-8 lg:gap-10 lg:grid-cols-12 items-center">
             {/* Left Column - Content & Telemetry Deck */}
-            <div className="flex flex-col justify-center space-y-6 lg:col-span-7 text-center lg:text-left order-2 lg:order-1">
+            <div className="flex flex-col justify-center space-y-5 sm:space-y-6 lg:col-span-7 text-center lg:text-left order-1 lg:order-1">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/25 text-orange-400 text-xs sm:text-sm font-medium w-fit mx-auto lg:mx-0 shadow-inner">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 Available for Software Engineering Roles
@@ -1021,27 +978,27 @@ export default function Portfolio() {
                 <span className="text-white font-medium">Flutter mobile</span> applications end to end.
               </p>
 
-              {/* Interactive Production Architecture Telemetry Console (Wahoo Element) */}
-              <div className="w-full rounded-2xl bg-gray-900/90 border border-gray-800 shadow-2xl p-4 sm:p-5 text-left backdrop-blur-xl">
+              {/* Interactive Production Architecture Telemetry Console (Mobile-Friendly) */}
+              <div className="w-full rounded-2xl bg-gray-900/90 border border-gray-800 shadow-xl p-3.5 sm:p-5 text-left backdrop-blur-xl">
                 {/* Console Header */}
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-gray-800/80">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 pb-2.5 mb-2.5 border-b border-gray-800/80">
                   <div className="flex items-center gap-2">
                     <div className="flex gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                       <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                     </div>
-                    <span className="text-[11px] font-mono text-gray-400 ml-2 flex items-center gap-1.5">
+                    <span className="text-[11px] font-mono text-gray-400 ml-1.5 flex items-center gap-1.5">
                       <Terminal className="w-3.5 h-3.5 text-orange-400" />
                       production_telemetry.live
                     </span>
                   </div>
 
-                  {/* Telemetry Switcher Tabs */}
-                  <div className="inline-flex rounded-lg bg-gray-950/80 p-0.5 border border-gray-800 text-[11px] font-mono">
+                  {/* Telemetry Switcher Tabs - smoothly scrollable on mobile */}
+                  <div className="flex w-full sm:w-auto overflow-x-auto scrollbar-hide rounded-lg bg-gray-950/90 p-0.5 border border-gray-800 text-[11px] font-mono">
                     <button
                       onClick={() => setActiveTelemetryTab("switch")}
-                      className={`px-2 py-1 rounded-md transition-all ${
+                      className={`flex-1 sm:flex-none text-center px-2.5 py-1 rounded-md transition-all whitespace-nowrap ${
                         activeTelemetryTab === "switch"
                           ? "bg-orange-500 text-white font-semibold"
                           : "text-gray-400 hover:text-gray-200"
@@ -1051,7 +1008,7 @@ export default function Portfolio() {
                     </button>
                     <button
                       onClick={() => setActiveTelemetryTab("mobile")}
-                      className={`px-2 py-1 rounded-md transition-all ${
+                      className={`flex-1 sm:flex-none text-center px-2.5 py-1 rounded-md transition-all whitespace-nowrap ${
                         activeTelemetryTab === "mobile"
                           ? "bg-orange-500 text-white font-semibold"
                           : "text-gray-400 hover:text-gray-200"
@@ -1061,7 +1018,7 @@ export default function Portfolio() {
                     </button>
                     <button
                       onClick={() => setActiveTelemetryTab("middleware")}
-                      className={`px-2 py-1 rounded-md transition-all ${
+                      className={`flex-1 sm:flex-none text-center px-2.5 py-1 rounded-md transition-all whitespace-nowrap ${
                         activeTelemetryTab === "middleware"
                           ? "bg-orange-500 text-white font-semibold"
                           : "text-gray-400 hover:text-gray-200"
@@ -1074,79 +1031,79 @@ export default function Portfolio() {
 
                 {/* Telemetry Tab Content */}
                 {activeTelemetryTab === "switch" && (
-                  <div className="space-y-1.5 font-mono text-xs text-gray-300">
-                    <div className="flex justify-between items-center py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500">Core Banking System</span>
-                      <span className="text-white font-medium flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <div className="space-y-1 font-mono text-xs text-gray-300">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
+                      <span className="text-gray-500 text-[11px] sm:text-xs">Core Banking System</span>
+                      <span className="text-white font-medium text-[11px] sm:text-xs flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
                         Sopra Banking DBS (Hotfix 12)
                       </span>
                     </div>
-                    <div className="flex justify-between items-center py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500">Financial Rails</span>
-                      <span className="text-orange-400">ISO 8583 Switch & IPS Real-Time</span>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
+                      <span className="text-gray-500 text-[11px] sm:text-xs">Financial Rails</span>
+                      <span className="text-orange-400 text-[11px] sm:text-xs">ISO 8583 Switch & IPS Real-Time</span>
                     </div>
-                    <div className="flex justify-between items-center py-1">
-                      <span className="text-gray-500">National ID Integration</span>
-                      <span className="text-emerald-400">Fayda ID KYC Onboarding Live</span>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1">
+                      <span className="text-gray-500 text-[11px] sm:text-xs">National ID Integration</span>
+                      <span className="text-emerald-400 text-[11px] sm:text-xs">Fayda ID KYC Onboarding Live</span>
                     </div>
                   </div>
                 )}
 
                 {activeTelemetryTab === "mobile" && (
-                  <div className="space-y-1.5 font-mono text-xs text-gray-300">
-                    <div className="flex justify-between items-center py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500">Mobile Architecture</span>
-                      <span className="text-white font-medium flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <div className="space-y-1 font-mono text-xs text-gray-300">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
+                      <span className="text-gray-500 text-[11px] sm:text-xs">Mobile Architecture</span>
+                      <span className="text-white font-medium text-[11px] sm:text-xs flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
                         Flutter BLoC • Clean Architecture
                       </span>
                     </div>
-                    <div className="flex justify-between items-center py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500">Mobile Security</span>
-                      <span className="text-orange-400">TLS Pinning & Biometric Crypto Keystore</span>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
+                      <span className="text-gray-500 text-[11px] sm:text-xs">Mobile Security</span>
+                      <span className="text-orange-400 text-[11px] sm:text-xs">TLS Pinning & Biometric Crypto Keystore</span>
                     </div>
-                    <div className="flex justify-between items-center py-1">
-                      <span className="text-gray-500">Store Releases</span>
-                      <span className="text-emerald-400">Google Play & App Store Managed</span>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1">
+                      <span className="text-gray-500 text-[11px] sm:text-xs">Store Releases</span>
+                      <span className="text-emerald-400 text-[11px] sm:text-xs">Google Play & App Store Managed</span>
                     </div>
                   </div>
                 )}
 
                 {activeTelemetryTab === "middleware" && (
-                  <div className="space-y-1.5 font-mono text-xs text-gray-300">
-                    <div className="flex justify-between items-center py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500">Integration Middleware</span>
-                      <span className="text-white font-medium flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <div className="space-y-1 font-mono text-xs text-gray-300">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
+                      <span className="text-gray-500 text-[11px] sm:text-xs">Integration Middleware</span>
+                      <span className="text-white font-medium text-[11px] sm:text-xs flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
                         WSO2 Micro Integrator (MI) ESB
                       </span>
                     </div>
-                    <div className="flex justify-between items-center py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500">Microservices Backend</span>
-                      <span className="text-orange-400">Java Spring Boot Hexagonal APIs</span>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
+                      <span className="text-gray-500 text-[11px] sm:text-xs">Microservices Backend</span>
+                      <span className="text-orange-400 text-[11px] sm:text-xs">Java Spring Boot Hexagonal APIs</span>
                     </div>
-                    <div className="flex justify-between items-center py-1">
-                      <span className="text-gray-500">Cache & Auth</span>
-                      <span className="text-emerald-400">Redis Distributed Cache & Keycloak JWT</span>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1">
+                      <span className="text-gray-500 text-[11px] sm:text-xs">Cache & Auth</span>
+                      <span className="text-emerald-400 text-[11px] sm:text-xs">Redis Distributed Cache & Keycloak JWT</span>
                     </div>
                   </div>
                 )}
               </div>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start pt-1">
+              <div className="flex flex-wrap gap-2.5 sm:gap-4 justify-center lg:justify-start pt-1">
                 <Button
                   onClick={() => scrollToSection("projects")}
-                  className="bg-orange-500 hover:bg-orange-400 text-white px-5 sm:px-6 py-2.5 text-sm sm:text-base font-semibold shadow-lg shadow-orange-500/25"
+                  className="bg-orange-500 hover:bg-orange-400 text-white px-4 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold shadow-lg shadow-orange-500/25"
                   size="lg"
                 >
                   <Briefcase className="w-4 h-4 mr-2" />
-                  View Featured Work (8)
+                  View Featured Work (6)
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-gray-700 bg-gray-900/60 text-gray-100 hover:bg-gray-800 hover:border-gray-600 px-5 sm:px-6 py-2.5 text-sm sm:text-base font-medium"
+                  className="border-gray-700 bg-gray-900/60 text-gray-100 hover:bg-gray-800 hover:border-gray-600 px-4 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-medium"
                   size="lg"
                   onClick={() =>
                     window.open(
@@ -1160,21 +1117,21 @@ export default function Portfolio() {
                 </Button>
                 <Button
                   variant="ghost"
-                  className="text-gray-300 hover:text-white hover:bg-gray-800/60 px-4 py-2.5 text-sm sm:text-base font-medium"
+                  className="text-gray-300 hover:text-white hover:bg-gray-800/60 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-medium"
                   size="lg"
                   onClick={() => scrollToSection("testimonials")}
                 >
-                  <Award className="w-4 h-4 mr-2 text-amber-400" />
+                  <Award className="w-4 h-4 mr-1.5 text-amber-400" />
                   8 Recommendations
                 </Button>
               </div>
 
               {/* Interactive Quick-Copy & Social Pills */}
-              <div className="flex items-center justify-center lg:justify-start gap-2.5 pt-1 flex-wrap">
+              <div className="flex items-center justify-center lg:justify-start gap-2 pt-1 flex-wrap">
                 {/* Copy Email Button with instant feedback */}
                 <button
                   onClick={() => copyToClipboard("adoniashaile1@gmail.com", "email")}
-                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gray-900 border border-gray-800 hover:border-orange-500/50 text-xs font-mono text-gray-300 hover:text-white transition-all shadow-sm"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-orange-500/50 text-[11px] sm:text-xs font-mono text-gray-300 hover:text-white transition-all shadow-sm"
                   title="Click to copy email"
                 >
                   {copiedItem === "email" ? (
@@ -1194,7 +1151,7 @@ export default function Portfolio() {
                 {/* Copy WhatsApp Button */}
                 <button
                   onClick={() => copyToClipboard("+251989858377", "phone")}
-                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gray-900 border border-gray-800 hover:border-emerald-500/50 text-xs font-mono text-gray-300 hover:text-white transition-all shadow-sm"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-emerald-500/50 text-[11px] sm:text-xs font-mono text-gray-300 hover:text-white transition-all shadow-sm"
                   title="Click to copy WhatsApp number"
                 >
                   {copiedItem === "phone" ? (
@@ -1215,7 +1172,7 @@ export default function Portfolio() {
                   href="https://github.com/habeshacoder"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-gray-900 border border-gray-800 text-gray-400 hover:text-white hover:border-gray-700 transition-colors"
+                  className="p-2 sm:p-2.5 rounded-xl bg-gray-900 border border-gray-800 text-gray-400 hover:text-white hover:border-gray-700 transition-colors"
                   title="GitHub Profile"
                 >
                   <Github className="w-4 h-4" />
@@ -1224,7 +1181,7 @@ export default function Portfolio() {
                   href="https://linkedin.com/in/adonias-haile-668312322"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-gray-900 border border-gray-800 text-gray-400 hover:text-orange-400 hover:border-orange-500/50 transition-colors"
+                  className="p-2 sm:p-2.5 rounded-xl bg-gray-900 border border-gray-800 text-gray-400 hover:text-orange-400 hover:border-orange-500/50 transition-colors"
                   title="LinkedIn Profile"
                 >
                   <Linkedin className="w-4 h-4" />
@@ -1233,24 +1190,24 @@ export default function Portfolio() {
             </div>
 
             {/* Right Column - Profile & Academic Education Card */}
-            <div className="lg:col-span-5 flex justify-center order-1 lg:order-2">
+            <div className="lg:col-span-5 flex justify-center order-2 lg:order-2">
               <div className="relative w-full max-w-md">
                 {/* Luminous glow */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 via-amber-500/15 to-transparent rounded-3xl blur-2xl transform -rotate-2" />
 
-                <div className="relative bg-gray-900/90 border border-gray-800 p-6 sm:p-7 rounded-3xl shadow-2xl backdrop-blur-xl">
+                <div className="relative bg-gray-900/90 border border-gray-800 p-5 sm:p-7 rounded-3xl shadow-2xl backdrop-blur-xl">
                   {/* Floating metric badge on top of profile card */}
-                  <div className="absolute -top-3 -right-3 p-2.5 rounded-xl bg-gray-900 border border-gray-700/80 shadow-xl shadow-emerald-500/10 text-center">
-                    <div className="text-lg font-bold text-emerald-400">
+                  <div className="absolute -top-3 -right-3 p-2 sm:p-2.5 rounded-xl bg-gray-900 border border-gray-700/80 shadow-xl shadow-emerald-500/10 text-center">
+                    <div className="text-base sm:text-lg font-bold text-emerald-400">
                       500K+
                     </div>
-                    <div className="text-[11px] text-gray-400">
+                    <div className="text-[10px] sm:text-[11px] text-gray-400">
                       Users Impacted
                     </div>
                   </div>
 
                   {/* Photo container */}
-                  <div className="relative w-44 h-44 sm:w-52 sm:h-52 mx-auto rounded-full overflow-hidden border-4 border-orange-500/40 shadow-xl shadow-orange-500/15 mb-5">
+                  <div className="relative w-36 h-36 sm:w-48 sm:h-48 mx-auto rounded-full overflow-hidden border-4 border-orange-500/40 shadow-xl shadow-orange-500/15 mb-4 sm:mb-5">
                     <Image
                       src="/profile-img.jpg"
                       alt="Adonias Haile"
@@ -1261,8 +1218,8 @@ export default function Portfolio() {
                   </div>
 
                   {/* Profile info caption */}
-                  <div className="text-center space-y-1 mb-5">
-                    <h3 className="text-xl font-bold text-white">
+                  <div className="text-center space-y-1 mb-4 sm:mb-5">
+                    <h3 className="text-lg sm:text-xl font-bold text-white">
                       Adonias Haile
                     </h3>
                     <p className="text-xs sm:text-sm text-gray-400">
@@ -1274,29 +1231,29 @@ export default function Portfolio() {
                   </div>
 
                   {/* Mini metrics in hero card */}
-                  <div className="grid grid-cols-2 gap-3 pt-3 border-t border-gray-800/80 text-center">
-                    <div className="p-2.5 rounded-xl bg-gray-800/50 border border-gray-700/50">
-                      <div className="text-lg font-bold text-white">
+                  <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-gray-800/80 text-center">
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-gray-800/50 border border-gray-700/50">
+                      <div className="text-base sm:text-lg font-bold text-white">
                         3+ Years
                       </div>
-                      <div className="text-[11px] text-gray-400">
+                      <div className="text-[10px] sm:text-[11px] text-gray-400">
                         Engineering Exp
                       </div>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-gray-800/50 border border-gray-700/50">
-                      <div className="text-lg font-bold text-orange-400">
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-gray-800/50 border border-gray-700/50">
+                      <div className="text-base sm:text-lg font-bold text-orange-400">
                         7+ Apps
                       </div>
-                      <div className="text-[11px] text-gray-400">
+                      <div className="text-[10px] sm:text-[11px] text-gray-400">
                         Contributions
                       </div>
                     </div>
                   </div>
 
                   {/* Academic Education spanning end-to-end of profile container */}
-                  <div className="mt-5 pt-4 border-t border-gray-800/80 -mx-6 sm:-mx-7 px-6 sm:px-7 bg-gray-950/50 rounded-b-3xl">
+                  <div className="mt-4 sm:mt-5 pt-3.5 sm:pt-4 border-t border-gray-800/80 -mx-5 sm:-mx-7 px-5 sm:px-7 bg-gray-950/50 rounded-b-3xl">
                     <div className="flex items-center gap-2.5 mb-2">
-                      <div className="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center flex-shrink-0">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center flex-shrink-0">
                         <GraduationCap className="w-4 h-4" />
                       </div>
                       <div>
@@ -1316,7 +1273,7 @@ export default function Portfolio() {
                       <p className="text-[11px] text-gray-400 leading-snug">
                         Faculty of Computing, Bahir Dar Institute of Technology (BIT Poly Campus), Bahir Dar, Ethiopia
                       </p>
-                      <div className="flex flex-wrap gap-2 pt-1 pb-1">
+                      <div className="flex flex-wrap gap-1.5 pt-1 pb-1">
                         <Badge className="bg-orange-950/50 text-orange-300 border-orange-800/50 text-[10px] px-2 py-0.5">
                           2019 – 2024
                         </Badge>
@@ -1331,59 +1288,59 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Quick Metrics Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-8 border-t border-gray-800/60">
-            <div className="flex items-center gap-3 p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-orange-500/40 transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center flex-shrink-0">
-                <Briefcase className="w-5 h-5" />
+          {/* Quick Metrics Strip - Compact & Responsive */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-gray-800/60">
+            <div className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-orange-500/40 transition-colors">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center flex-shrink-0">
+                <Briefcase className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <div className="text-base sm:text-lg font-bold text-white">
+                <div className="text-xs sm:text-base font-bold text-white">
                   Banking & Fintech
                 </div>
-                <div className="text-xs text-gray-400">
+                <div className="text-[10px] sm:text-xs text-gray-400">
                   Core Integrations & Rails
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-emerald-500/40 transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0">
-                <Smartphone className="w-5 h-5" />
+            <div className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-emerald-500/40 transition-colors">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0">
+                <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <div className="text-base sm:text-lg font-bold text-white">
+                <div className="text-xs sm:text-base font-bold text-white">
                   Store Release Lead
                 </div>
-                <div className="text-xs text-gray-400">
+                <div className="text-[10px] sm:text-xs text-gray-400">
                   Google Play & App Store
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-amber-500/40 transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0">
-                <Server className="w-5 h-5" />
+            <div className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-amber-500/40 transition-colors">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0">
+                <Server className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <div className="text-base sm:text-lg font-bold text-white">
+                <div className="text-xs sm:text-base font-bold text-white">
                   Backend & APIs
                 </div>
-                <div className="text-xs text-gray-400">
+                <div className="text-[10px] sm:text-xs text-gray-400">
                   Spring Boot • WSO2 MI
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-purple-500/40 transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center flex-shrink-0">
-                <Award className="w-5 h-5" />
+            <div className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-purple-500/40 transition-colors">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center flex-shrink-0">
+                <Award className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <div className="text-base sm:text-lg font-bold text-white">
+                <div className="text-xs sm:text-base font-bold text-white">
                   8 Endorsements
                 </div>
-                <div className="text-xs text-gray-400">
+                <div className="text-[10px] sm:text-xs text-gray-400">
                   Directors • CTOs • PMs
                 </div>
               </div>
@@ -1392,37 +1349,37 @@ export default function Portfolio() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 hidden md:block">
+        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 hidden md:block">
           <button
             onClick={() => scrollToSection("skills")}
             className="text-gray-500 hover:text-orange-400 transition-colors animate-bounce p-2"
             aria-label="Scroll to Skills"
           >
-            <ChevronDown className="w-6 h-6" />
+            <ChevronDown className="w-5 h-5" />
           </button>
         </div>
       </section>
 
-      {/* Skills & Technologies Section */}
-      <section id="skills" className="py-16 sm:py-24 relative overflow-hidden z-10">
+      {/* Skills & Technologies Section - Clean, Fast & Mobile-Friendly */}
+      <section id="skills" className="py-12 sm:py-20 relative overflow-hidden z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-            <h2 className="text-xs sm:text-sm font-semibold text-orange-400 uppercase tracking-widest mb-2">
+          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
+            <h2 className="text-xs sm:text-sm font-semibold text-orange-400 uppercase tracking-widest mb-1.5">
               Technical Stack & Competencies
             </h2>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-white">
+            <h3 className="text-2xl sm:text-4xl font-extrabold text-white">
               Skills & Technologies
             </h3>
-            <p className="text-gray-400 text-sm sm:text-base mt-2">
-              Cross-platform mobile development with Flutter, enterprise backend integrations with Java Spring Boot, and DevOps workflows.
+            <p className="text-gray-400 text-xs sm:text-sm mt-1.5 max-w-xl mx-auto">
+              Mobile application architecture with Flutter, enterprise backend integrations with Java Spring Boot, and DevOps workflows.
             </p>
-            <div className="w-12 h-1 bg-orange-500 mx-auto mt-3 rounded-full" />
+            <div className="w-12 h-1 bg-orange-500 mx-auto mt-2.5 rounded-full" />
           </div>
 
-          {/* Controls: Category Filter Tabs, Live Search & View Switcher */}
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 mb-8">
-            {/* Filter Tabs */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+          {/* Controls: Horizontal Scrollable Category Filter Tabs & Live Search */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6 sm:mb-8">
+            {/* Filter Tabs - smoothly scrollable on mobile */}
+            <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-hide py-1 -mx-4 px-4 sm:mx-0 sm:px-0">
               {[
                 { id: "all", label: `All Skills (${skills.length})` },
                 { id: "mobile", label: "Mobile (Flutter)" },
@@ -1432,9 +1389,9 @@ export default function Portfolio() {
                 <button
                   key={tab.id}
                   onClick={() => setSelectedSkillCategory(tab.id)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+                  className={`whitespace-nowrap px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
                     selectedSkillCategory === tab.id
-                      ? "bg-orange-500 text-white shadow-md shadow-orange-500/25 scale-105"
+                      ? "bg-orange-500 text-white shadow-md shadow-orange-500/25 font-semibold"
                       : "bg-gray-900/80 text-gray-300 border border-gray-800 hover:bg-gray-800 hover:text-white"
                   }`}
                 >
@@ -1443,171 +1400,52 @@ export default function Portfolio() {
               ))}
             </div>
 
-            {/* Right Tools: View Mode Toggle & Live Search */}
-            <div className="flex items-center gap-3 w-full lg:w-auto justify-between lg:justify-end">
-              {/* Interactive View Mode Switcher */}
-              <div className="inline-flex rounded-xl bg-gray-900 p-1 border border-gray-800 text-xs">
+            {/* Quick Search */}
+            <div className="relative w-full sm:w-60 flex-shrink-0">
+              <Search className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                placeholder="Filter skills..."
+                value={skillSearchQuery}
+                onChange={(e) => setSkillSearchQuery(e.target.value)}
+                className="w-full pl-8 pr-7 py-1.5 rounded-xl bg-gray-900 border border-gray-800 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-orange-500/80 transition-colors shadow-inner"
+              />
+              {skillSearchQuery && (
                 <button
-                  onClick={() => setSkillViewMode("matrix")}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
-                    skillViewMode === "matrix"
-                      ? "bg-orange-500 text-white shadow-sm"
-                      : "text-gray-400 hover:text-white"
-                  }`}
-                  title="Grid Matrix View"
+                  onClick={() => setSkillSearchQuery("")}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-white"
                 >
-                  <Layers className="w-3.5 h-3.5" />
-                  <span>Grid Matrix</span>
+                  ✕
                 </button>
-                <button
-                  onClick={() => setSkillViewMode("topology")}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
-                    skillViewMode === "topology"
-                      ? "bg-orange-500 text-white shadow-sm"
-                      : "text-gray-400 hover:text-white"
-                  }`}
-                  title="Interactive System Topology View"
-                >
-                  <Network className="w-3.5 h-3.5" />
-                  <span>Architecture Topology</span>
-                </button>
-              </div>
-
-              {/* Quick Search */}
-              <div className="relative w-48 sm:w-56">
-                <Search className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                <input
-                  type="text"
-                  placeholder="Filter skills..."
-                  value={skillSearchQuery}
-                  onChange={(e) => setSkillSearchQuery(e.target.value)}
-                  className="w-full pl-8 pr-7 py-1.5 rounded-xl bg-gray-900 border border-gray-800 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-orange-500/80 transition-colors shadow-inner"
-                />
-                {skillSearchQuery && (
-                  <button
-                    onClick={() => setSkillSearchQuery("")}
-                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-white"
-                  >
-                    ✕
-                  </button>
-                )}
-              </div>
+              )}
             </div>
           </div>
 
-          {/* View Mode 1: Interactive System Topology (Wahoo Visual) */}
-          {skillViewMode === "topology" && (
-            <div className="mb-10 p-6 sm:p-8 rounded-3xl bg-gray-900/80 border border-gray-800 shadow-2xl backdrop-blur-xl">
-              <div className="text-center max-w-2xl mx-auto mb-8">
-                <span className="text-[11px] font-mono uppercase tracking-widest text-orange-400 font-semibold">
-                  Interactive Production Flow
-                </span>
-                <h4 className="text-xl sm:text-2xl font-bold text-white mt-1">
-                  End-to-End Enterprise System Topology
-                </h4>
-                <p className="text-xs sm:text-sm text-gray-400 mt-1">
-                  How Adonias connects mobile client experiences through secure enterprise middleware to core banking platforms.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-                {/* Client Tier */}
-                <div className="p-5 rounded-2xl bg-gray-950/80 border border-orange-500/30 space-y-3">
-                  <div className="flex items-center justify-between pb-2 border-b border-gray-800">
-                    <span className="text-xs font-mono font-bold text-orange-400 flex items-center gap-1.5">
-                      <Smartphone className="w-4 h-4" />
-                      Tier 1: Client Front
-                    </span>
-                    <Badge className="bg-orange-500/10 text-orange-300 border-orange-500/20 text-[10px]">
-                      Mobile
-                    </Badge>
-                  </div>
-                  <p className="text-xs text-gray-300 leading-relaxed">
-                    Flutter cross-platform apps, BLoC reactive streams, method channels, and biometric crypto keystore.
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {["Flutter & Dart", "BLoC Pattern", "TLS Pinning", "Keystore Auth"].map((item, i) => (
-                      <span key={i} className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-gray-900 border border-gray-800 text-orange-300">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Middleware Tier */}
-                <div className="p-5 rounded-2xl bg-gray-950/80 border border-amber-500/30 space-y-3">
-                  <div className="flex items-center justify-between pb-2 border-b border-gray-800">
-                    <span className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1.5">
-                      <Server className="w-4 h-4" />
-                      Tier 2: Middleware
-                    </span>
-                    <Badge className="bg-amber-500/10 text-amber-300 border-amber-500/20 text-[10px]">
-                      Enterprise ESB
-                    </Badge>
-                  </div>
-                  <p className="text-xs text-gray-300 leading-relaxed">
-                    WSO2 Micro Integrator (MI) payload mediation, Java Spring Boot microservices, Keycloak JWT, and Redis caches.
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {["WSO2 MI", "Java Spring Boot", "Redis Caching", "Keycloak JWT"].map((item, i) => (
-                      <span key={i} className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-gray-900 border border-gray-800 text-amber-300">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Core Banking & Switch Tier */}
-                <div className="p-5 rounded-2xl bg-gray-950/80 border border-emerald-500/30 space-y-3">
-                  <div className="flex items-center justify-between pb-2 border-b border-gray-800">
-                    <span className="text-xs font-mono font-bold text-emerald-400 flex items-center gap-1.5">
-                      <Network className="w-4 h-4" />
-                      Tier 3: Core & Switch
-                    </span>
-                    <Badge className="bg-emerald-500/10 text-emerald-300 border-emerald-500/20 text-[10px]">
-                      Core Banking
-                    </Badge>
-                  </div>
-                  <p className="text-xs text-gray-300 leading-relaxed">
-                    Sopra Banking DBS core, ISO 8583 banking switch rails, Fayda National ID onboarding, and IPS interbank settlement.
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {["Sopra DBS", "ISO 8583 Switch", "Fayda ID", "IPS Rails"].map((item, i) => (
-                      <span key={i} className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-gray-900 border border-gray-800 text-emerald-300">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* View Mode 2: Skills Grid Matrix (No arbitrary % bar) */}
+          {/* Skills Grid Matrix */}
           {filteredSkills.length === 0 ? (
-            <div className="text-center py-12 bg-gray-900/30 rounded-2xl border border-gray-800">
-              <Search className="w-10 h-10 text-gray-500 mx-auto mb-3" />
-              <p className="text-gray-300 font-medium">No skills matched your search query</p>
+            <div className="text-center py-10 bg-gray-900/30 rounded-2xl border border-gray-800">
+              <Search className="w-8 h-8 text-gray-500 mx-auto mb-2" />
+              <p className="text-gray-300 text-xs sm:text-sm font-medium">No skills matched your search query</p>
               <button
                 onClick={() => {
                   setSelectedSkillCategory("all");
                   setSkillSearchQuery("");
                 }}
-                className="mt-3 text-xs text-orange-400 hover:underline"
+                className="mt-2 text-xs text-orange-400 hover:underline"
               >
                 Reset filters
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {filteredSkills.map((skill, index) => (
                 <Card
                   key={index}
                   className="bg-gray-900/70 border-gray-800 hover:border-orange-500/50 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 flex flex-col justify-between group"
                 >
-                  <CardContent className="p-5 sm:p-6 space-y-3">
+                  <CardContent className="p-4 sm:p-6 space-y-3">
                     <div className="flex items-start justify-between gap-3">
-                      <div className="p-2.5 rounded-xl bg-gray-800/80 border border-gray-700/60 group-hover:scale-110 group-hover:border-orange-500/40 transition-all flex items-center justify-center">
+                      <div className="p-2 sm:p-2.5 rounded-xl bg-gray-800/80 border border-gray-700/60 group-hover:scale-110 group-hover:border-orange-500/40 transition-all flex items-center justify-center">
                         {skill.icon}
                       </div>
                       <div className="text-right space-y-1">
@@ -1764,7 +1602,7 @@ export default function Portfolio() {
               Shipped & Production Work
             </h2>
             <h3 className="text-3xl sm:text-4xl font-extrabold text-white">
-              Featured Projects (8)
+              Featured Projects (6)
             </h3>
             <p className="text-gray-400 text-sm sm:text-base mt-2">
               Mobile banking apps, fintech integrations, and design systems I&apos;ve contributed to.
@@ -2313,10 +2151,10 @@ export default function Portfolio() {
             {/* Resume & Portfolio Action Box */}
             <div className="bg-gradient-to-r from-orange-950/40 via-amber-950/30 to-yellow-950/20 border border-orange-500/30 rounded-2xl p-6 sm:p-8 text-center space-y-4">
               <h4 className="text-xl font-bold text-white">
-                Looking for a full-stack engineer who ships end-to-end?
+                Looking for a software engineer who ships production apps end-to-end?
               </h4>
               <p className="text-sm text-gray-300 max-w-xl mx-auto">
-                Download my up-to-date resume, review my code repositories on GitHub, or test my live SaaS at resucv.com.
+                Download my up-to-date resume or explore my code repositories on GitHub.
               </p>
               <div className="flex flex-wrap gap-3 justify-center pt-2">
                 <Button
@@ -2370,7 +2208,7 @@ export default function Portfolio() {
             <div>
               <p className="font-medium text-white">Adonias Haile</p>
               <p className="text-xs text-gray-500">
-                Full-Stack Software Engineer • Flutter & Mobile Specialist • Java Spring Boot
+                Software Engineer • Mobile & Fintech Specialist • Java Spring Boot
               </p>
               <p className="text-[11px] text-gray-600 mt-1">
                 © 2026 Adonias Haile. All rights reserved.
@@ -2412,15 +2250,6 @@ export default function Portfolio() {
               >
                 <Phone className="w-5 h-5" />
               </a>
-              <a
-                href="https://www.resucv.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-emerald-400 transition-colors"
-                title="resucv.com"
-              >
-                <Globe className="w-5 h-5" />
-              </a>
             </div>
           </div>
         </div>
@@ -2458,7 +2287,7 @@ export default function Portfolio() {
                 Navigation
               </div>
               {[
-                { name: "Jump to Projects (8 Production Works)", action: () => scrollToSection("projects"), icon: <Briefcase className="w-4 h-4 text-orange-400" /> },
+                { name: "Jump to Projects (6 Production Works)", action: () => scrollToSection("projects"), icon: <Briefcase className="w-4 h-4 text-orange-400" /> },
                 { name: "Jump to Skills & Architecture", action: () => scrollToSection("skills"), icon: <Network className="w-4 h-4 text-amber-400" /> },
                 { name: "Jump to Work Experience", action: () => scrollToSection("experience"), icon: <Building2 className="w-4 h-4 text-emerald-400" /> },
                 { name: "Jump to Recommendations (8)", action: () => scrollToSection("testimonials"), icon: <Award className="w-4 h-4 text-purple-400" /> },
@@ -2518,14 +2347,6 @@ export default function Portfolio() {
                     setIsCommandOpen(false);
                   },
                   icon: <Linkedin className="w-4 h-4 text-blue-400" />,
-                },
-                {
-                  name: "Visit Personal SaaS (resucv.com)",
-                  action: () => {
-                    window.open("https://www.resucv.com", "_blank");
-                    setIsCommandOpen(false);
-                  },
-                  icon: <Globe className="w-4 h-4 text-emerald-400" />,
                 },
               ].filter((item) => !commandSearch || item.name.toLowerCase().includes(commandSearch.toLowerCase()))
                 .map((item, i) => (
