@@ -1002,14 +1002,14 @@ export default function Portfolio() {
                 Available for Software Engineering Roles
               </div>
 
-              <div className="space-y-2.5">
-                <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+              <div className="space-y-2">
+                <h1 className="text-2xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight leading-tight">
                   <span className="block text-white">Adonias Haile</span>
                   <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent">
                     Software Engineer
                   </span>
                 </h1>
-                <p className="text-sm sm:text-lg font-medium text-orange-200/90 font-mono">
+                <p className="text-xs sm:text-sm font-medium text-orange-300/90 font-mono tracking-tight">
                   Fintech Integration • Java Spring Boot • Flutter Mobile • Enterprise APIs
                 </p>
               </div>
