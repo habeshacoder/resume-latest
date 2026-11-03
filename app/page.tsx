@@ -1066,7 +1066,7 @@ export default function Portfolio() {
                           : "text-gray-400 hover:text-gray-200"
                       }`}
                     >
-                      CBE Mobile
+                      Mobile Apps
                     </button>
                     <button
                       onClick={() => setActiveTelemetryTab("middleware")}
