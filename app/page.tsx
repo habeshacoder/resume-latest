@@ -67,10 +67,14 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home");
   const [selectedSkillCategory, setSelectedSkillCategory] = useState("all");
   const [skillSearchQuery, setSkillSearchQuery] = useState("");
-  const [activeTelemetryTab, setActiveTelemetryTab] = useState<"switch" | "mobile" | "middleware">("switch");
+  const [activeTelemetryTab, setActiveTelemetryTab] = useState<
+    "switch" | "mobile" | "middleware"
+  >("switch");
 
   // Expanded project architecture cards
-  const [expandedProjects, setExpandedProjects] = useState<Record<number, boolean>>({});
+  const [expandedProjects, setExpandedProjects] = useState<
+    Record<number, boolean>
+  >({});
 
   // Command palette modal state
   const [isCommandOpen, setIsCommandOpen] = useState(false);
@@ -82,7 +86,9 @@ export default function Portfolio() {
   // Recommendations state
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isTestimonialAutoPlay, setIsTestimonialAutoPlay] = useState(true);
-  const [testimonialViewMode, setTestimonialViewMode] = useState<"carousel" | "grid">("carousel");
+  const [testimonialViewMode, setTestimonialViewMode] = useState<
+    "carousel" | "grid"
+  >("carousel");
 
   const copyToClipboard = (text: string, identifier: string) => {
     navigator.clipboard.writeText(text);
@@ -609,12 +615,17 @@ export default function Portfolio() {
         "Sopra DBS",
         "Banking Security",
       ],
-      highlights: "500K+ Downloads • Live on Play Store & App Store • Banking Grade Security",
+      highlights:
+        "500K+ Downloads • Live on Play Store & App Store • Banking Grade Security",
       architectureSpecs: {
-        architecture: "Clean Architecture with BLoC State Management & Repository Layer",
-        integration: "WSO2 Micro Integrator ESB & Java Spring Boot Microservices connecting Sopra DBS",
-        security: "TLS Certificate Pinning, Biometric Keystore, Obfuscated Bytecode, Session Expiry",
-        protocols: "ISO 8583 Switch, RESTful JSON, National Fayda ID API, IPS Real-Time Settlement",
+        architecture:
+          "Clean Architecture with BLoC State Management & Repository Layer",
+        integration:
+          "WSO2 Micro Integrator ESB & Java Spring Boot Microservices connecting Sopra DBS",
+        security:
+          "TLS Certificate Pinning, Biometric Keystore, Obfuscated Bytecode, Session Expiry",
+        protocols:
+          "ISO 8583 Switch, RESTful JSON, National Fayda ID API, IPS Real-Time Settlement",
       },
     },
     {
@@ -633,12 +644,17 @@ export default function Portfolio() {
         "Clean Architecture",
         "Eaglelion Systems",
       ],
-      highlights: "Production Banking App • Active Feature Increments • Enterprise Scale",
+      highlights:
+        "Production Banking App • Active Feature Increments • Enterprise Scale",
       architectureSpecs: {
-        architecture: "Modular Feature Architecture with Riverpod & Immutable State Models",
-        integration: "Enterprise Banking Middleware and Secure Customer Account Endpoints",
-        security: "Device Keystore Binding, Tamper Detection, Encrypted In-Memory Storage",
-        protocols: "RESTful JSON, Multi-Factor Authentication, Dynamic Account Sync",
+        architecture:
+          "Modular Feature Architecture with Riverpod & Immutable State Models",
+        integration:
+          "Enterprise Banking Middleware and Secure Customer Account Endpoints",
+        security:
+          "Device Keystore Binding, Tamper Detection, Encrypted In-Memory Storage",
+        protocols:
+          "RESTful JSON, Multi-Factor Authentication, Dynamic Account Sync",
       },
     },
     {
@@ -659,10 +675,14 @@ export default function Portfolio() {
       ],
       highlights: "High-Volume Payments • Secure Gateway • Instant Settlement",
       architectureSpecs: {
-        architecture: "Event-Driven Flutter Architecture with Reactive Transaction Streams",
-        integration: "Digital Merchant QR APIs, Telecom Airtime Switch, Utility Billers",
-        security: "PIN & Biometric Auth, Tokenized Session Bearers, Anti-Screenshot Protections",
-        protocols: "EMVCo QR Standards, RESTful Payment Gateway, Real-Time Webhooks",
+        architecture:
+          "Event-Driven Flutter Architecture with Reactive Transaction Streams",
+        integration:
+          "Digital Merchant QR APIs, Telecom Airtime Switch, Utility Billers",
+        security:
+          "PIN & Biometric Auth, Tokenized Session Bearers, Anti-Screenshot Protections",
+        protocols:
+          "EMVCo QR Standards, RESTful Payment Gateway, Real-Time Webhooks",
       },
     },
     {
@@ -676,10 +696,13 @@ export default function Portfolio() {
       tags: ["Flutter", "Dart", "Travel Tech", "REST APIs", "State Management"],
       highlights: "Live on Play Store • Seamless Booking UI • Real-time APIs",
       architectureSpecs: {
-        architecture: "BLoC State Pattern with Paginated Result Streams & Filter Pipelines",
-        integration: "Global Distribution System (GDS) Flight APIs & Hotel Inventory Connectors",
+        architecture:
+          "BLoC State Pattern with Paginated Result Streams & Filter Pipelines",
+        integration:
+          "Global Distribution System (GDS) Flight APIs & Hotel Inventory Connectors",
         security: "PCI-DSS Compliant Payment Tokenization, Secure Card Storage",
-        protocols: "RESTful JSON, WebSocket Fare Updates, Push Notification Schedules",
+        protocols:
+          "RESTful JSON, WebSocket Fare Updates, Push Notification Schedules",
       },
     },
     {
@@ -699,10 +722,14 @@ export default function Portfolio() {
       ],
       highlights: "Live GPS Tracking • Real-time Map Updates • Firebase Push",
       architectureSpecs: {
-        architecture: "Clean Architecture with Reactive Geolocation Stream Controllers",
-        integration: "Google Maps SDK, Directions API, Firebase Realtime Database",
-        security: "Role-Based Firebase Security Rules, Phone Number Verification",
-        protocols: "Bidirectional WebSockets, Polyline Path Smoothing, FCM Multicast",
+        architecture:
+          "Clean Architecture with Reactive Geolocation Stream Controllers",
+        integration:
+          "Google Maps SDK, Directions API, Firebase Realtime Database",
+        security:
+          "Role-Based Firebase Security Rules, Phone Number Verification",
+        protocols:
+          "Bidirectional WebSockets, Polyline Path Smoothing, FCM Multicast",
       },
     },
     {
@@ -721,10 +748,13 @@ export default function Portfolio() {
         "Figma UI/UX",
         "Qemer Tech",
       ],
-      highlights: "Figma Design System • Dual Payment Gateways • Clean Architecture",
+      highlights:
+        "Figma Design System • Dual Payment Gateways • Clean Architecture",
       architectureSpecs: {
-        architecture: "Component-Driven Flutter Design System matching Figma Tokens",
-        integration: "Chapa Payment Gateway, Campay Mobile Money, Firebase Backend",
+        architecture:
+          "Component-Driven Flutter Design System matching Figma Tokens",
+        integration:
+          "Chapa Payment Gateway, Campay Mobile Money, Firebase Backend",
         security: "Signed Webhook Verification, Tokenized Payment Requests",
         protocols: "RESTful JSON, Multi-Currency Calculation, Push Alerts",
       },
@@ -734,7 +764,8 @@ export default function Portfolio() {
   const filteredSkills = useMemo(() => {
     return skills.filter((skill) => {
       const matchesCategory =
-        selectedSkillCategory === "all" || skill.category === selectedSkillCategory;
+        selectedSkillCategory === "all" ||
+        skill.category === selectedSkillCategory;
       const query = skillSearchQuery.toLowerCase().trim();
       const matchesSearch =
         !query ||
@@ -759,7 +790,14 @@ export default function Portfolio() {
   // Scrollspy
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "skills", "experience", "projects", "testimonials", "contact"];
+      const sections = [
+        "home",
+        "skills",
+        "experience",
+        "projects",
+        "testimonials",
+        "contact",
+      ];
       const scrollPosition = window.scrollY + 140;
 
       for (const section of sections) {
@@ -767,7 +805,10 @@ export default function Portfolio() {
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetHeight = element.offsetHeight;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
             setActiveSection(section);
             break;
           }
@@ -861,7 +902,7 @@ export default function Portfolio() {
                 onClick={() =>
                   window.open(
                     "/documents/Adonias_Haile_J_Resume-latest.pdf",
-                    "_blank"
+                    "_blank",
                   )
                 }
               >
@@ -883,7 +924,11 @@ export default function Portfolio() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
 
@@ -932,7 +977,7 @@ export default function Portfolio() {
                   onClick={() =>
                     window.open(
                       "/documents/Adonias_Haile_J_Resume-latest.pdf",
-                      "_blank"
+                      "_blank",
                     )
                   }
                 >
@@ -967,15 +1012,22 @@ export default function Portfolio() {
                   </span>
                 </h1>
                 <p className="text-xs sm:text-sm font-medium text-orange-300/90 font-mono tracking-tight">
-                  Fintech Integration • Java Spring Boot • Flutter Mobile • Enterprise APIs
+                  Fintech Integration • Java Spring Boot • Flutter Mobile •
+                  Enterprise APIs
                 </p>
               </div>
 
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Software engineer with proven banking and fintech experience. Building secure enterprise{" "}
-                <span className="text-white font-medium">Java Spring Boot</span> microservices,{" "}
-                <span className="text-white font-medium">WSO2 Micro Integrator</span> middleware, payment switch connectivity, and shipping production{" "}
-                <span className="text-white font-medium">Flutter mobile</span> applications end to end.
+                Software engineer with proven banking and fintech experience.
+                Building secure enterprise{" "}
+                <span className="text-white font-medium">Java Spring Boot</span>{" "}
+                microservices,{" "}
+                <span className="text-white font-medium">
+                  WSO2 Micro Integrator
+                </span>{" "}
+                middleware, payment switch connectivity, and shipping production{" "}
+                <span className="text-white font-medium">Flutter mobile</span>{" "}
+                applications end to end.
               </p>
 
               {/* Interactive Production Architecture Telemetry Console (Mobile-Friendly) */}
@@ -1033,19 +1085,29 @@ export default function Portfolio() {
                 {activeTelemetryTab === "switch" && (
                   <div className="space-y-1 font-mono text-xs text-gray-300">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">Core Banking System</span>
+                      <span className="text-gray-500 text-[11px] sm:text-xs">
+                        Core Banking System
+                      </span>
                       <span className="text-white font-medium text-[11px] sm:text-xs flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
                         Sopra Banking DBS (Hotfix 12)
                       </span>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">Financial Rails</span>
-                      <span className="text-orange-400 text-[11px] sm:text-xs">ISO 8583 Switch & IPS Real-Time</span>
+                      <span className="text-gray-500 text-[11px] sm:text-xs">
+                        Financial Rails
+                      </span>
+                      <span className="text-orange-400 text-[11px] sm:text-xs">
+                        ISO 8583 Switch & IPS Real-Time
+                      </span>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">National ID Integration</span>
-                      <span className="text-emerald-400 text-[11px] sm:text-xs">Fayda ID KYC Onboarding Live</span>
+                      <span className="text-gray-500 text-[11px] sm:text-xs">
+                        National ID Integration
+                      </span>
+                      <span className="text-emerald-400 text-[11px] sm:text-xs">
+                        Fayda ID KYC Onboarding Live
+                      </span>
                     </div>
                   </div>
                 )}
@@ -1053,19 +1115,29 @@ export default function Portfolio() {
                 {activeTelemetryTab === "mobile" && (
                   <div className="space-y-1 font-mono text-xs text-gray-300">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">Mobile Architecture</span>
+                      <span className="text-gray-500 text-[11px] sm:text-xs">
+                        Mobile Architecture
+                      </span>
                       <span className="text-white font-medium text-[11px] sm:text-xs flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
                         Flutter BLoC • Clean Architecture
                       </span>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">Mobile Security</span>
-                      <span className="text-orange-400 text-[11px] sm:text-xs">TLS Pinning & Biometric Crypto Keystore</span>
+                      <span className="text-gray-500 text-[11px] sm:text-xs">
+                        Mobile Security
+                      </span>
+                      <span className="text-orange-400 text-[11px] sm:text-xs">
+                        TLS Pinning & Biometric Crypto Keystore
+                      </span>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">Store Releases</span>
-                      <span className="text-emerald-400 text-[11px] sm:text-xs">Google Play & App Store Managed</span>
+                      <span className="text-gray-500 text-[11px] sm:text-xs">
+                        Store Releases
+                      </span>
+                      <span className="text-emerald-400 text-[11px] sm:text-xs">
+                        Google Play & App Store Managed
+                      </span>
                     </div>
                   </div>
                 )}
@@ -1073,19 +1145,29 @@ export default function Portfolio() {
                 {activeTelemetryTab === "middleware" && (
                   <div className="space-y-1 font-mono text-xs text-gray-300">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">Integration Middleware</span>
+                      <span className="text-gray-500 text-[11px] sm:text-xs">
+                        Integration Middleware
+                      </span>
                       <span className="text-white font-medium text-[11px] sm:text-xs flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
                         WSO2 Micro Integrator (MI) ESB
                       </span>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">Microservices Backend</span>
-                      <span className="text-orange-400 text-[11px] sm:text-xs">Java Spring Boot Hexagonal APIs</span>
+                      <span className="text-gray-500 text-[11px] sm:text-xs">
+                        Microservices Backend
+                      </span>
+                      <span className="text-orange-400 text-[11px] sm:text-xs">
+                        Java Spring Boot Hexagonal APIs
+                      </span>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">Cache & Auth</span>
-                      <span className="text-emerald-400 text-[11px] sm:text-xs">Redis Distributed Cache & Keycloak JWT</span>
+                      <span className="text-gray-500 text-[11px] sm:text-xs">
+                        Cache & Auth
+                      </span>
+                      <span className="text-emerald-400 text-[11px] sm:text-xs">
+                        Redis Distributed Cache & Keycloak JWT
+                      </span>
                     </div>
                   </div>
                 )}
@@ -1108,7 +1190,7 @@ export default function Portfolio() {
                   onClick={() =>
                     window.open(
                       "/documents/Adonias_Haile_J_Resume-latest.pdf",
-                      "_blank"
+                      "_blank",
                     )
                   }
                 >
@@ -1121,8 +1203,8 @@ export default function Portfolio() {
                   size="lg"
                   onClick={() => scrollToSection("testimonials")}
                 >
-                  <Award className="w-4 h-4 mr-1.5 text-amber-400" />
-                  8 Recommendations
+                  <Award className="w-4 h-4 mr-1.5 text-amber-400" />8
+                  Recommendations
                 </Button>
               </div>
 
@@ -1130,7 +1212,9 @@ export default function Portfolio() {
               <div className="flex items-center justify-center lg:justify-start gap-2 pt-1 flex-wrap">
                 {/* Copy Email Button with instant feedback */}
                 <button
-                  onClick={() => copyToClipboard("adoniashaile1@gmail.com", "email")}
+                  onClick={() =>
+                    copyToClipboard("adoniashaile1@gmail.com", "email")
+                  }
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-orange-500/50 text-[11px] sm:text-xs font-mono text-gray-300 hover:text-white transition-all shadow-sm"
                   title="Click to copy email"
                 >
@@ -1271,7 +1355,8 @@ export default function Portfolio() {
                         B.Sc. in Software Engineering
                       </h5>
                       <p className="text-[11px] text-gray-400 leading-snug">
-                        Faculty of Computing, Bahir Dar Institute of Technology (BIT Poly Campus), Bahir Dar, Ethiopia
+                        Faculty of Computing, Bahir Dar Institute of Technology
+                        (BIT Poly Campus), Bahir Dar, Ethiopia
                       </p>
                       <div className="flex flex-wrap gap-1.5 pt-1 pb-1">
                         <Badge className="bg-orange-950/50 text-orange-300 border-orange-800/50 text-[10px] px-2 py-0.5">
@@ -1361,7 +1446,10 @@ export default function Portfolio() {
       </section>
 
       {/* Skills & Technologies Section - Clean, Fast & Mobile-Friendly */}
-      <section id="skills" className="py-12 sm:py-20 relative overflow-hidden z-10">
+      <section
+        id="skills"
+        className="py-12 sm:py-20 relative overflow-hidden z-10"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
             <h2 className="text-xs sm:text-sm font-semibold text-orange-400 uppercase tracking-widest mb-1.5">
@@ -1371,7 +1459,8 @@ export default function Portfolio() {
               Skills & Technologies
             </h3>
             <p className="text-gray-400 text-xs sm:text-sm mt-1.5 max-w-xl mx-auto">
-              Mobile application architecture with Flutter, enterprise backend integrations with Java Spring Boot, and DevOps workflows.
+              Mobile application architecture with Flutter, enterprise backend
+              integrations with Java Spring Boot, and DevOps workflows.
             </p>
             <div className="w-12 h-1 bg-orange-500 mx-auto mt-2.5 rounded-full" />
           </div>
@@ -1425,7 +1514,9 @@ export default function Portfolio() {
           {filteredSkills.length === 0 ? (
             <div className="text-center py-10 bg-gray-900/30 rounded-2xl border border-gray-800">
               <Search className="w-8 h-8 text-gray-500 mx-auto mb-2" />
-              <p className="text-gray-300 text-xs sm:text-sm font-medium">No skills matched your search query</p>
+              <p className="text-gray-300 text-xs sm:text-sm font-medium">
+                No skills matched your search query
+              </p>
               <button
                 onClick={() => {
                   setSelectedSkillCategory("all");
@@ -1502,7 +1593,8 @@ export default function Portfolio() {
               Work Experience
             </h3>
             <p className="text-gray-400 text-sm sm:text-base mt-2">
-              Proven track record in enterprise banking software, fintech middleware, and high-impact mobile solutions.
+              Proven track record in enterprise banking software, fintech
+              middleware, and high-impact mobile solutions.
             </p>
             <div className="w-12 h-1 bg-orange-500 mx-auto mt-3 rounded-full" />
           </div>
@@ -1605,7 +1697,8 @@ export default function Portfolio() {
               Featured Projects (6)
             </h3>
             <p className="text-gray-400 text-sm sm:text-base mt-2">
-              Mobile banking apps, fintech integrations, and design systems I&apos;ve contributed to.
+              Mobile banking apps, fintech integrations, and design systems
+              I&apos;ve contributed to.
             </p>
             <div className="w-12 h-1 bg-orange-500 mx-auto mt-3 rounded-full" />
           </div>
@@ -1660,8 +1753,16 @@ export default function Portfolio() {
                           className="inline-flex items-center gap-1.5 text-xs font-mono text-orange-400 hover:text-orange-300 py-1 focus:outline-none transition-colors"
                         >
                           <Terminal className="w-3.5 h-3.5" />
-                          <span>{isExpanded ? "Hide Architecture Specs" : "Inspect Architecture Specs"}</span>
-                          {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                          <span>
+                            {isExpanded
+                              ? "Hide Architecture Specs"
+                              : "Inspect Architecture Specs"}
+                          </span>
+                          {isExpanded ? (
+                            <ChevronUp className="w-3.5 h-3.5" />
+                          ) : (
+                            <ChevronDown className="w-3.5 h-3.5" />
+                          )}
                         </button>
 
                         {/* Collapsible Architecture Details */}
@@ -1671,25 +1772,33 @@ export default function Portfolio() {
                               <span className="text-orange-400 font-semibold block text-[10px] uppercase">
                                 Core Architecture
                               </span>
-                              <span className="text-gray-300">{project.architectureSpecs.architecture}</span>
+                              <span className="text-gray-300">
+                                {project.architectureSpecs.architecture}
+                              </span>
                             </div>
                             <div>
                               <span className="text-amber-400 font-semibold block text-[10px] uppercase">
                                 Enterprise Integration
                               </span>
-                              <span className="text-gray-300">{project.architectureSpecs.integration}</span>
+                              <span className="text-gray-300">
+                                {project.architectureSpecs.integration}
+                              </span>
                             </div>
                             <div>
                               <span className="text-emerald-400 font-semibold block text-[10px] uppercase">
                                 Security & Compliance
                               </span>
-                              <span className="text-gray-300">{project.architectureSpecs.security}</span>
+                              <span className="text-gray-300">
+                                {project.architectureSpecs.security}
+                              </span>
                             </div>
                             <div>
                               <span className="text-cyan-400 font-semibold block text-[10px] uppercase">
                                 Protocols & Rails
                               </span>
-                              <span className="text-gray-300">{project.architectureSpecs.protocols}</span>
+                              <span className="text-gray-300">
+                                {project.architectureSpecs.protocols}
+                              </span>
                             </div>
                           </div>
                         )}
@@ -1703,7 +1812,9 @@ export default function Portfolio() {
                       <Button
                         size="sm"
                         className="bg-orange-500 hover:bg-orange-400 text-white text-xs font-medium shadow-sm shadow-orange-500/20"
-                        onClick={() => window.open(project.androidUrl, "_blank")}
+                        onClick={() =>
+                          window.open(project.androidUrl, "_blank")
+                        }
                       >
                         <GooglePlayIcon className="w-4 h-4 mr-1.5" />
                         Google Play
@@ -1783,7 +1894,8 @@ export default function Portfolio() {
               What People Say
             </h2>
             <p className="text-gray-400 text-base sm:text-lg">
-              Endorsements and feedback from colleagues, engineering leaders, and clients I&apos;ve collaborated with
+              Endorsements and feedback from colleagues, engineering leaders,
+              and clients I&apos;ve collaborated with
             </p>
             <div className="w-12 h-1 bg-orange-500 mx-auto mt-3 rounded-full" />
 
@@ -1819,9 +1931,15 @@ export default function Portfolio() {
               {testimonialViewMode === "carousel" && (
                 <button
                   type="button"
-                  onClick={() => setIsTestimonialAutoPlay(!isTestimonialAutoPlay)}
+                  onClick={() =>
+                    setIsTestimonialAutoPlay(!isTestimonialAutoPlay)
+                  }
                   className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-gray-800/80 border border-gray-700 text-xs text-gray-300 hover:text-white hover:border-gray-600 transition-colors"
-                  title={isTestimonialAutoPlay ? "Pause Auto-play" : "Resume Auto-play"}
+                  title={
+                    isTestimonialAutoPlay
+                      ? "Pause Auto-play"
+                      : "Resume Auto-play"
+                  }
                 >
                   {isTestimonialAutoPlay ? (
                     <>
@@ -1863,11 +1981,14 @@ export default function Portfolio() {
                     ) : (
                       <div
                         className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl ${
-                          testimonials[activeTestimonial].avatarBg || "bg-orange-600"
+                          testimonials[activeTestimonial].avatarBg ||
+                          "bg-orange-600"
                         } flex items-center justify-center font-bold text-white text-xl sm:text-2xl border-2 border-orange-500/40 flex-shrink-0 shadow-lg`}
                       >
                         {testimonials[activeTestimonial].initials ||
-                          testimonials[activeTestimonial].name.substring(0, 2).toUpperCase()}
+                          testimonials[activeTestimonial].name
+                            .substring(0, 2)
+                            .toUpperCase()}
                       </div>
                     )}
 
@@ -1900,14 +2021,15 @@ export default function Portfolio() {
                   {/* Navigation controls */}
                   <div className="flex items-center justify-between pt-6 border-t border-gray-800/80">
                     <span className="text-xs font-mono text-gray-400">
-                      Recommendation {activeTestimonial + 1} of {testimonials.length}
+                      Recommendation {activeTestimonial + 1} of{" "}
+                      {testimonials.length}
                     </span>
 
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() =>
                           setActiveTestimonial((prev) =>
-                            prev === 0 ? testimonials.length - 1 : prev - 1
+                            prev === 0 ? testimonials.length - 1 : prev - 1,
                           )
                         }
                         className="p-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 hover:text-white hover:border-orange-500/50 transition-colors"
@@ -1917,7 +2039,9 @@ export default function Portfolio() {
                       </button>
                       <button
                         onClick={() =>
-                          setActiveTestimonial((prev) => (prev + 1) % testimonials.length)
+                          setActiveTestimonial(
+                            (prev) => (prev + 1) % testimonials.length,
+                          )
                         }
                         className="p-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 hover:text-white hover:border-orange-500/50 transition-colors"
                         aria-label="Next testimonial"
@@ -1960,7 +2084,12 @@ export default function Portfolio() {
                     <div className="flex items-center gap-3.5">
                       {t.image ? (
                         <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-orange-500/30 flex-shrink-0">
-                          <Image src={t.image} alt={t.name} fill className="object-cover" />
+                          <Image
+                            src={t.image}
+                            alt={t.name}
+                            fill
+                            className="object-cover"
+                          />
                         </div>
                       ) : (
                         <div
@@ -1972,8 +2101,12 @@ export default function Portfolio() {
                         </div>
                       )}
                       <div>
-                        <h4 className="text-base font-bold text-white">{t.name}</h4>
-                        <p className="text-xs text-orange-400 font-medium">{t.role}</p>
+                        <h4 className="text-base font-bold text-white">
+                          {t.name}
+                        </h4>
+                        <p className="text-xs text-orange-400 font-medium">
+                          {t.role}
+                        </p>
                       </div>
                     </div>
 
@@ -2013,7 +2146,8 @@ export default function Portfolio() {
               Get In Touch
             </h3>
             <p className="text-gray-400 text-sm sm:text-base mt-2">
-              Available for full-time software engineering roles, mobile contract projects, and fintech integrations.
+              Available for full-time software engineering roles, mobile
+              contract projects, and fintech integrations.
             </p>
             <div className="w-12 h-1 bg-orange-500 mx-auto mt-3 rounded-full" />
           </div>
@@ -2036,7 +2170,9 @@ export default function Portfolio() {
                     adoniashaile1@gmail.com
                   </a>
                   <button
-                    onClick={() => copyToClipboard("adoniashaile1@gmail.com", "card-email")}
+                    onClick={() =>
+                      copyToClipboard("adoniashaile1@gmail.com", "card-email")
+                    }
                     className="inline-flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors"
                   >
                     {copiedItem === "card-email" ? (
@@ -2072,7 +2208,9 @@ export default function Portfolio() {
                     +251 989 858 377
                   </a>
                   <button
-                    onClick={() => copyToClipboard("+251989858377", "card-phone")}
+                    onClick={() =>
+                      copyToClipboard("+251989858377", "card-phone")
+                    }
                     className="inline-flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors"
                   >
                     {copiedItem === "card-phone" ? (
@@ -2151,10 +2289,12 @@ export default function Portfolio() {
             {/* Resume & Portfolio Action Box */}
             <div className="bg-gradient-to-r from-orange-950/40 via-amber-950/30 to-yellow-950/20 border border-orange-500/30 rounded-2xl p-6 sm:p-8 text-center space-y-4">
               <h4 className="text-xl font-bold text-white">
-                Looking for a software engineer who ships production apps end-to-end?
+                Looking for a software engineer who ships production apps
+                end-to-end?
               </h4>
               <p className="text-sm text-gray-300 max-w-xl mx-auto">
-                Download my up-to-date resume or explore my code repositories on GitHub.
+                Download my up-to-date resume or explore my code repositories on
+                GitHub.
               </p>
               <div className="flex flex-wrap gap-3 justify-center pt-2">
                 <Button
@@ -2163,7 +2303,7 @@ export default function Portfolio() {
                   onClick={() =>
                     window.open(
                       "/documents/Adonias_Haile_J_Resume-latest.pdf",
-                      "_blank"
+                      "_blank",
                     )
                   }
                 >
@@ -2188,7 +2328,7 @@ export default function Portfolio() {
                   onClick={() =>
                     window.open(
                       "https://linkedin.com/in/adonias-haile-668312322",
-                      "_blank"
+                      "_blank",
                     )
                   }
                 >
@@ -2208,7 +2348,8 @@ export default function Portfolio() {
             <div>
               <p className="font-medium text-white">Adonias Haile</p>
               <p className="text-xs text-gray-500">
-                Software Engineer • Mobile & Fintech Specialist • Java Spring Boot
+                Software Engineer • Mobile & Fintech Specialist • Java Spring
+                Boot
               </p>
               <p className="text-[11px] text-gray-600 mt-1">
                 © 2026 Adonias Haile. All rights reserved.
@@ -2287,12 +2428,39 @@ export default function Portfolio() {
                 Navigation
               </div>
               {[
-                { name: "Jump to Projects (6 Production Works)", action: () => scrollToSection("projects"), icon: <Briefcase className="w-4 h-4 text-orange-400" /> },
-                { name: "Jump to Skills & Architecture", action: () => scrollToSection("skills"), icon: <Network className="w-4 h-4 text-amber-400" /> },
-                { name: "Jump to Work Experience", action: () => scrollToSection("experience"), icon: <Building2 className="w-4 h-4 text-emerald-400" /> },
-                { name: "Jump to Recommendations (8)", action: () => scrollToSection("testimonials"), icon: <Award className="w-4 h-4 text-purple-400" /> },
-                { name: "Jump to Contact", action: () => scrollToSection("contact"), icon: <Mail className="w-4 h-4 text-cyan-400" /> },
-              ].filter((item) => !commandSearch || item.name.toLowerCase().includes(commandSearch.toLowerCase()))
+                {
+                  name: "Jump to Projects (6 Production Works)",
+                  action: () => scrollToSection("projects"),
+                  icon: <Briefcase className="w-4 h-4 text-orange-400" />,
+                },
+                {
+                  name: "Jump to Skills & Architecture",
+                  action: () => scrollToSection("skills"),
+                  icon: <Network className="w-4 h-4 text-amber-400" />,
+                },
+                {
+                  name: "Jump to Work Experience",
+                  action: () => scrollToSection("experience"),
+                  icon: <Building2 className="w-4 h-4 text-emerald-400" />,
+                },
+                {
+                  name: "Jump to Recommendations (8)",
+                  action: () => scrollToSection("testimonials"),
+                  icon: <Award className="w-4 h-4 text-purple-400" />,
+                },
+                {
+                  name: "Jump to Contact",
+                  action: () => scrollToSection("contact"),
+                  icon: <Mail className="w-4 h-4 text-cyan-400" />,
+                },
+              ]
+                .filter(
+                  (item) =>
+                    !commandSearch ||
+                    item.name
+                      .toLowerCase()
+                      .includes(commandSearch.toLowerCase()),
+                )
                 .map((item, i) => (
                   <button
                     key={i}
@@ -2311,7 +2479,10 @@ export default function Portfolio() {
                 {
                   name: "Download Latest Resume (PDF)",
                   action: () => {
-                    window.open("/documents/Adonias_Haile_J_Resume-latest.pdf", "_blank");
+                    window.open(
+                      "/documents/Adonias_Haile_J_Resume-latest.pdf",
+                      "_blank",
+                    );
                     setIsCommandOpen(false);
                   },
                   icon: <Download className="w-4 h-4 text-orange-400" />,
@@ -2343,12 +2514,22 @@ export default function Portfolio() {
                 {
                   name: "Open LinkedIn Profile",
                   action: () => {
-                    window.open("https://linkedin.com/in/adonias-haile-668312322", "_blank");
+                    window.open(
+                      "https://linkedin.com/in/adonias-haile-668312322",
+                      "_blank",
+                    );
                     setIsCommandOpen(false);
                   },
                   icon: <Linkedin className="w-4 h-4 text-blue-400" />,
                 },
-              ].filter((item) => !commandSearch || item.name.toLowerCase().includes(commandSearch.toLowerCase()))
+              ]
+                .filter(
+                  (item) =>
+                    !commandSearch ||
+                    item.name
+                      .toLowerCase()
+                      .includes(commandSearch.toLowerCase()),
+                )
                 .map((item, i) => (
                   <button
                     key={i}
