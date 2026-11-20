@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Github,
@@ -12,8 +11,6 @@ import {
   Phone,
   MapPin,
   ExternalLink,
-  FileText,
-  Figma,
   ChevronDown,
   ChevronUp,
   Menu,
@@ -29,27 +26,20 @@ import {
   Code,
   Download,
   Sparkles,
-  Building2,
   Calendar,
-  Quote,
-  ChevronLeft,
-  ChevronRight,
-  Play,
-  Pause,
   Search,
   Terminal,
   Shield,
-  Cpu,
-  Database,
   Network,
   Copy,
   Check,
   Command,
   ArrowUpRight,
-  Sliders,
-  Flame,
   Zap,
-  Compass,
+  Lock,
+  Activity,
+  Database,
+  Key,
 } from "lucide-react";
 import {
   FlutterIcon,
@@ -62,14 +52,12 @@ import {
   AppleIcon,
 } from "@/components/icons";
 
-export default function Portfolio() {
+export default function MinimalBentoPortfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [projectCategory, setProjectCategory] = useState("all");
   const [selectedSkillCategory, setSelectedSkillCategory] = useState("all");
   const [skillSearchQuery, setSkillSearchQuery] = useState("");
-  const [activeTelemetryTab, setActiveTelemetryTab] = useState<
-    "switch" | "mobile" | "middleware"
-  >("switch");
 
   // Expanded project architecture cards
   const [expandedProjects, setExpandedProjects] = useState<
@@ -85,7 +73,6 @@ export default function Portfolio() {
 
   // Recommendations state
   const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [isTestimonialAutoPlay, setIsTestimonialAutoPlay] = useState(true);
   const [testimonialViewMode, setTestimonialViewMode] = useState<
     "carousel" | "grid"
   >("carousel");
@@ -125,7 +112,7 @@ export default function Portfolio() {
       name: "Addisu Thomas",
       role: "Director, Digital Technology Banking C&P at Lion International Bank",
       initials: "AT",
-      avatarBg: "bg-orange-600",
+      avatarBg: "bg-amber-700",
       content:
         "Adonias demonstrated sharp analytical skills and a solid grasp of backend development. Responsible for developing and integrating APIs, writing clean code in Java, and troubleshooting financial platforms. In addition he worked on mobile client projects on Android and iOS app upgrades. A fast learner who quickly adapts to new tools and frameworks.",
     },
@@ -133,7 +120,7 @@ export default function Portfolio() {
       name: "Kinfe Guesh",
       role: "Infrastructure Lead & DevSecOps | Platform Engineering | AWS",
       initials: "KG",
-      avatarBg: "bg-purple-600",
+      avatarBg: "bg-stone-800",
       content:
         "I've had the pleasure of working closely with Adonias on integration and infrastructure initiatives. He is a strong problem solver who quickly understands concepts beyond development, with a good understanding of the broader IT environment. Combines technical skills with a strong sense of ownership.",
       url: "https://linkedin.com/in/adonias-haile-668312322",
@@ -151,13 +138,13 @@ export default function Portfolio() {
       role: "CTO, Cofounder at Ewenet Communication PLC",
       image: "/testimonials/testi_natan.jpeg",
       content:
-        "Adonias consistently impressed me with his exceptional problem-solving, coding skills, and communication abilities throughout his internship and work at Ewenet Communication under my supervision.",
+        "Adonias consistently impressed me with his exceptional problem-solving, coding skills, and communication abilities throughout his work at Ewenet Communication under my supervision.",
     },
     {
       name: "Mrs. Shwaga Abay (M.Sc.)",
       role: "Lecturer & Project Advisor, BIT Faculty of Computing",
       initials: "SA",
-      avatarBg: "bg-amber-600",
+      avatarBg: "bg-amber-800",
       content:
         "He has been my student while pursuing his Bachelor degree in Software Engineering at Bahir Dar Institute of Technology. He has developed his software engineering knowledge and skills to the highest requirements. Enthusiastic, socially matured, and an excellent performer on project work.",
     },
@@ -165,7 +152,7 @@ export default function Portfolio() {
       name: "Ezedin Wangoria",
       role: "Project Manager at EthioClicks",
       initials: "EW",
-      avatarBg: "bg-emerald-600",
+      avatarBg: "bg-emerald-800",
       content:
         "Adonias worked as a Flutter Mobile Application Developer, key contributor to developing responsive, high-performance apps on Android and iOS. Demonstrated excellent technical expertise, strong problem-solving abilities, and collaborative attitude under tight deadlines.",
     },
@@ -185,268 +172,167 @@ export default function Portfolio() {
     },
   ];
 
-  // Technical Competencies
+  // Tech Stack: concise names and icons for small, neat containers
   const skills = [
-    // MOBILE
+    // Mobile
     {
-      name: "Flutter & Dart",
+      name: "Flutter",
       category: "mobile",
-      level: "Production Lead",
-      description:
-        "Production mobile apps across Android & iOS, clean architecture, custom animations, BLoC/Riverpod, banking integrations.",
-      icon: <FlutterIcon className="w-8 h-8" />,
-      tag: "Cross-Platform",
-      competencies: [
-        "Clean Architecture",
-        "Method Channels",
-        "Custom Animations",
-        "Responsive Scaling",
-      ],
-      topologyTier: "client",
+      icon: <FlutterIcon className="w-4 h-4" />,
     },
     {
-      name: "State Management",
+      name: "Dart",
       category: "mobile",
-      level: "Architectural",
-      description:
-        "Predictable application state flow using BLoC, Riverpod, and Provider patterns with clean reactive streams.",
-      icon: <Layers className="w-8 h-8 text-orange-400" />,
-      tag: "Architecture Pattern",
-      competencies: [
-        "BLoC Pattern",
-        "Riverpod",
-        "Reactive Streams",
-        "Immutable State Flow",
-      ],
-      topologyTier: "client",
+      icon: <Code className="w-4 h-4 text-sky-600" />,
     },
     {
-      name: "Mobile Security & SDKs",
+      name: "Android SDK",
       category: "mobile",
-      level: "Specialist",
-      description:
-        "TLS certificate pinning, biometric keystore authentication, Sopra DBS SDK integration, and encrypted local storage.",
-      icon: <Shield className="w-8 h-8 text-emerald-400" />,
-      tag: "Security & Crypto",
-      competencies: [
-        "TLS Certificate Pinning",
-        "Biometric Keystore",
-        "Sopra Banking SDK",
-        "Data Obfuscation",
-      ],
-      topologyTier: "client",
+      icon: <Smartphone className="w-4 h-4 text-emerald-600" />,
     },
     {
-      name: "Firebase & Cloud Push",
+      name: "iOS (Swift)",
       category: "mobile",
-      level: "Advanced",
-      description:
-        "Push notification campaigns across multiple package names, real-time database, analytics, cloud storage.",
-      icon: <Smartphone className="w-8 h-8 text-amber-400" />,
-      tag: "Push & Cloud",
-      competencies: [
-        "FCM Multicast",
-        "Deep Linking",
-        "Crashlytics",
-        "Remote Config",
-      ],
-      topologyTier: "client",
+      icon: <AppleIcon className="w-4 h-4" />,
     },
     {
-      name: "Real-Time & WebSockets",
+      name: "BLoC State",
       category: "mobile",
-      level: "Advanced",
-      description:
-        "Live driver tracking, bidirectional WebSocket channels, location services, and Google Maps SDK integrations.",
-      icon: <Globe className="w-8 h-8 text-cyan-400" />,
-      tag: "Real-Time Systems",
-      competencies: [
-        "WebSockets",
-        "Google Maps SDK",
-        "Live GPS Tracking",
-        "Driver Dispatch",
-      ],
-      topologyTier: "client",
+      icon: <Layers className="w-4 h-4 text-amber-600" />,
     },
     {
-      name: "App Store & Play Console",
+      name: "Riverpod",
       category: "mobile",
-      level: "Lead Engineer",
-      description:
-        "Over 1 year owning release management, submissions, compliance, phased rollouts, and in-app update APIs for live banking apps.",
-      icon: <Sparkles className="w-8 h-8 text-yellow-400" />,
-      tag: "Release Engineering",
-      competencies: [
-        "Store Compliance",
-        "Phased Rollouts",
-        "In-App Updates",
-        "App Signing & Keystores",
-      ],
-      topologyTier: "client",
+      icon: <Layers className="w-4 h-4 text-sky-600" />,
+    },
+    {
+      name: "Biometric Keystore",
+      category: "mobile",
+      icon: <Shield className="w-4 h-4 text-emerald-600" />,
+    },
+    {
+      name: "TLS Pinning",
+      category: "mobile",
+      icon: <Lock className="w-4 h-4 text-stone-700" />,
+    },
+    {
+      name: "Google Maps SDK",
+      category: "mobile",
+      icon: <Globe className="w-4 h-4 text-blue-600" />,
+    },
+    {
+      name: "WebSockets",
+      category: "mobile",
+      icon: <Activity className="w-4 h-4 text-cyan-600" />,
+    },
+    {
+      name: "Firebase",
+      category: "mobile",
+      icon: <Smartphone className="w-4 h-4 text-amber-600" />,
     },
 
-    // BACKEND & FINTECH
+    // Backend & Fintech
     {
       name: "Java",
       category: "backend",
-      level: "Core Backend",
-      description:
-        "Enterprise backend development, object-oriented design, multithreaded services, banking-grade security and reliability.",
-      icon: <JavaIcon className="w-8 h-8" />,
-      tag: "Enterprise Backend",
-      competencies: [
-        "Multithreading",
-        "OOP Design Patterns",
-        "Thread Concurrency",
-        "High-Throughput APIs",
-      ],
-      topologyTier: "middleware",
+      icon: <JavaIcon className="w-4 h-4" />,
     },
     {
       name: "Spring Boot",
       category: "backend",
-      level: "Microservices Lead",
-      description:
-        "RESTful microservices, Spring Security, hexagonal architecture, Keycloak JWT, enterprise banking integration APIs.",
-      icon: <SpringIcon className="w-8 h-8" />,
-      tag: "Microservices",
-      competencies: [
-        "Spring Security",
-        "Hexagonal Design",
-        "Keycloak JWT",
-        "RESTful APIs",
-      ],
-      topologyTier: "middleware",
+      icon: <SpringIcon className="w-4 h-4" />,
     },
     {
       name: "WSO2 Micro Integrator",
       category: "backend",
-      level: "Enterprise ESB",
-      description:
-        "Middleware integration connecting core banking platforms, digital channels, and external national financial switches.",
-      icon: <Server className="w-8 h-8 text-orange-400" />,
-      tag: "Enterprise Middleware",
-      competencies: [
-        "ESB Integration",
-        "Payload Mediation",
-        "National Switch",
-        "Fault Tolerance",
-      ],
-      topologyTier: "middleware",
+      icon: <Server className="w-4 h-4 text-amber-600" />,
     },
     {
-      name: "Fintech Switch & Rails",
+      name: "ISO 8583 Switch",
       category: "backend",
-      level: "Integration Specialist",
-      description:
-        "ISO 8583 banking switch protocols, Fayda National ID verification, and IPS (Instant Payment System) interbank rails.",
-      icon: <Network className="w-8 h-8 text-emerald-400" />,
-      tag: "Financial Rails",
-      competencies: [
-        "ISO 8583 Switch",
-        "Fayda National ID",
-        "IPS Instant Payment",
-        "Core Settlement",
-      ],
-      topologyTier: "core",
+      icon: <Network className="w-4 h-4 text-emerald-600" />,
     },
     {
-      name: "Redis",
+      name: "Fayda National ID",
       category: "backend",
-      level: "In-Memory",
-      description:
-        "High-speed caching, distributed session state, asynchronous message queues for banking SMS services.",
-      icon: <RedisIcon className="w-8 h-8" />,
-      tag: "Cache & Queue",
-      competencies: [
-        "Distributed Caching",
-        "Async SMS Queues",
-        "Session State",
-        "Key-Value Store",
-      ],
-      topologyTier: "middleware",
+      icon: <Shield className="w-4 h-4 text-amber-600" />,
+    },
+    {
+      name: "IPS Instant Payment",
+      category: "backend",
+      icon: <Zap className="w-4 h-4 text-emerald-600" />,
+    },
+    {
+      name: "Sopra DBS Core",
+      category: "backend",
+      icon: <Server className="w-4 h-4 text-stone-700" />,
+    },
+    {
+      name: "Redis Cache",
+      category: "backend",
+      icon: <RedisIcon className="w-4 h-4" />,
+    },
+    {
+      name: "RESTful APIs",
+      category: "backend",
+      icon: <Code className="w-4 h-4 text-stone-700" />,
+    },
+    {
+      name: "PostgreSQL",
+      category: "backend",
+      icon: <Database className="w-4 h-4 text-blue-600" />,
+    },
+    {
+      name: "Keycloak JWT",
+      category: "backend",
+      icon: <Key className="w-4 h-4 text-amber-600" />,
     },
     {
       name: "Python",
       category: "backend",
-      level: "Automation",
-      description:
-        "Backend API services, automated scripting, relational data handling, and rapid prototyping tooling.",
-      icon: <Code className="w-8 h-8 text-green-400" />,
-      tag: "Automation & APIs",
-      competencies: [
-        "Automation Scripting",
-        "Data Transformation",
-        "FastAPI Prototyping",
-        "CLI Utilities",
-      ],
-      topologyTier: "middleware",
+      icon: <Code className="w-4 h-4 text-emerald-600" />,
     },
 
-    // DEVOPS & TOOLS
+    // DevOps & Tools
     {
       name: "Docker",
       category: "devops",
-      level: "Containers",
-      description:
-        "Containerization of microservices and applications, multi-stage builds, container isolation for scalable deployments.",
-      icon: <DockerIcon className="w-8 h-8" />,
-      tag: "Containers",
-      competencies: [
-        "Multi-Stage Builds",
-        "Docker Compose",
-        "Container Isolation",
-        "Environment Parity",
-      ],
-      topologyTier: "core",
+      icon: <DockerIcon className="w-4 h-4" />,
     },
     {
-      name: "CI/CD & GitHub Actions",
+      name: "GitHub Actions",
       category: "devops",
-      level: "Pipelines",
-      description:
-        "Automated pipelines, static analysis, unit test automation, and continuous delivery to deployment environments.",
-      icon: <Github className="w-8 h-8 text-orange-400" />,
-      tag: "Automation",
-      competencies: [
-        "Automated Workflows",
-        "Linting & Testing",
-        "Artifact Building",
-        "Continuous Delivery",
-      ],
-      topologyTier: "core",
+      icon: <Github className="w-4 h-4 text-stone-800" />,
     },
     {
-      name: "Figma (UI/UX Design)",
+      name: "Google Play Console",
       category: "devops",
-      level: "Product Design",
-      description:
-        "Full UI/UX design, interactive wireframing, component libraries; designed Alibo Market and Akababi apps.",
-      icon: <FigmaIcon className="w-8 h-8" />,
-      tag: "UI/UX Design",
-      competencies: [
-        "Component Libraries",
-        "Interactive Wireframes",
-        "Design Tokens",
-        "Dev Handoff",
-      ],
-      topologyTier: "client",
+      icon: <GooglePlayIcon className="w-4 h-4" />,
     },
     {
-      name: "Clean Architecture & Git",
+      name: "App Store Connect",
       category: "devops",
-      level: "Standards",
-      description:
-        "Domain-driven boundaries, SOLID design principles, hexagonal modular structure, agile Git workflows and code reviews.",
-      icon: <CheckCircle2 className="w-8 h-8 text-teal-400" />,
-      tag: "Engineering Standards",
-      competencies: [
-        "Domain-Driven Design",
-        "SOLID Principles",
-        "Peer Code Reviews",
-        "Git Workflows",
-      ],
-      topologyTier: "core",
+      icon: <AppleIcon className="w-4 h-4" />,
+    },
+    {
+      name: "Figma UI/UX",
+      category: "devops",
+      icon: <FigmaIcon className="w-4 h-4" />,
+    },
+    {
+      name: "Clean Architecture",
+      category: "devops",
+      icon: <CheckCircle2 className="w-4 h-4 text-teal-600" />,
+    },
+    {
+      name: "Linux & Bash",
+      category: "devops",
+      icon: <Terminal className="w-4 h-4 text-stone-700" />,
+    },
+    {
+      name: "Git Workflows",
+      category: "devops",
+      icon: <Github className="w-4 h-4 text-stone-700" />,
     },
   ];
 
@@ -459,7 +345,7 @@ export default function Portfolio() {
       type: "Full-time",
       location: "Addis Ababa, Ethiopia",
       url: "https://eaglelionsystems.com",
-      badgeColor: "bg-orange-500/10 text-orange-400 border-orange-500/20",
+      badgeColor: "border-stone-300 bg-[#FAF8F5] text-[#1C1917]",
       highlightMetric: "Active Banking & Wallet Rollouts",
       achievements: [
         "Deliver feature increments, mobile UI enhancements, and defect resolution on the CBE Connect Flutter mobile banking app for Commercial Bank of Ethiopia.",
@@ -482,7 +368,7 @@ export default function Portfolio() {
       type: "Full-time, Onsite",
       location: "Addis Ababa, Ethiopia",
       url: "https://anbesabank.com",
-      badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+      badgeColor: "border-stone-300 bg-[#FAF8F5] text-[#1C1917]",
       highlightMetric: "500K+ Users • Sopra DBS Core Platform",
       achievements: [
         "Built and supported core APIs, middleware integrations, and the production Anbesa Plus mobile banking app on Sopra Banking Software (DBS) platform.",
@@ -508,7 +394,7 @@ export default function Portfolio() {
       type: "Contract",
       location: "Addis Ababa, Ethiopia",
       url: "https://www.qemertech.com",
-      badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
+      badgeColor: "border-stone-300 bg-[#FAF8F5] text-[#1C1917]",
       highlightMetric: "Mobile Commerce & Payments",
       achievements: [
         "Developed Mood Ride User App with cloud services, backend REST APIs, Google Maps APIs, and WebSockets.",
@@ -533,7 +419,7 @@ export default function Portfolio() {
       type: "Part-Time, Remote",
       location: "Remote",
       url: "https://ethioclicks.com",
-      badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+      badgeColor: "border-stone-300 bg-[#FAF8F5] text-[#1C1917]",
       highlightMetric: "Dispatch Platform & Cloud Architecture",
       achievements: [
         "Developed Swift Delivery mobile application for Android and iOS with live route tracking and package management.",
@@ -558,7 +444,7 @@ export default function Portfolio() {
       type: "Freelance",
       location: "Addis Ababa, Ethiopia",
       url: "https://ewenet.net",
-      badgeColor: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
+      badgeColor: "border-stone-300 bg-[#FAF8F5] text-[#1C1917]",
       highlightMetric: "Mobile Application Delivery",
       achievements: [
         "Developed the Arat Killo mobile application integrated with cloud backend APIs and Google services.",
@@ -578,16 +464,14 @@ export default function Portfolio() {
   interface Project {
     title: string;
     subtitle: string;
-    category: string;
+    category: "banking" | "wallet" | "logistics" | "travel";
+    badgeText: string;
     description: string;
     androidUrl?: string;
     iosUrl?: string;
-    driverUrl?: string;
-    liveUrl?: string;
-    designUrl?: string;
     tags: string[];
-    highlights?: string;
-    architectureSpecs?: {
+    highlights: string;
+    architectureSpecs: {
       architecture: string;
       integration: string;
       security: string;
@@ -595,12 +479,13 @@ export default function Portfolio() {
     };
   }
 
-  // All 8 Production Projects
+  // All 6 Featured Production Projects
   const projects: Project[] = [
     {
       title: "Anbesa Plus Mobile Banking",
       subtitle: "Lion International Bank Official Banking App",
-      category: "mobile",
+      category: "banking",
+      badgeText: "500K+ Downloads • Live App",
       description:
         "Flagship mobile banking application for Lion International Bank S.C., powered by Sopra Banking Software (DBS platform). Supports biometric authentication, Ethiopian National ID (Fayda) onboarding, Instant Payment System (IPS), utility bill payments, QR payments, fund transfers, and transaction receipt generation.",
       androidUrl:
@@ -631,7 +516,8 @@ export default function Portfolio() {
     {
       title: "CBE Connect",
       subtitle: "Commercial Bank of Ethiopia Mobile Platform",
-      category: "mobile",
+      category: "banking",
+      badgeText: "Enterprise Banking • Eaglelion",
       description:
         "Strategic mobile banking and customer connectivity application developed at Eaglelion Systems Technology for Commercial Bank of Ethiopia (CBE), delivering seamless financial interaction, account management, and real-time updates.",
       androidUrl:
@@ -660,7 +546,8 @@ export default function Portfolio() {
     {
       title: "Star Pay",
       subtitle: "Modern Fintech Digital Wallet & Payment Platform",
-      category: "mobile",
+      category: "wallet",
+      badgeText: "Fintech Wallet • Eaglelion",
       description:
         "Modern digital payment solution developed at Eaglelion Systems Technology, enabling quick peer-to-peer money transfers, merchant QR payments, airtime purchases, and automated utility settlements with real-time transaction processing.",
       androidUrl:
@@ -688,7 +575,8 @@ export default function Portfolio() {
     {
       title: "GoSkyHy Mobile App",
       subtitle: "Flight, Hotel & Travel Booking Solution",
-      category: "mobile",
+      category: "travel",
+      badgeText: "Travel Tech • Realtime GDS",
       description:
         "Feature-rich travel booking mobile application offering travelers real-time flight search, hotel reservations, interactive booking schedules, and cloud service integrations with smooth user journeys.",
       androidUrl:
@@ -708,7 +596,8 @@ export default function Portfolio() {
     {
       title: "Swift Delivery",
       subtitle: "On-Demand Package Dispatch & Live Courier Tracking",
-      category: "mobile",
+      category: "logistics",
+      badgeText: "Live GPS • WebSockets",
       description:
         "Delivery service mobile application connecting senders, drivers, and recipients. Built at EthioClicks, featuring real-time GPS tracking on Google Maps, dispatch management, push notifications, and Firebase backend.",
       androidUrl:
@@ -735,7 +624,8 @@ export default function Portfolio() {
     {
       title: "Alibo Market",
       subtitle: "E-Commerce Mobile Marketplace & Figma UI/UX",
-      category: "mobile",
+      category: "travel",
+      badgeText: "Figma UI/UX • Dual Gateways",
       description:
         "Comprehensive mobile marketplace developed at Qemer Technology Plc, Supporting product catalogs, shopping cart, and multi-gateway payment integration (Chapa and Campay). Features a complete custom design system created in Figma and implemented in Flutter.",
       androidUrl:
@@ -761,6 +651,13 @@ export default function Portfolio() {
     },
   ];
 
+  // Filtered projects
+  const filteredProjects = useMemo(() => {
+    if (projectCategory === "all") return projects;
+    return projects.filter((p) => p.category === projectCategory);
+  }, [projectCategory, projects]);
+
+  // Filtered skills: only name and category
   const filteredSkills = useMemo(() => {
     return skills.filter((skill) => {
       const matchesCategory =
@@ -768,1778 +665,1178 @@ export default function Portfolio() {
         skill.category === selectedSkillCategory;
       const query = skillSearchQuery.toLowerCase().trim();
       const matchesSearch =
-        !query ||
-        skill.name.toLowerCase().includes(query) ||
-        skill.description.toLowerCase().includes(query) ||
-        skill.tag.toLowerCase().includes(query) ||
-        (skill.competencies &&
-          skill.competencies.some((c) => c.toLowerCase().includes(query)));
+        !query || skill.name.toLowerCase().includes(query);
       return matchesCategory && matchesSearch;
     });
   }, [skills, selectedSkillCategory, skillSearchQuery]);
-
-  // Testimonial autoplay
-  useEffect(() => {
-    if (!isTestimonialAutoPlay || testimonialViewMode !== "carousel") return;
-    const timer = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [isTestimonialAutoPlay, testimonialViewMode, testimonials.length]);
 
   // Scrollspy
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
         "home",
-        "skills",
-        "experience",
         "projects",
+        "experience",
+        "skills",
         "testimonials",
+        "philosophy",
         "contact",
       ];
-      const scrollPosition = window.scrollY + 140;
+      const scrollPosition = window.scrollY + 160;
 
       for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
+        const el = document.getElementById(section);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
             setActiveSection(section);
             break;
           }
         }
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+  const scrollToSection = (id: string) => {
+    setIsMenuOpen(false);
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMenuOpen(false);
-    setIsCommandOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-[#030712] text-gray-100 selection:bg-orange-500 selection:text-white font-sans antialiased">
-      {/* Background ambient mesh */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-orange-500/[0.04] rounded-full blur-[140px]" />
-        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-amber-500/[0.03] rounded-full blur-[120px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(#1f2937_1px,transparent_1px)] [background-size:24px_24px] opacity-20" />
-      </div>
+    <div className="min-h-screen bg-[#FDFCF8] text-[#1C1917] selection:bg-[#1C1917] selection:text-white">
+      {/* Accessibility Skip Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#1C1917] focus:text-white focus:rounded-full focus:shadow-md focus:text-xs focus:font-semibold"
+      >
+        Skip to main content
+      </a>
 
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-[#030712]/90 backdrop-blur-md border-b border-gray-800/80 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-3 sm:py-3.5">
-            <button
-              onClick={() => scrollToSection("home")}
-              className="text-left group flex items-center gap-2.5 focus:outline-none"
+      {/* ================= CLEAN STICKY HEADER ================= */}
+      <header className="sticky top-0 z-40 bg-[#FDFCF8]/95 backdrop-blur-md border-b border-[#E5E3DF]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+          {/* Brand */}
+          <button
+            onClick={() => scrollToSection("home")}
+            aria-label="Adonias Haile portfolio home"
+            className="flex items-center gap-2.5 text-left group"
+          >
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-[#E5E3DF] bg-[#F5F5F4] relative flex-shrink-0">
+              <Image
+                src="/profile-img.jpg"
+                alt="Adonias Haile"
+                fill
+                className="object-cover"
+                sizes="32px"
+                priority
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold tracking-tight text-[#1C1917] group-hover:text-amber-700 transition-colors">
+                adoniashaile.com
+              </span>
+              <span className="text-[11px] text-[#57534E] hidden sm:inline leading-none">
+                Software Engineer
+              </span>
+            </div>
+          </button>
+
+          {/* Desktop Nav Items */}
+          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1">
+            {[
+              { id: "projects", label: "Projects" },
+              { id: "experience", label: "Experience" },
+              { id: "skills", label: "Tech Stack" },
+              { id: "testimonials", label: "Endorsements" },
+              { id: "philosophy", label: "Philosophy" },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-colors ${activeSection === item.id
+                    ? "bg-[#1C1917] text-white"
+                    : "text-[#57534E] hover:text-[#1C1917] hover:bg-[#F5F5F4]"
+                  }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Header Action Buttons */}
+          <div className="flex items-center gap-2">
+            <a
+              href="https://github.com/habeshacoder"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#E5E3DF] bg-white text-xs font-semibold text-[#1C1917] hover:bg-[#F5F5F4] transition-colors"
             >
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center font-bold text-white shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform">
-                AH
-              </div>
-              <div>
-                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-orange-400 via-amber-300 to-orange-400 bg-clip-text text-transparent">
-                  Adonias Haile
-                </span>
-                <span className="hidden sm:block text-[10px] text-gray-400 font-mono tracking-tight uppercase">
-                  Software Engineer • Mobile & Fintech
-                </span>
-              </div>
+              <Github className="w-3.5 h-3.5" />
+              <span>GitHub</span>
+            </a>
+
+            <button
+              onClick={() => setIsCommandOpen(true)}
+              aria-label="Open command palette"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-[#E5E3DF] bg-[#F5F5F4] text-xs font-mono font-medium text-[#57534E] hover:text-[#1C1917] hover:bg-white transition-colors"
+              title="Command Palette (⌘K)"
+            >
+              <Command className="w-3 h-3" />
+              <span className="hidden sm:inline">⌘K</span>
             </button>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-1">
+            <Button
+              size="sm"
+              className="text-xs h-8 px-4 rounded-full bg-[#1C1917] text-white hover:bg-[#292524]"
+              onClick={() => scrollToSection("contact")}
+            >
+              Contact
+            </Button>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              className="p-1.5 rounded-full border border-[#E5E3DF] bg-white text-[#1C1917] md:hidden hover:bg-[#F5F5F4]"
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? (
+                <X className="w-4 h-4" />
+              ) : (
+                <Menu className="w-4 h-4" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Drawer */}
+        {isMenuOpen && (
+          <nav aria-label="Mobile navigation" className="md:hidden border-t border-[#E5E3DF] bg-white px-4 py-4 space-y-2">
+            <div className="grid grid-cols-2 gap-2">
               {[
-                { id: "home", label: "Home" },
-                { id: "skills", label: "Skills & Architecture" },
+                { id: "projects", label: "Projects" },
                 { id: "experience", label: "Experience" },
-                { id: "projects", label: "Projects (6)" },
-                { id: "testimonials", label: "Recommendations" },
-                { id: "contact", label: "Contact" },
+                { id: "skills", label: "Tech Stack" },
+                { id: "testimonials", label: "Endorsements" },
+                { id: "philosophy", label: "Philosophy" },
               ].map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                    activeSection === item.id
-                      ? "text-orange-400 bg-orange-500/10 shadow-inner"
-                      : "text-gray-300 hover:text-white hover:bg-gray-800/50"
-                  }`}
+                  className="flex items-center justify-between p-2.5 rounded-xl bg-[#F5F5F4] text-xs font-semibold text-[#1C1917] text-left hover:bg-stone-200 transition-colors"
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#57534E]" />
                 </button>
               ))}
             </div>
 
-            {/* Right Action Buttons */}
-            <div className="hidden sm:flex items-center gap-2.5">
-              {/* Quick Command Trigger Pill */}
-              <button
-                onClick={() => setIsCommandOpen(true)}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-gray-900 border border-gray-800 hover:border-orange-500/50 text-gray-400 hover:text-orange-300 text-xs font-mono transition-all"
-                title="Open Quick Command Palette (⌘K)"
+            <div className="pt-3 border-t border-[#E5E3DF] flex gap-2">
+              <a
+                href="/documents/Adonias_Haile_J_Resume-latest.pdf"
+                download
+                className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full bg-[#1C1917] text-white text-xs font-semibold"
               >
-                <Command className="w-3.5 h-3.5" />
-                <span className="text-[11px]">⌘K</span>
-              </button>
+                <Download className="w-3.5 h-3.5" />
+                Resume (PDF)
+              </a>
+              <a
+                href="https://github.com/habeshacoder"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
+                className="flex items-center justify-center px-4 py-2 rounded-full border border-[#E5E3DF] text-xs font-semibold text-[#1C1917]"
+              >
+                <Github className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </nav>
+        )}
+      </header>
+
+      <main id="main-content">
+        {/* ================= HERO SECTION ================= */}
+        <section
+          id="home"
+          className="pt-12 sm:pt-20 pb-16 sm:pb-20 px-4 sm:px-6 max-w-6xl mx-auto"
+        >
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+            {/* Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E5E3DF] shadow-sm mb-6">
+              <span className="w-2 h-2 rounded-full bg-emerald-600" />
+              <span className="text-xs font-semibold text-[#44403C]">
+                Available for Full-Stack &amp; Mobile Engineering Roles
+              </span>
+            </div>
+
+            {/* Main Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#1C1917] leading-[1.12]">
+              Full-Stack Mobile &amp; <br />
+              Fintech Software Engineer
+            </h1>
+
+            {/* Subtitle */}
+            <p className="mt-5 sm:mt-6 text-base sm:text-lg text-[#44403C] max-w-2xl font-normal leading-relaxed">
+              I craft high-throughput banking integrations, real-time transaction
+              switches, and polished mobile applications with clean architecture,
+              hardened security, and zero friction.
+            </p>
+
+            {/* Action Button Group */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Button
+                size="lg"
+                className="rounded-full bg-[#1C1917] text-white hover:bg-[#292524] shadow-sm px-6 text-sm font-semibold"
+                onClick={() => scrollToSection("projects")}
+              >
+                <span>Explore Projects</span>
+                <ArrowUpRight className="w-4 h-4 ml-1" />
+              </Button>
+
+              <a
+                href="/documents/Adonias_Haile_J_Resume-latest.pdf"
+                download
+                className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full border border-[#E5E3DF] bg-white text-[#1C1917] text-sm font-semibold hover:bg-[#F5F5F4] transition-colors shadow-sm"
+              >
+                <Download className="w-4 h-4 text-[#57534E]" />
+                <span>Resume (PDF)</span>
+              </a>
 
               <Button
                 variant="outline"
-                size="sm"
-                className="border-gray-700 bg-gray-900/60 text-gray-200 hover:bg-gray-800 hover:text-white text-xs font-medium"
-                onClick={() =>
-                  window.open(
-                    "/documents/Adonias_Haile_J_Resume-latest.pdf",
-                    "_blank",
-                  )
-                }
-              >
-                <Download className="w-3.5 h-3.5 mr-1.5 text-orange-400" />
-                Resume
-              </Button>
-              <Button
-                size="sm"
-                className="bg-orange-500 hover:bg-orange-400 text-white shadow-md shadow-orange-500/25 text-xs font-medium"
+                size="lg"
+                className="rounded-full border-[#E5E3DF] bg-white text-[#1C1917] hover:bg-[#F5F5F4] text-sm font-semibold"
                 onClick={() => scrollToSection("contact")}
               >
-                Hire Me
+                <span>Get in Touch</span>
               </Button>
             </div>
 
-            {/* Mobile Navigation Toggle */}
-            <button
-              className="lg:hidden p-2 text-gray-400 hover:text-white focus:outline-none"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
+            {/* Hero Metrics Strip */}
+            <div className="mt-12 sm:mt-14 w-full bg-white border border-[#E5E3DF] rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 shadow-sm">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+                <div>
+                  <div className="text-3xl sm:text-4xl font-black text-[#1C1917] tracking-tight">
+                    6+
+                  </div>
+                  <div className="text-xs font-semibold text-[#57534E] mt-1">
+                    Live Production Apps
+                  </div>
+                </div>
 
-          {/* Mobile Navigation Menu */}
-          {isMenuOpen && (
-            <div className="lg:hidden py-4 border-t border-gray-800 bg-[#030712]/98 backdrop-blur-xl animate-in slide-in-from-top-2 duration-200">
-              <div className="flex flex-col space-y-1">
-                {[
-                  { id: "home", label: "Home" },
-                  { id: "skills", label: "Skills & Architecture" },
-                  { id: "experience", label: "Work Experience" },
-                  { id: "projects", label: "Featured Projects (6)" },
-                  { id: "testimonials", label: "Recommendations" },
-                  { id: "contact", label: "Get In Touch" },
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left py-2.5 px-3 rounded-lg text-sm font-medium transition-colors ${
-                      activeSection === item.id
-                        ? "text-orange-400 bg-orange-500/10 font-semibold"
-                        : "text-gray-300 hover:text-white hover:bg-gray-800/40"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
+                <div>
+                  <div className="text-3xl sm:text-4xl font-black text-[#1C1917] tracking-tight">
+                    500K+
+                  </div>
+                  <div className="text-xs font-semibold text-[#57534E] mt-1">
+                    Active Users Impacted
+                  </div>
+                </div>
 
-              <div className="pt-4 mt-3 border-t border-gray-800 flex flex-col gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full border-gray-700 bg-gray-900 text-gray-200"
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    setIsCommandOpen(true);
-                  }}
-                >
-                  <Command className="w-4 h-4 mr-2 text-orange-400" />
-                  Quick Action Palette (⌘K)
-                </Button>
-                <Button
-                  size="sm"
-                  className="w-full bg-orange-500 hover:bg-orange-400 text-white"
-                  onClick={() =>
-                    window.open(
-                      "/documents/Adonias_Haile_J_Resume-latest.pdf",
-                      "_blank",
-                    )
-                  }
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Download Resume (PDF)
-                </Button>
+                <div>
+                  <div className="text-3xl sm:text-4xl font-black text-[#1C1917] tracking-tight">
+                    99.9%
+                  </div>
+                  <div className="text-xs font-semibold text-[#57534E] mt-1">
+                    Switch Rails Uptime
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-3xl sm:text-4xl font-black text-[#1C1917] tracking-tight">
+                    3.86
+                  </div>
+                  <div className="text-xs font-semibold text-[#57534E] mt-1">
+                    CGPA High Distinction
+                  </div>
+                </div>
               </div>
             </div>
-          )}
-        </div>
-      </nav>
+          </div>
+        </section>
 
-      {/* Hero Section */}
-      <section
-        id="home"
-        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-20 z-10"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="grid gap-8 lg:gap-10 lg:grid-cols-12 items-center">
-            {/* Left Column - Content & Telemetry Deck */}
-            <div className="flex flex-col justify-center space-y-5 sm:space-y-6 lg:col-span-7 text-center lg:text-left order-1 lg:order-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/25 text-orange-400 text-xs sm:text-sm font-medium w-fit mx-auto lg:mx-0 shadow-inner">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                Available for Software Engineering Roles
+        {/* ================= FEATURED PROJECTS BENTO ================= */}
+        <section
+          id="projects"
+          className="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#E5E3DF] scroll-mt-20"
+        >
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-semibold text-[#1C1917] mb-2">
+                <Sparkles className="w-3.5 h-3.5 text-[#1C1917]" />
+                <span>Production Software</span>
               </div>
-
-              <div className="space-y-2">
-                <h1 className="text-2xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight leading-tight">
-                  <span className="block text-white">Adonias Haile</span>
-                  <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent">
-                    Software Engineer
-                  </span>
-                </h1>
-                <p className="text-xs sm:text-sm font-medium text-orange-300/90 font-mono tracking-tight">
-                  Fintech Integration • Java Spring Boot • Flutter Mobile •
-                  Enterprise APIs
-                </p>
-              </div>
-
-              <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Software engineer with proven banking and fintech experience.
-                Building secure enterprise{" "}
-                <span className="text-white font-medium">Java Spring Boot</span>{" "}
-                microservices,{" "}
-                <span className="text-white font-medium">
-                  WSO2 Micro Integrator
-                </span>{" "}
-                middleware, payment switch connectivity, and shipping production{" "}
-                <span className="text-white font-medium">Flutter mobile</span>{" "}
-                applications end to end.
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#1C1917]">
+                Tools &amp; Platforms I&apos;ve Built
+              </h2>
+              <p className="mt-2 text-sm sm:text-base text-[#44403C] max-w-xl">
+                High-impact financial platforms, banking middleware, and
+                commercial mobile apps deployed to hundreds of thousands of users.
               </p>
-
-              {/* Interactive Production Architecture Telemetry Console (Mobile-Friendly) */}
-              <div className="w-full rounded-2xl bg-gray-900/90 border border-gray-800 shadow-xl p-3.5 sm:p-5 text-left backdrop-blur-xl">
-                {/* Console Header */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 pb-2.5 mb-2.5 border-b border-gray-800/80">
-                  <div className="flex items-center gap-2">
-                    <div className="flex gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                    </div>
-                    <span className="text-[11px] font-mono text-gray-400 ml-1.5 flex items-center gap-1.5">
-                      <Terminal className="w-3.5 h-3.5 text-orange-400" />
-                      production_telemetry.live
-                    </span>
-                  </div>
-
-                  {/* Telemetry Switcher Tabs - smoothly scrollable on mobile */}
-                  <div className="flex w-full sm:w-auto overflow-x-auto scrollbar-hide rounded-lg bg-gray-950/90 p-0.5 border border-gray-800 text-[11px] font-mono">
-                    <button
-                      onClick={() => setActiveTelemetryTab("switch")}
-                      className={`flex-1 sm:flex-none text-center px-2.5 py-1 rounded-md transition-all whitespace-nowrap ${
-                        activeTelemetryTab === "switch"
-                          ? "bg-orange-500 text-white font-semibold"
-                          : "text-gray-400 hover:text-gray-200"
-                      }`}
-                    >
-                      Lion Bank Switch
-                    </button>
-                    <button
-                      onClick={() => setActiveTelemetryTab("mobile")}
-                      className={`flex-1 sm:flex-none text-center px-2.5 py-1 rounded-md transition-all whitespace-nowrap ${
-                        activeTelemetryTab === "mobile"
-                          ? "bg-orange-500 text-white font-semibold"
-                          : "text-gray-400 hover:text-gray-200"
-                      }`}
-                    >
-                      Mobile Apps
-                    </button>
-                    <button
-                      onClick={() => setActiveTelemetryTab("middleware")}
-                      className={`flex-1 sm:flex-none text-center px-2.5 py-1 rounded-md transition-all whitespace-nowrap ${
-                        activeTelemetryTab === "middleware"
-                          ? "bg-orange-500 text-white font-semibold"
-                          : "text-gray-400 hover:text-gray-200"
-                      }`}
-                    >
-                      WSO2 & DBS
-                    </button>
-                  </div>
-                </div>
-
-                {/* Telemetry Tab Content */}
-                {activeTelemetryTab === "switch" && (
-                  <div className="space-y-1 font-mono text-xs text-gray-300">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">
-                        Core Banking System
-                      </span>
-                      <span className="text-white font-medium text-[11px] sm:text-xs flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
-                        Sopra Banking DBS (Hotfix 12)
-                      </span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">
-                        Financial Rails
-                      </span>
-                      <span className="text-orange-400 text-[11px] sm:text-xs">
-                        ISO 8583 Switch & IPS Real-Time
-                      </span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">
-                        National ID Integration
-                      </span>
-                      <span className="text-emerald-400 text-[11px] sm:text-xs">
-                        Fayda ID KYC Onboarding Live
-                      </span>
-                    </div>
-                  </div>
-                )}
-
-                {activeTelemetryTab === "mobile" && (
-                  <div className="space-y-1 font-mono text-xs text-gray-300">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">
-                        Mobile Architecture
-                      </span>
-                      <span className="text-white font-medium text-[11px] sm:text-xs flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
-                        Flutter BLoC • Clean Architecture
-                      </span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">
-                        Mobile Security
-                      </span>
-                      <span className="text-orange-400 text-[11px] sm:text-xs">
-                        TLS Pinning & Biometric Crypto Keystore
-                      </span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">
-                        Store Releases
-                      </span>
-                      <span className="text-emerald-400 text-[11px] sm:text-xs">
-                        Google Play & App Store Managed
-                      </span>
-                    </div>
-                  </div>
-                )}
-
-                {activeTelemetryTab === "middleware" && (
-                  <div className="space-y-1 font-mono text-xs text-gray-300">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">
-                        Integration Middleware
-                      </span>
-                      <span className="text-white font-medium text-[11px] sm:text-xs flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
-                        WSO2 Micro Integrator (MI) ESB
-                      </span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1 border-b border-gray-800/40">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">
-                        Microservices Backend
-                      </span>
-                      <span className="text-orange-400 text-[11px] sm:text-xs">
-                        Java Spring Boot Hexagonal APIs
-                      </span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2 py-1">
-                      <span className="text-gray-500 text-[11px] sm:text-xs">
-                        Cache & Auth
-                      </span>
-                      <span className="text-emerald-400 text-[11px] sm:text-xs">
-                        Redis Distributed Cache & Keycloak JWT
-                      </span>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* CTAs */}
-              <div className="flex flex-wrap gap-2.5 sm:gap-4 justify-center lg:justify-start pt-1">
-                <Button
-                  onClick={() => scrollToSection("projects")}
-                  className="bg-orange-500 hover:bg-orange-400 text-white px-4 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold shadow-lg shadow-orange-500/25"
-                  size="lg"
-                >
-                  <Briefcase className="w-4 h-4 mr-2" />
-                  View Featured Work (6)
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-gray-700 bg-gray-900/60 text-gray-100 hover:bg-gray-800 hover:border-gray-600 px-4 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-medium"
-                  size="lg"
-                  onClick={() =>
-                    window.open(
-                      "/documents/Adonias_Haile_J_Resume-latest.pdf",
-                      "_blank",
-                    )
-                  }
-                >
-                  <Download className="w-4 h-4 mr-2 text-orange-400" />
-                  Latest Resume (PDF)
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="text-gray-300 hover:text-white hover:bg-gray-800/60 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-medium"
-                  size="lg"
-                  onClick={() => scrollToSection("testimonials")}
-                >
-                  <Award className="w-4 h-4 mr-1.5 text-amber-400" />8
-                  Recommendations
-                </Button>
-              </div>
-
-              {/* Interactive Quick-Copy & Social Pills */}
-              <div className="flex items-center justify-center lg:justify-start gap-2 pt-1 flex-wrap">
-                {/* Copy Email Button with instant feedback */}
-                <button
-                  onClick={() =>
-                    copyToClipboard("adoniashaile1@gmail.com", "email")
-                  }
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-orange-500/50 text-[11px] sm:text-xs font-mono text-gray-300 hover:text-white transition-all shadow-sm"
-                  title="Click to copy email"
-                >
-                  {copiedItem === "email" ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Email Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Mail className="w-3.5 h-3.5 text-orange-400" />
-                      <span>adoniashaile1@gmail.com</span>
-                      <Copy className="w-3 h-3 text-gray-500 ml-1" />
-                    </>
-                  )}
-                </button>
-
-                {/* Copy WhatsApp Button */}
-                <button
-                  onClick={() => copyToClipboard("+251989858377", "phone")}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-emerald-500/50 text-[11px] sm:text-xs font-mono text-gray-300 hover:text-white transition-all shadow-sm"
-                  title="Click to copy WhatsApp number"
-                >
-                  {copiedItem === "phone" ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Phone Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Phone className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>+251 989 858 377</span>
-                      <Copy className="w-3 h-3 text-gray-500 ml-1" />
-                    </>
-                  )}
-                </button>
-
-                <a
-                  href="https://github.com/habeshacoder"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 sm:p-2.5 rounded-xl bg-gray-900 border border-gray-800 text-gray-400 hover:text-white hover:border-gray-700 transition-colors"
-                  title="GitHub Profile"
-                >
-                  <Github className="w-4 h-4" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/adonias-haile-668312322"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 sm:p-2.5 rounded-xl bg-gray-900 border border-gray-800 text-gray-400 hover:text-orange-400 hover:border-orange-500/50 transition-colors"
-                  title="LinkedIn Profile"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-              </div>
             </div>
 
-            {/* Right Column - Profile & Academic Education Card */}
-            <div className="lg:col-span-5 flex justify-center order-2 lg:order-2">
-              <div className="relative w-full max-w-md">
-                {/* Luminous glow */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 via-amber-500/15 to-transparent rounded-3xl blur-2xl transform -rotate-2" />
-
-                <div className="relative bg-gray-900/90 border border-gray-800 p-5 sm:p-7 rounded-3xl shadow-2xl backdrop-blur-xl">
-                  {/* Floating metric badge on top of profile card */}
-                  <div className="absolute -top-3 -right-3 p-2 sm:p-2.5 rounded-xl bg-gray-900 border border-gray-700/80 shadow-xl shadow-emerald-500/10 text-center">
-                    <div className="text-base sm:text-lg font-bold text-emerald-400">
-                      500K+
-                    </div>
-                    <div className="text-[10px] sm:text-[11px] text-gray-400">
-                      Users Impacted
-                    </div>
-                  </div>
-
-                  {/* Photo container */}
-                  <div className="relative w-36 h-36 sm:w-48 sm:h-48 mx-auto rounded-full overflow-hidden border-4 border-orange-500/40 shadow-xl shadow-orange-500/15 mb-4 sm:mb-5">
-                    <Image
-                      src="/profile-img.jpg"
-                      alt="Adonias Haile"
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
-
-                  {/* Profile info caption */}
-                  <div className="text-center space-y-1 mb-4 sm:mb-5">
-                    <h3 className="text-lg sm:text-xl font-bold text-white">
-                      Adonias Haile
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-400">
-                      Software Engineer & Mobile Specialist
-                    </p>
-                    <p className="text-xs text-orange-400 flex items-center justify-center gap-1 pt-0.5">
-                      <MapPin className="w-3.5 h-3.5" /> Addis Ababa, Ethiopia
-                    </p>
-                  </div>
-
-                  {/* Mini metrics in hero card */}
-                  <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-gray-800/80 text-center">
-                    <div className="p-2 sm:p-2.5 rounded-xl bg-gray-800/50 border border-gray-700/50">
-                      <div className="text-base sm:text-lg font-bold text-white">
-                        3+ Years
-                      </div>
-                      <div className="text-[10px] sm:text-[11px] text-gray-400">
-                        Engineering Exp
-                      </div>
-                    </div>
-                    <div className="p-2 sm:p-2.5 rounded-xl bg-gray-800/50 border border-gray-700/50">
-                      <div className="text-base sm:text-lg font-bold text-orange-400">
-                        7+ Apps
-                      </div>
-                      <div className="text-[10px] sm:text-[11px] text-gray-400">
-                        Contributions
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Academic Education spanning end-to-end of profile container */}
-                  <div className="mt-4 sm:mt-5 pt-3.5 sm:pt-4 border-t border-gray-800/80 -mx-5 sm:-mx-7 px-5 sm:px-7 bg-gray-950/50 rounded-b-3xl">
-                    <div className="flex items-center gap-2.5 mb-2">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center flex-shrink-0">
-                        <GraduationCap className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-orange-400">
-                          Academic Education
-                        </h4>
-                        <p className="text-xs text-gray-200 font-semibold">
-                          Bahir Dar University - BIT
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="space-y-1 pl-3 border-l-2 border-orange-500/40 ml-1">
-                      <h5 className="font-semibold text-white text-xs sm:text-sm">
-                        B.Sc. in Software Engineering
-                      </h5>
-                      <p className="text-[11px] text-gray-400 leading-snug">
-                        Faculty of Computing, Bahir Dar Institute of Technology
-                        (BIT Poly Campus), Bahir Dar, Ethiopia
-                      </p>
-                      <div className="flex flex-wrap gap-1.5 pt-1 pb-1">
-                        <Badge className="bg-orange-950/50 text-orange-300 border-orange-800/50 text-[10px] px-2 py-0.5">
-                          2019 – 2024
-                        </Badge>
-                        <Badge className="bg-emerald-900/40 text-emerald-300 border-emerald-700/50 text-[10px] px-2 py-0.5">
-                          CGPA: 3.86 / 4.00 (High Distinction)
-                        </Badge>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Metrics Strip - Compact & Responsive */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-gray-800/60">
-            <div className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-orange-500/40 transition-colors">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center flex-shrink-0">
-                <Briefcase className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-              <div>
-                <div className="text-xs sm:text-base font-bold text-white">
-                  Banking & Fintech
-                </div>
-                <div className="text-[10px] sm:text-xs text-gray-400">
-                  Core Integrations & Rails
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-emerald-500/40 transition-colors">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0">
-                <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-              <div>
-                <div className="text-xs sm:text-base font-bold text-white">
-                  Store Release Lead
-                </div>
-                <div className="text-[10px] sm:text-xs text-gray-400">
-                  Google Play & App Store
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-amber-500/40 transition-colors">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0">
-                <Server className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-              <div>
-                <div className="text-xs sm:text-base font-bold text-white">
-                  Backend & APIs
-                </div>
-                <div className="text-[10px] sm:text-xs text-gray-400">
-                  Spring Boot • WSO2 MI
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-purple-500/40 transition-colors">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center flex-shrink-0">
-                <Award className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-              <div>
-                <div className="text-xs sm:text-base font-bold text-white">
-                  8 Endorsements
-                </div>
-                <div className="text-[10px] sm:text-xs text-gray-400">
-                  Directors • CTOs • PMs
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 hidden md:block">
-          <button
-            onClick={() => scrollToSection("skills")}
-            className="text-gray-500 hover:text-orange-400 transition-colors animate-bounce p-2"
-            aria-label="Scroll to Skills"
-          >
-            <ChevronDown className="w-5 h-5" />
-          </button>
-        </div>
-      </section>
-
-      {/* Skills & Technologies Section - Clean, Fast & Mobile-Friendly */}
-      <section
-        id="skills"
-        className="py-12 sm:py-20 relative overflow-hidden z-10"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-            <h2 className="text-xs sm:text-sm font-semibold text-orange-400 uppercase tracking-widest mb-1.5">
-              Technical Stack & Competencies
-            </h2>
-            <h3 className="text-2xl sm:text-4xl font-extrabold text-white">
-              Skills & Technologies
-            </h3>
-            <p className="text-gray-400 text-xs sm:text-sm mt-1.5 max-w-xl mx-auto">
-              Mobile application architecture with Flutter, enterprise backend
-              integrations with Java Spring Boot, and DevOps workflows.
-            </p>
-            <div className="w-12 h-1 bg-orange-500 mx-auto mt-2.5 rounded-full" />
-          </div>
-
-          {/* Controls: Horizontal Scrollable Category Filter Tabs & Live Search */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6 sm:mb-8">
-            {/* Filter Tabs - smoothly scrollable on mobile */}
-            <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-hide py-1 -mx-4 px-4 sm:mx-0 sm:px-0">
+            {/* Project Filter Pills */}
+            <div className="flex items-center gap-1.5 bg-white p-1 rounded-full border border-[#E5E3DF] overflow-x-auto">
               {[
-                { id: "all", label: `All Skills (${skills.length})` },
-                { id: "mobile", label: "Mobile (Flutter)" },
-                { id: "backend", label: "Backend & Fintech" },
-                { id: "devops", label: "DevOps & Tools" },
+                { id: "all", label: "All Works (6)" },
+                { id: "banking", label: "Banking" },
+                { id: "wallet", label: "Wallets" },
+                { id: "logistics", label: "Logistics" },
+                { id: "travel", label: "Travel & Shop" },
               ].map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setSelectedSkillCategory(tab.id)}
-                  className={`whitespace-nowrap px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
-                    selectedSkillCategory === tab.id
-                      ? "bg-orange-500 text-white shadow-md shadow-orange-500/25 font-semibold"
-                      : "bg-gray-900/80 text-gray-300 border border-gray-800 hover:bg-gray-800 hover:text-white"
-                  }`}
+                  onClick={() => setProjectCategory(tab.id)}
+                  className={`px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors whitespace-nowrap ${projectCategory === tab.id
+                      ? "bg-[#1C1917] text-white shadow-sm"
+                      : "text-[#57534E] hover:text-[#1C1917] hover:bg-[#F5F5F4]"
+                    }`}
                 >
                   {tab.label}
                 </button>
               ))}
             </div>
-
-            {/* Quick Search */}
-            <div className="relative w-full sm:w-60 flex-shrink-0">
-              <Search className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                placeholder="Filter skills..."
-                value={skillSearchQuery}
-                onChange={(e) => setSkillSearchQuery(e.target.value)}
-                className="w-full pl-8 pr-7 py-1.5 rounded-xl bg-gray-900 border border-gray-800 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-orange-500/80 transition-colors shadow-inner"
-              />
-              {skillSearchQuery && (
-                <button
-                  onClick={() => setSkillSearchQuery("")}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-white"
-                >
-                  ✕
-                </button>
-              )}
-            </div>
-          </div>
-
-          {/* Skills Grid Matrix */}
-          {filteredSkills.length === 0 ? (
-            <div className="text-center py-10 bg-gray-900/30 rounded-2xl border border-gray-800">
-              <Search className="w-8 h-8 text-gray-500 mx-auto mb-2" />
-              <p className="text-gray-300 text-xs sm:text-sm font-medium">
-                No skills matched your search query
-              </p>
-              <button
-                onClick={() => {
-                  setSelectedSkillCategory("all");
-                  setSkillSearchQuery("");
-                }}
-                className="mt-2 text-xs text-orange-400 hover:underline"
-              >
-                Reset filters
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-              {filteredSkills.map((skill, index) => (
-                <Card
-                  key={index}
-                  className="bg-gray-900/70 border-gray-800 hover:border-orange-500/50 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <CardContent className="p-4 sm:p-6 space-y-3">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="p-2 sm:p-2.5 rounded-xl bg-gray-800/80 border border-gray-700/60 group-hover:scale-110 group-hover:border-orange-500/40 transition-all flex items-center justify-center">
-                        {skill.icon}
-                      </div>
-                      <div className="text-right space-y-1">
-                        <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-md bg-orange-950/40 text-orange-300 border border-orange-800/40">
-                          {skill.tag}
-                        </span>
-                        <div className="text-[11px] text-gray-400 font-mono">
-                          {skill.level}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-orange-400 transition-colors">
-                        {skill.name}
-                      </h4>
-                      <p className="text-xs text-gray-300 leading-relaxed mt-1.5">
-                        {skill.description}
-                      </p>
-                    </div>
-
-                    {/* Competency Chips */}
-                    {skill.competencies && (
-                      <div className="pt-2 border-t border-gray-800/80 flex flex-wrap gap-1.5">
-                        {skill.competencies.map((comp, i) => (
-                          <span
-                            key={i}
-                            className="text-[10px] font-mono text-gray-300 px-2 py-0.5 rounded-md bg-gray-800/60 border border-gray-700/50 group-hover:border-orange-500/30 transition-colors"
-                          >
-                            {comp}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Work Experience Section */}
-      <section
-        id="experience"
-        className="py-16 sm:py-24 bg-gray-900/40 border-t border-gray-800/80 relative z-10"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <h2 className="text-xs sm:text-sm font-semibold text-orange-400 uppercase tracking-widest mb-2">
-              Career Trajectory
-            </h2>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-white">
-              Work Experience
-            </h3>
-            <p className="text-gray-400 text-sm sm:text-base mt-2">
-              Proven track record in enterprise banking software, fintech
-              middleware, and high-impact mobile solutions.
-            </p>
-            <div className="w-12 h-1 bg-orange-500 mx-auto mt-3 rounded-full" />
-          </div>
-
-          <div className="relative border-l-2 border-gray-800 pl-4 sm:pl-8 ml-2 sm:ml-6 space-y-10 sm:space-y-12">
-            {experiences.map((exp, index) => (
-              <div key={index} className="relative group">
-                {/* Glowing Timeline node */}
-                <div className="absolute -left-[25px] sm:-left-[41px] top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gray-900 border-2 border-orange-500 group-hover:scale-125 group-hover:bg-orange-500 transition-all shadow-md shadow-orange-500/30" />
-
-                <Card className="bg-gray-900/80 border-gray-800 hover:border-orange-500/40 transition-all shadow-lg">
-                  <CardContent className="p-5 sm:p-7">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-                      <div>
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <h4 className="text-lg sm:text-xl font-bold text-white group-hover:text-orange-400 transition-colors">
-                            {exp.title}
-                          </h4>
-                          {exp.highlightMetric && (
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/25">
-                              ★ {exp.highlightMetric}
-                            </span>
-                          )}
-                        </div>
-                        <div className="flex items-center gap-2 sm:gap-3 flex-wrap mt-1">
-                          <a
-                            href={exp.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm font-medium text-orange-400 hover:underline flex items-center gap-1"
-                          >
-                            <Building2 className="w-3.5 h-3.5" />
-                            {exp.company}
-                          </a>
-                          <span className="text-gray-600">•</span>
-                          <span className="text-xs text-gray-400 flex items-center gap-1">
-                            <MapPin className="w-3.5 h-3.5" />
-                            {exp.location}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <Badge
-                          variant="secondary"
-                          className="bg-gray-800/80 text-gray-300 border-gray-700 text-xs px-2.5 py-1"
-                        >
-                          <Calendar className="w-3 h-3 mr-1 text-gray-400" />
-                          {exp.period}
-                        </Badge>
-                        <Badge
-                          className={`${exp.badgeColor} border text-xs px-2.5 py-1 font-medium`}
-                        >
-                          {exp.type}
-                        </Badge>
-                      </div>
-                    </div>
-
-                    {/* Achievements List */}
-                    <ul className="space-y-2.5 my-4">
-                      {exp.achievements.map((item, i) => (
-                        <li
-                          key={i}
-                          className="text-xs sm:text-sm text-gray-300 flex items-start gap-2.5 leading-relaxed"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-orange-400 mt-2 flex-shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-gray-800/80">
-                      {exp.technologies.map((tech, i) => (
-                        <Badge
-                          key={i}
-                          variant="secondary"
-                          className="bg-gray-800 text-gray-300 hover:text-white text-[11px] px-2 py-0.5 border border-gray-700/60"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Projects Section (Clean cards with zero image banners + Expandable Architecture drawer) */}
-      <section id="projects" className="py-16 sm:py-24 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-xs sm:text-sm font-semibold text-orange-400 uppercase tracking-widest mb-2">
-              Shipped & Production Work
-            </h2>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-white">
-              Featured Projects (6)
-            </h3>
-            <p className="text-gray-400 text-sm sm:text-base mt-2">
-              Mobile banking apps, fintech integrations, and design systems
-              I&apos;ve contributed to.
-            </p>
-            <div className="w-12 h-1 bg-orange-500 mx-auto mt-3 rounded-full" />
           </div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {projects.map((project, index) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {filteredProjects.map((project, index) => {
               const isExpanded = !!expandedProjects[index];
+
               return (
-                <Card
-                  key={index}
-                  className="bg-gray-900/80 border-gray-800 hover:border-orange-500/50 transition-all duration-300 overflow-hidden flex flex-col justify-between group shadow-xl"
+                <div
+                  key={project.title}
+                  className="bg-white border border-[#E5E3DF] rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:border-stone-400 transition-colors"
                 >
-                  <CardContent className="p-5 sm:p-6 space-y-3.5">
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between gap-2 flex-wrap">
-                        <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-orange-500/10 text-orange-400 border border-orange-500/20">
+                  <div>
+                    <div className="flex items-start justify-between gap-3 mb-2">
+                      <div>
+                        <h3 className="text-xl sm:text-2xl font-bold text-[#1C1917] tracking-tight">
+                          {project.title}
+                        </h3>
+                        <p className="text-xs font-medium text-[#57534E] mt-0.5">
                           {project.subtitle}
-                        </span>
-                        {project.highlights && (
-                          <span className="text-[11px] font-medium text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">
-                            ★ {project.highlights}
-                          </span>
-                        )}
+                        </p>
                       </div>
-                      <h4 className="text-xl font-bold text-white group-hover:text-orange-400 transition-colors pt-1">
-                        {project.title}
-                      </h4>
+
+                      <Badge
+                        variant="outline"
+                        className="text-xs font-semibold border-[#E5E3DF] bg-[#FAF8F5] text-[#1C1917] whitespace-nowrap flex-shrink-0"
+                      >
+                        {project.badgeText}
+                      </Badge>
                     </div>
 
-                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                    <p className="mt-3 text-sm text-[#44403C] leading-relaxed">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      {project.tags.map((tag, i) => (
-                        <Badge
-                          key={i}
-                          variant="secondary"
-                          className="bg-orange-950/40 text-orange-300 border-orange-800/40 text-[11px] px-2 py-0.5"
+                    {/* Clean Tags */}
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-mono font-medium text-[#44403C]"
                         >
                           {tag}
-                        </Badge>
+                        </span>
                       ))}
                     </div>
 
-                    {/* Architecture Drawer Toggle Button (Wahoo Factor) */}
-                    {project.architectureSpecs && (
-                      <div className="pt-2">
-                        <button
-                          onClick={() => toggleProjectExpand(index)}
-                          className="inline-flex items-center gap-1.5 text-xs font-mono text-orange-400 hover:text-orange-300 py-1 focus:outline-none transition-colors"
-                        >
-                          <Terminal className="w-3.5 h-3.5" />
-                          <span>
-                            {isExpanded
-                              ? "Hide Architecture Specs"
-                              : "Inspect Architecture Specs"}
+                    {/* Architecture Specs Drawer */}
+                    {isExpanded && (
+                      <div className="mt-4 p-4 rounded-xl bg-[#FAF8F5] border border-[#E5E3DF] text-xs space-y-2">
+                        <div className="font-bold text-[#1C1917] flex items-center gap-1.5 pb-1 border-b border-[#E5E3DF]">
+                          <Terminal className="w-3.5 h-3.5 text-stone-700" />
+                          <span>Architecture Specifications</span>
+                        </div>
+                        <div>
+                          <span className="font-semibold text-[#1C1917]">
+                            Architecture:{" "}
                           </span>
-                          {isExpanded ? (
-                            <ChevronUp className="w-3.5 h-3.5" />
-                          ) : (
-                            <ChevronDown className="w-3.5 h-3.5" />
-                          )}
-                        </button>
-
-                        {/* Collapsible Architecture Details */}
-                        {isExpanded && (
-                          <div className="mt-2.5 p-3.5 rounded-xl bg-gray-950/80 border border-gray-800 space-y-2 text-xs font-mono text-gray-300 animate-in fade-in-50 duration-200">
-                            <div>
-                              <span className="text-orange-400 font-semibold block text-[10px] uppercase">
-                                Core Architecture
-                              </span>
-                              <span className="text-gray-300">
-                                {project.architectureSpecs.architecture}
-                              </span>
-                            </div>
-                            <div>
-                              <span className="text-amber-400 font-semibold block text-[10px] uppercase">
-                                Enterprise Integration
-                              </span>
-                              <span className="text-gray-300">
-                                {project.architectureSpecs.integration}
-                              </span>
-                            </div>
-                            <div>
-                              <span className="text-emerald-400 font-semibold block text-[10px] uppercase">
-                                Security & Compliance
-                              </span>
-                              <span className="text-gray-300">
-                                {project.architectureSpecs.security}
-                              </span>
-                            </div>
-                            <div>
-                              <span className="text-cyan-400 font-semibold block text-[10px] uppercase">
-                                Protocols & Rails
-                              </span>
-                              <span className="text-gray-300">
-                                {project.architectureSpecs.protocols}
-                              </span>
-                            </div>
-                          </div>
-                        )}
+                          <span className="text-[#44403C]">
+                            {project.architectureSpecs.architecture}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-semibold text-[#1C1917]">
+                            Integration:{" "}
+                          </span>
+                          <span className="text-[#44403C]">
+                            {project.architectureSpecs.integration}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-semibold text-[#1C1917]">
+                            Security:{" "}
+                          </span>
+                          <span className="text-[#44403C]">
+                            {project.architectureSpecs.security}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-semibold text-[#1C1917]">
+                            Protocols:{" "}
+                          </span>
+                          <span className="text-[#44403C]">
+                            {project.architectureSpecs.protocols}
+                          </span>
+                        </div>
                       </div>
                     )}
-                  </CardContent>
-
-                  {/* Actions Footer */}
-                  <div className="p-5 sm:p-6 pt-0 flex flex-wrap gap-2">
-                    {project.androidUrl && (
-                      <Button
-                        size="sm"
-                        className="bg-orange-500 hover:bg-orange-400 text-white text-xs font-medium shadow-sm shadow-orange-500/20"
-                        onClick={() =>
-                          window.open(project.androidUrl, "_blank")
-                        }
-                      >
-                        <GooglePlayIcon className="w-4 h-4 mr-1.5" />
-                        Google Play
-                      </Button>
-                    )}
-
-                    {project.iosUrl && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="border-gray-700 bg-gray-800/60 text-white hover:bg-gray-700 text-xs font-medium"
-                        onClick={() => window.open(project.iosUrl, "_blank")}
-                      >
-                        <AppleIcon className="w-4 h-4 mr-1.5" />
-                        App Store
-                      </Button>
-                    )}
-
-                    {project.driverUrl && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="border-gray-700 bg-gray-800/60 text-white hover:bg-gray-700 text-xs font-medium"
-                        onClick={() => window.open(project.driverUrl, "_blank")}
-                      >
-                        <GooglePlayIcon className="w-4 h-4 mr-1.5" />
-                        Driver App
-                      </Button>
-                    )}
-
-                    {project.liveUrl && (
-                      <Button
-                        size="sm"
-                        className="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium"
-                        onClick={() => window.open(project.liveUrl, "_blank")}
-                      >
-                        <Globe className="w-4 h-4 mr-1.5" />
-                        Visit Live Site
-                      </Button>
-                    )}
-
-                    {/* Figma if present */}
-                    {project.designUrl && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="border-purple-600/40 bg-purple-950/20 text-purple-300 hover:bg-purple-900/30 text-xs font-medium"
-                        onClick={() => window.open(project.designUrl, "_blank")}
-                      >
-                        <Figma className="w-4 h-4 mr-1.5 text-purple-400" />
-                        Figma Design
-                      </Button>
-                    )}
                   </div>
-                </Card>
+
+                  {/* Bottom Row Actions */}
+                  <div className="mt-6 pt-4 border-t border-[#E5E3DF] flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                      {project.androidUrl && (
+                        <a
+                          href={project.androidUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#E5E3DF] bg-white text-xs font-semibold text-[#1C1917] hover:bg-[#FAF8F5] transition-colors"
+                        >
+                          <GooglePlayIcon className="w-3.5 h-3.5" />
+                          <span>Google Play</span>
+                        </a>
+                      )}
+                      {project.iosUrl && (
+                        <a
+                          href={project.iosUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#E5E3DF] bg-white text-xs font-semibold text-[#1C1917] hover:bg-[#FAF8F5] transition-colors"
+                        >
+                          <AppleIcon className="w-3.5 h-3.5" />
+                          <span>App Store</span>
+                        </a>
+                      )}
+                    </div>
+
+                    <button
+                      onClick={() => toggleProjectExpand(index)}
+                      aria-expanded={isExpanded}
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#57534E] hover:text-[#1C1917] transition-colors py-1 px-2.5 rounded-full hover:bg-[#F5F5F4]"
+                    >
+                      <span>{isExpanded ? "Hide Specs" : "Arch Specs"}</span>
+                      {isExpanded ? (
+                        <ChevronUp className="w-3.5 h-3.5" />
+                      ) : (
+                        <ChevronDown className="w-3.5 h-3.5" />
+                      )}
+                    </button>
+                  </div>
+                </div>
               );
             })}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Testimonials / Recommendations Section (No stars, No green verified badges, pure typography & spotlight animation) */}
-      <section
-        id="testimonials"
-        className="py-16 sm:py-24 bg-gray-900/40 border-t border-gray-800/80 relative overflow-hidden z-10"
-      >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-orange-500/5 blur-[120px] rounded-full pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-medium mb-3">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Peer & Leadership Recommendations</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-bold mb-2 text-white">
-              What People Say
-            </h2>
-            <p className="text-gray-400 text-base sm:text-lg">
-              Endorsements and feedback from colleagues, engineering leaders,
-              and clients I&apos;ve collaborated with
-            </p>
-            <div className="w-12 h-1 bg-orange-500 mx-auto mt-3 rounded-full" />
-
-            {/* View Mode & Autoplay Toolbar */}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <div className="inline-flex items-center p-1 rounded-xl bg-gray-800/90 border border-gray-700/80 shadow-inner">
-                <button
-                  type="button"
-                  onClick={() => setTestimonialViewMode("carousel")}
-                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                    testimonialViewMode === "carousel"
-                      ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                      : "text-gray-400 hover:text-white"
-                  }`}
-                >
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>Spotlight View</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setTestimonialViewMode("grid")}
-                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                    testimonialViewMode === "grid"
-                      ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                      : "text-gray-400 hover:text-white"
-                  }`}
-                >
-                  <Layers className="w-3.5 h-3.5" />
-                  <span>All Recommendations ({testimonials.length})</span>
-                </button>
+        {/* ================= CAREER EXPERIENCE BENTO ================= */}
+        <section
+          id="experience"
+          className="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#E5E3DF] scroll-mt-20"
+        >
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-semibold text-[#1C1917] mb-2">
+                <Briefcase className="w-3.5 h-3.5 text-stone-700" />
+                <span>Career Trajectory</span>
               </div>
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#1C1917]">
+                Professional Experience
+              </h2>
+              <p className="mt-2 text-sm sm:text-base text-[#44403C] max-w-xl">
+                Track record of building and scaling production mobile banking and
+                fintech platforms.
+              </p>
+            </div>
 
-              {testimonialViewMode === "carousel" && (
-                <button
-                  type="button"
-                  onClick={() =>
-                    setIsTestimonialAutoPlay(!isTestimonialAutoPlay)
-                  }
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-gray-800/80 border border-gray-700 text-xs text-gray-300 hover:text-white hover:border-gray-600 transition-colors"
-                  title={
-                    isTestimonialAutoPlay
-                      ? "Pause Auto-play"
-                      : "Resume Auto-play"
-                  }
+            <a
+              href="/documents/Adonias_Haile_J_Resume-latest.pdf"
+              download
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#E5E3DF] bg-white text-xs font-semibold text-[#1C1917] hover:bg-[#F5F5F4] transition-colors self-start md:self-auto"
+            >
+              <Download className="w-3.5 h-3.5 text-stone-700" />
+              <span>Download Full Resume</span>
+            </a>
+          </div>
+
+          <div className="space-y-6">
+            {experiences.map((exp) => (
+              <div
+                key={exp.company + exp.period}
+                className="bg-white border border-[#E5E3DF] rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 shadow-sm"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 pb-4 border-b border-[#E5E3DF]">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-1">
+                      <h3 className="text-xl font-bold text-[#1C1917]">
+                        {exp.title}
+                      </h3>
+                      <Badge
+                        variant="outline"
+                        className={`text-xs font-semibold ${exp.badgeColor}`}
+                      >
+                        {exp.highlightMetric}
+                      </Badge>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 text-xs text-[#57534E] font-medium">
+                      <a
+                        href={exp.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#1C1917] font-semibold hover:underline inline-flex items-center gap-1"
+                      >
+                        <span>{exp.company}</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                      <span>•</span>
+                      <span>{exp.location}</span>
+                      <span>•</span>
+                      <span>{exp.type}</span>
+                    </div>
+                  </div>
+
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-mono font-medium text-[#44403C] self-start sm:self-auto">
+                    <Calendar className="w-3.5 h-3.5 text-stone-600" />
+                    <span>{exp.period}</span>
+                  </div>
+                </div>
+
+                <ul className="mt-4 space-y-2 text-xs sm:text-sm text-[#44403C] leading-relaxed">
+                  {exp.achievements.map((ach, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-stone-500 mt-2 flex-shrink-0" />
+                      <span>{ach}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-5 pt-4 border-t border-[#E5E3DF] flex flex-wrap gap-1.5">
+                  {exp.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-mono text-[#44403C]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            {/* Academic Distinction Card (Flattened Clean Container, Zero Box-Within-Box) */}
+            <div className="bg-white border border-[#E5E3DF] rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-[#E5E3DF] text-[#1C1917] flex items-center justify-center flex-shrink-0">
+                    <GraduationCap className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold text-[#1C1917]">
+                      Bahir Dar University — Faculty of Computing (BIT)
+                    </h3>
+                    <h4 className="text-sm font-semibold text-[#1C1917] mt-0.5">
+                      B.Sc. in Software Engineering
+                    </h4>
+                    <p className="text-xs text-[#57534E] mt-0.5">
+                      5-Year Engineering Program (2019 – 2024) · Bahir Dar Institute of Technology, Ethiopia
+                    </p>
+                  </div>
+                </div>
+
+                <Badge
+                  variant="outline"
+                  className="bg-[#FAF8F5] border-[#E5E3DF] text-[#1C1917] font-semibold text-xs px-3 py-1 self-start sm:self-auto flex-shrink-0"
                 >
-                  {isTestimonialAutoPlay ? (
-                    <>
-                      <Pause className="w-3 h-3 text-orange-400" />
-                      <span>Pause</span>
-                    </>
-                  ) : (
-                    <>
-                      <Play className="w-3 h-3 text-orange-400" />
-                      <span>Play</span>
-                    </>
-                  )}
-                </button>
-              )}
+                  CGPA: 3.86 / 4.00 (High Distinction)
+                </Badge>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= TECH STACK ================= */}
+        <section
+          id="skills"
+          className="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#E5E3DF] scroll-mt-20"
+        >
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-semibold text-[#1C1917] mb-2">
+                <Code className="w-3.5 h-3.5 text-[#1C1917]" />
+                <span>Core Tooling</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#1C1917]">
+                Tech Stack
+              </h2>
+              <p className="mt-2 text-sm sm:text-base text-[#44403C] max-w-xl">
+                Languages, frameworks, protocols, and developer tools used across
+                production applications.
+              </p>
+            </div>
+
+            {/* Interactive Search Bar */}
+            <div className="relative w-full md:w-64">
+              <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#57534E]" />
+              <input
+                type="text"
+                placeholder="Filter tech stack..."
+                value={skillSearchQuery}
+                onChange={(e) => setSkillSearchQuery(e.target.value)}
+                aria-label="Filter tech stack"
+                className="w-full pl-9 pr-4 py-2 rounded-full border border-[#E5E3DF] bg-white text-xs text-[#1C1917] placeholder:text-[#57534E] focus:outline-none focus:border-[#1C1917]"
+              />
             </div>
           </div>
 
-          {/* SPOTLIGHT THEATRE VIEW */}
-          {testimonialViewMode === "carousel" && (
-            <div className="max-w-4xl mx-auto">
-              <Card className="bg-gray-900/90 border-gray-800 shadow-2xl relative overflow-hidden backdrop-blur-xl">
-                {/* Visual quote accent */}
-                <div className="absolute top-6 right-6 text-orange-500/10 pointer-events-none">
-                  <Quote className="w-24 h-24 sm:w-32 sm:h-32" />
+          {/* Category Pills */}
+          <div className="flex items-center gap-1.5 mb-6 overflow-x-auto">
+            {[
+              { id: "all", label: "All Stack" },
+              { id: "mobile", label: "Mobile" },
+              { id: "backend", label: "Backend & Rails" },
+              { id: "devops", label: "DevOps & Tools" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setSelectedSkillCategory(tab.id)}
+                className={`px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors whitespace-nowrap ${selectedSkillCategory === tab.id
+                    ? "bg-[#1C1917] text-white"
+                    : "bg-white border border-[#E5E3DF] text-[#57534E] hover:text-[#1C1917] hover:bg-[#FAF8F5]"
+                  }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Small containers only: icon & name in natural flex wrap */}
+          <div className="flex flex-wrap gap-2.5">
+            {filteredSkills.map((tech) => (
+              <div
+                key={tech.name}
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border border-[#E5E3DF] shadow-sm hover:border-[#1C1917] hover:bg-[#FAF8F5] transition-colors"
+              >
+                <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
+                  {tech.icon}
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-[#1C1917] whitespace-nowrap">
+                  {tech.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ================= RECOMMENDATIONS & ENDORSEMENTS ================= */}
+        <section
+          id="testimonials"
+          className="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#E5E3DF] scroll-mt-20"
+        >
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-semibold text-[#1C1917] mb-2">
+                <Award className="w-3.5 h-3.5 text-stone-700" />
+                <span>Leadership Endorsements</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#1C1917]">
+                Recommendations &amp; Endorsements
+              </h2>
+              <p className="mt-2 text-sm sm:text-base text-[#44403C] max-w-xl">
+                Feedback from banking directors, tech leads, and supervisors who
+                have worked directly with me.
+              </p>
+            </div>
+
+            {/* View Mode Toggle */}
+            <div className="flex items-center gap-1 bg-white p-1 rounded-full border border-[#E5E3DF]">
+              <button
+                onClick={() => setTestimonialViewMode("carousel")}
+                className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-colors ${testimonialViewMode === "carousel"
+                    ? "bg-[#1C1917] text-white"
+                    : "text-[#57534E] hover:text-[#1C1917]"
+                  }`}
+              >
+                Featured Slide
+              </button>
+              <button
+                onClick={() => setTestimonialViewMode("grid")}
+                className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-colors ${testimonialViewMode === "grid"
+                    ? "bg-[#1C1917] text-white"
+                    : "text-[#57534E] hover:text-[#1C1917]"
+                  }`}
+              >
+                All ({testimonials.length})
+              </button>
+            </div>
+          </div>
+
+          {testimonialViewMode === "carousel" ? (
+            <figure className="bg-white border border-[#E5E3DF] rounded-[24px] sm:rounded-[28px] p-6 sm:p-10 shadow-sm m-0">
+              <blockquote className="text-base sm:text-lg text-[#1C1917] font-normal leading-relaxed m-0 p-0 border-none">
+                &ldquo;{testimonials[activeTestimonial].content}&rdquo;
+              </blockquote>
+
+              <figcaption className="mt-6 pt-6 border-t border-[#E5E3DF] flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  {testimonials[activeTestimonial].image ? (
+                    <div className="w-11 h-11 rounded-full overflow-hidden border border-[#E5E3DF] relative flex-shrink-0">
+                      <Image
+                        src={testimonials[activeTestimonial].image!}
+                        alt={testimonials[activeTestimonial].name}
+                        fill
+                        className="object-cover"
+                        sizes="44px"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className={`w-11 h-11 rounded-full ${testimonials[activeTestimonial].avatarBg} text-white font-bold text-xs flex items-center justify-center flex-shrink-0`}
+                    >
+                      {testimonials[activeTestimonial].initials}
+                    </div>
+                  )}
+
+                  <div>
+                    <h4 className="text-sm font-bold text-[#1C1917]">
+                      {testimonials[activeTestimonial].name}
+                    </h4>
+                    <p className="text-xs text-[#57534E]">
+                      {testimonials[activeTestimonial].role}
+                    </p>
+                  </div>
                 </div>
 
-                <CardContent className="p-6 sm:p-10 relative z-10">
-                  <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6">
-                    {/* Endorser Avatar */}
-                    {testimonials[activeTestimonial].image ? (
-                      <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-orange-500/40 flex-shrink-0 shadow-lg">
+                {/* Slider Controls */}
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() =>
+                      setActiveTestimonial(
+                        (prev) =>
+                          (prev - 1 + testimonials.length) % testimonials.length
+                      )
+                    }
+                    aria-label="Previous testimonial"
+                    className="px-3 py-1.5 rounded-full border border-[#E5E3DF] bg-white text-xs font-semibold text-[#1C1917] hover:bg-[#FAF8F5] transition-colors"
+                  >
+                    Prev
+                  </button>
+                  <span aria-live="polite" className="text-xs font-mono font-medium text-[#57534E] px-1">
+                    {activeTestimonial + 1} / {testimonials.length}
+                  </span>
+                  <button
+                    onClick={() =>
+                      setActiveTestimonial(
+                        (prev) => (prev + 1) % testimonials.length
+                      )
+                    }
+                    aria-label="Next testimonial"
+                    className="px-3 py-1.5 rounded-full border border-[#E5E3DF] bg-white text-xs font-semibold text-[#1C1917] hover:bg-[#FAF8F5] transition-colors"
+                  >
+                    Next
+                  </button>
+                </div>
+              </figcaption>
+            </figure>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {testimonials.map((t, idx) => (
+                <figure
+                  key={t.name + idx}
+                  className="bg-white border border-[#E5E3DF] rounded-[24px] p-6 flex flex-col justify-between shadow-sm m-0"
+                >
+                  <blockquote className="text-xs sm:text-sm text-[#44403C] leading-relaxed mb-5 m-0 p-0 border-none">
+                    &ldquo;{t.content}&rdquo;
+                  </blockquote>
+
+                  <figcaption className="pt-4 border-t border-[#E5E3DF] flex items-center gap-3">
+                    {t.image ? (
+                      <div className="w-9 h-9 rounded-full overflow-hidden border border-[#E5E3DF] relative flex-shrink-0">
                         <Image
-                          src={testimonials[activeTestimonial].image!}
-                          alt={testimonials[activeTestimonial].name}
+                          src={t.image}
+                          alt={t.name}
                           fill
                           className="object-cover"
+                          sizes="36px"
                         />
                       </div>
                     ) : (
                       <div
-                        className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl ${
-                          testimonials[activeTestimonial].avatarBg ||
-                          "bg-orange-600"
-                        } flex items-center justify-center font-bold text-white text-xl sm:text-2xl border-2 border-orange-500/40 flex-shrink-0 shadow-lg`}
+                        className={`w-9 h-9 rounded-full ${t.avatarBg} text-white font-bold text-xs flex items-center justify-center flex-shrink-0`}
                       >
-                        {testimonials[activeTestimonial].initials ||
-                          testimonials[activeTestimonial].name
-                            .substring(0, 2)
-                            .toUpperCase()}
+                        {t.initials}
                       </div>
                     )}
 
-                    <div className="space-y-1">
-                      <h4 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                        {testimonials[activeTestimonial].name}
+                    <div>
+                      <h4 className="text-xs font-bold text-[#1C1917]">
+                        {t.name}
                       </h4>
-                      <p className="text-xs sm:text-sm text-orange-400 font-medium">
-                        {testimonials[activeTestimonial].role}
+                      <p className="text-[11px] text-[#57534E] leading-snug">
+                        {t.role}
                       </p>
-                      {testimonials[activeTestimonial].url && (
-                        <a
-                          href={testimonials[activeTestimonial].url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[11px] text-gray-400 hover:text-white underline pt-0.5"
-                        >
-                          <ExternalLink className="w-3 h-3" />
-                          <span>View Reference</span>
-                        </a>
-                      )}
                     </div>
-                  </div>
-
-                  {/* Clean Quote Text (No stars, No green verified badges) */}
-                  <blockquote className="text-gray-200 text-sm sm:text-lg leading-relaxed italic border-l-2 border-orange-500/50 pl-4 my-6">
-                    &ldquo;{testimonials[activeTestimonial].content}&rdquo;
-                  </blockquote>
-
-                  {/* Navigation controls */}
-                  <div className="flex items-center justify-between pt-6 border-t border-gray-800/80">
-                    <span className="text-xs font-mono text-gray-400">
-                      Recommendation {activeTestimonial + 1} of{" "}
-                      {testimonials.length}
-                    </span>
-
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() =>
-                          setActiveTestimonial((prev) =>
-                            prev === 0 ? testimonials.length - 1 : prev - 1,
-                          )
-                        }
-                        className="p-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 hover:text-white hover:border-orange-500/50 transition-colors"
-                        aria-label="Previous testimonial"
-                      >
-                        <ChevronLeft className="w-4 h-4" />
-                      </button>
-                      <button
-                        onClick={() =>
-                          setActiveTestimonial(
-                            (prev) => (prev + 1) % testimonials.length,
-                          )
-                        }
-                        className="p-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 hover:text-white hover:border-orange-500/50 transition-colors"
-                        aria-label="Next testimonial"
-                      >
-                        <ChevronRight className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Endorser Switcher Pills */}
-              <div className="flex flex-wrap justify-center gap-2 mt-6">
-                {testimonials.map((t, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveTestimonial(index)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
-                      activeTestimonial === index
-                        ? "bg-orange-500 text-white shadow-md shadow-orange-500/25 scale-105"
-                        : "bg-gray-900 border border-gray-800 text-gray-400 hover:text-white hover:border-gray-700"
-                    }`}
-                  >
-                    {t.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* GRID SHOWCASE VIEW */}
-          {testimonialViewMode === "grid" && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {testimonials.map((t, index) => (
-                <Card
-                  key={index}
-                  className="bg-gray-900/80 border-gray-800 hover:border-orange-500/40 transition-all shadow-lg flex flex-col justify-between"
-                >
-                  <CardContent className="p-6 space-y-4">
-                    <div className="flex items-center gap-3.5">
-                      {t.image ? (
-                        <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-orange-500/30 flex-shrink-0">
-                          <Image
-                            src={t.image}
-                            alt={t.name}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                      ) : (
-                        <div
-                          className={`w-12 h-12 rounded-xl ${
-                            t.avatarBg || "bg-orange-600"
-                          } flex items-center justify-center font-bold text-white text-base border border-orange-500/30 flex-shrink-0`}
-                        >
-                          {t.initials || t.name.substring(0, 2).toUpperCase()}
-                        </div>
-                      )}
-                      <div>
-                        <h4 className="text-base font-bold text-white">
-                          {t.name}
-                        </h4>
-                        <p className="text-xs text-orange-400 font-medium">
-                          {t.role}
-                        </p>
-                      </div>
-                    </div>
-
-                    <blockquote className="text-gray-300 text-xs sm:text-sm leading-relaxed italic border-l-2 border-orange-500/40 pl-3">
-                      &ldquo;{t.content}&rdquo;
-                    </blockquote>
-
-                    {t.url && (
-                      <div className="pt-2 border-t border-gray-800/80">
-                        <a
-                          href={t.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[11px] text-gray-400 hover:text-orange-400 inline-flex items-center gap-1"
-                        >
-                          <ExternalLink className="w-3 h-3" />
-                          View Reference
-                        </a>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
+                  </figcaption>
+                </figure>
               ))}
             </div>
           )}
-        </div>
-      </section>
+        </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-16 sm:py-24 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <h2 className="text-xs sm:text-sm font-semibold text-orange-400 uppercase tracking-widest mb-2">
-              Let&apos;s Connect
+        {/* ================= THE DESIGN & CORE PHILOSOPHY ================= */}
+        <section
+          id="philosophy"
+          className="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#E5E3DF] scroll-mt-20"
+        >
+          <div className="max-w-2xl mb-8">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-semibold text-[#1C1917] mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-stone-700" />
+              <span>Design &amp; Engineering</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#1C1917]">
+              Core Philosophy
             </h2>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-white">
-              Get In Touch
-            </h3>
-            <p className="text-gray-400 text-sm sm:text-base mt-2">
-              Available for full-time software engineering roles, mobile
-              contract projects, and fintech integrations.
+            <p className="mt-2 text-sm sm:text-base text-[#44403C]">
+              Guiding principles behind building reliable, high-performance systems and human-centered software.
             </p>
-            <div className="w-12 h-1 bg-orange-500 mx-auto mt-3 rounded-full" />
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8">
-              {/* Email Card with 1-click copy */}
-              <Card className="bg-gray-900/70 border-gray-800 text-center hover:border-orange-500/50 transition-colors">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center mx-auto mb-3">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <h4 className="font-bold text-white text-sm mb-1">
-                    Direct Email
-                  </h4>
-                  <a
-                    href="mailto:adoniashaile1@gmail.com"
-                    className="text-xs text-gray-300 hover:text-orange-400 break-all transition-colors font-mono block mb-3"
-                  >
-                    adoniashaile1@gmail.com
-                  </a>
-                  <button
-                    onClick={() =>
-                      copyToClipboard("adoniashaile1@gmail.com", "card-email")
-                    }
-                    className="inline-flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors"
-                  >
-                    {copiedItem === "card-email" ? (
-                      <>
-                        <Check className="w-3 h-3 text-emerald-400" />
-                        <span className="text-emerald-400">Copied!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3 h-3" />
-                        <span>Copy Email</span>
-                      </>
-                    )}
-                  </button>
-                </CardContent>
-              </Card>
+          <div className="bg-white border border-[#E5E3DF] rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 shadow-sm">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1C1917] tracking-tight">
+              Even mission-critical financial systems deserve a warm, human, and intuitive interface.
+            </h3>
 
-              {/* WhatsApp & Phone Card with 1-click copy */}
-              <Card className="bg-gray-900/70 border-gray-800 text-center hover:border-emerald-500/50 transition-colors">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto mb-3">
-                    <Phone className="w-6 h-6" />
-                  </div>
-                  <h4 className="font-bold text-white text-sm mb-1">
-                    WhatsApp & Phone
-                  </h4>
-                  <a
-                    href="https://wa.me/251989858377"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-gray-300 hover:text-emerald-400 transition-colors font-mono block mb-3"
-                  >
-                    +251 989 858 377
-                  </a>
-                  <button
-                    onClick={() =>
-                      copyToClipboard("+251989858377", "card-phone")
-                    }
-                    className="inline-flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors"
-                  >
-                    {copiedItem === "card-phone" ? (
-                      <>
-                        <Check className="w-3 h-3 text-emerald-400" />
-                        <span className="text-emerald-400">Copied!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3 h-3" />
-                        <span>Copy Phone</span>
-                      </>
-                    )}
-                  </button>
-                </CardContent>
-              </Card>
+            <p className="mt-3 text-sm text-[#44403C] leading-relaxed">
+              Utility tools and core banking infrastructure don&apos;t have to feel clinical or intimidating. Every layout decision, contrast ratio, and micro-interaction is an intentional choice to make precision software feel approachable.
+            </p>
 
-              {/* Location Card */}
-              <Card className="bg-gray-900/70 border-gray-800 text-center hover:border-purple-500/50 transition-colors">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mx-auto mb-3">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                  <h4 className="font-bold text-white text-sm mb-1">
-                    Location & Mobility
-                  </h4>
-                  <p className="text-xs text-gray-300 leading-relaxed">
-                    Addis Ababa, Ethiopia
-                  </p>
-                  <p className="text-[11px] text-orange-400 font-mono mt-1">
-                    Open to Remote Globally & Relocation
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Competitive Coding & Problem Solving Badges */}
-            <div className="p-4 rounded-2xl bg-gray-900/60 border border-gray-800 flex flex-wrap items-center justify-between gap-3 mb-8">
-              <span className="text-xs font-mono text-gray-400">
-                Problem Solving & Algorithms:
-              </span>
-              <div className="flex items-center gap-2 flex-wrap">
-                <a
-                  href="https://leetcode.com/u/Adonias_Haile/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs text-gray-200 hover:text-orange-400 border border-gray-700 flex items-center gap-1.5 transition-colors"
-                >
-                  <Code className="w-3.5 h-3.5 text-amber-400" />
-                  <span>LeetCode</span>
-                  <ArrowUpRight className="w-3 h-3 text-gray-500" />
-                </a>
-                <a
-                  href="https://www.hackerrank.com/profile/adoniashaile1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs text-gray-200 hover:text-emerald-400 border border-gray-700 flex items-center gap-1.5 transition-colors"
-                >
-                  <Award className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>HackerRank</span>
-                  <ArrowUpRight className="w-3 h-3 text-gray-500" />
-                </a>
-                <a
-                  href="https://codeforces.com/profile/Adonias_Haile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs text-gray-200 hover:text-cyan-400 border border-gray-700 flex items-center gap-1.5 transition-colors"
-                >
-                  <Flame className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>Codeforces</span>
-                  <ArrowUpRight className="w-3 h-3 text-gray-500" />
-                </a>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 pt-6 border-t border-[#E5E3DF]">
+              <div>
+                <h4 className="text-xs font-bold text-[#1C1917]">
+                  01. Lo-Fi Precision
+                </h4>
+                <p className="text-xs text-[#57534E] mt-1">
+                  Clean surfaces, high contrast, sub-second response times.
+                </p>
               </div>
-            </div>
-
-            {/* Resume & Portfolio Action Box */}
-            <div className="bg-gradient-to-r from-orange-950/40 via-amber-950/30 to-yellow-950/20 border border-orange-500/30 rounded-2xl p-6 sm:p-8 text-center space-y-4">
-              <h4 className="text-xl font-bold text-white">
-                Looking for a software engineer who ships production apps
-                end-to-end?
-              </h4>
-              <p className="text-sm text-gray-300 max-w-xl mx-auto">
-                Download my up-to-date resume or explore my code repositories on
-                GitHub.
-              </p>
-              <div className="flex flex-wrap gap-3 justify-center pt-2">
-                <Button
-                  size="lg"
-                  className="bg-orange-500 hover:bg-orange-400 text-white font-medium shadow-lg shadow-orange-500/25 text-sm"
-                  onClick={() =>
-                    window.open(
-                      "/documents/Adonias_Haile_J_Resume-latest.pdf",
-                      "_blank",
-                    )
-                  }
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Download Resume (PDF)
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-gray-700 bg-gray-900/80 text-white hover:bg-gray-800 text-sm"
-                  onClick={() =>
-                    window.open("https://github.com/habeshacoder", "_blank")
-                  }
-                >
-                  <Github className="w-4 h-4 mr-2" />
-                  GitHub Repositories
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-gray-700 bg-gray-900/80 text-white hover:bg-gray-800 text-sm"
-                  onClick={() =>
-                    window.open(
-                      "https://linkedin.com/in/adonias-haile-668312322",
-                      "_blank",
-                    )
-                  }
-                >
-                  <Linkedin className="w-4 h-4 mr-2 text-orange-400" />
-                  LinkedIn Connect
-                </Button>
+              <div>
+                <h4 className="text-xs font-bold text-[#1C1917]">
+                  02. Hardened Reliability
+                </h4>
+                <p className="text-xs text-[#57534E] mt-1">
+                  Banking cryptography, ISO 8583 standards, zero dropped packets.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-[#1C1917]">
+                  03. Intuitive UX
+                </h4>
+                <p className="text-xs text-[#57534E] mt-1">
+                  Accessible workflows that work on any mobile device or network.
+                </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer className="py-8 border-t border-gray-800/80 bg-gray-950 text-gray-400 text-xs sm:text-sm relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-            <div>
-              <p className="font-medium text-white">Adonias Haile</p>
-              <p className="text-xs text-gray-500">
-                Software Engineer • Mobile & Fintech Specialist • Java Spring
-                Boot
-              </p>
-              <p className="text-[11px] text-gray-600 mt-1">
-                © 2026 Adonias Haile. All rights reserved.
-              </p>
-            </div>
+        {/* ================= CONTACT & CALL TO ACTION ================= */}
+        <section
+          id="contact"
+          className="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#E5E3DF] scroll-mt-20"
+        >
+          <div className="bg-[#1C1917] border border-[#292524] rounded-[28px] sm:rounded-[36px] p-8 sm:p-12 text-white text-center flex flex-col items-center">
+            <Badge
+              variant="outline"
+              className="text-stone-300 border-stone-800 bg-stone-900 mb-4 text-xs px-3 py-1 font-semibold"
+            >
+              Let&apos;s Build Something Remarkable
+            </Badge>
 
-            <div className="flex items-center space-x-4">
-              <a
-                href="https://github.com/habeshacoder"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-                title="GitHub"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com/in/adonias-haile-668312322"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-orange-400 transition-colors"
-                title="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
+              Precision Starts Here
+            </h2>
+
+            <p className="mt-3 text-sm sm:text-base text-stone-300 max-w-lg mx-auto">
+              Whether you need to architect a high-throughput financial switch,
+              roll out an enterprise mobile app, or scale an engineering team —
+              I&apos;m ready.
+            </p>
+
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="mailto:adoniashaile1@gmail.com"
-                className="text-gray-400 hover:text-red-400 transition-colors"
-                title="Email"
+                className="inline-flex items-center gap-2 h-11 px-6 rounded-full bg-white text-[#1C1917] font-semibold text-xs sm:text-sm hover:bg-[#F5F5F4] transition-colors shadow-sm"
               >
-                <Mail className="w-5 h-5" />
+                <Mail className="w-4 h-4 text-stone-800" />
+                <span>Email Adonias</span>
               </a>
+
               <a
                 href="https://wa.me/251989858377"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-emerald-400 transition-colors"
-                title="WhatsApp"
+                className="inline-flex items-center gap-2 h-11 px-6 rounded-full border border-stone-800 bg-stone-900 text-white font-semibold text-xs sm:text-sm hover:bg-stone-800 transition-colors"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-4 h-4 text-emerald-400" />
+                <span>WhatsApp Chat</span>
               </a>
+
+              <a
+                href="/documents/Adonias_Haile_J_Resume-latest.pdf"
+                download
+                className="inline-flex items-center gap-2 h-11 px-6 rounded-full border border-stone-800 bg-stone-900 text-white font-semibold text-xs sm:text-sm hover:bg-stone-800 transition-colors"
+              >
+                <Download className="w-4 h-4 text-amber-400" />
+                <span>Resume (PDF)</span>
+              </a>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-stone-800 flex flex-wrap items-center justify-center gap-4 text-xs text-stone-400">
+              <button
+                onClick={() => copyToClipboard("adoniashaile1@gmail.com", "email")}
+                aria-label="Copy email address"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-stone-900 border border-stone-800 hover:text-white transition-colors"
+              >
+                {copiedItem === "email" ? (
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                ) : (
+                  <Copy className="w-3.5 h-3.5" />
+                )}
+                <span>adoniashaile1@gmail.com</span>
+              </button>
+
+              <button
+                onClick={() => copyToClipboard("+251989858377", "phone")}
+                aria-label="Copy phone number"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-stone-900 border border-stone-800 hover:text-white transition-colors"
+              >
+                {copiedItem === "phone" ? (
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                ) : (
+                  <Copy className="w-3.5 h-3.5" />
+                )}
+                <span>+251 989 858 377</span>
+              </button>
+
+              <div className="inline-flex items-center gap-1.5 text-stone-400">
+                <MapPin className="w-3.5 h-3.5" />
+                <span>Addis Ababa, Ethiopia</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* ================= CLEAN FOOTER ================= */}
+      <footer className="bg-white border-t border-[#E5E3DF] py-10 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start justify-between gap-8 pb-8 border-b border-[#E5E3DF]">
+          <div className="max-w-xs">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded-full overflow-hidden border border-[#E5E3DF] relative">
+                <Image
+                  src="/profile-img.jpg"
+                  alt="Adonias Haile"
+                  fill
+                  className="object-cover"
+                  sizes="24px"
+                />
+              </div>
+              <span className="text-sm font-bold text-[#1C1917]">
+                Adonias Haile
+              </span>
+            </div>
+            <p className="text-xs text-[#57534E] leading-relaxed">
+              Full-Stack Mobile &amp; Fintech Software Engineer specializing in
+              Flutter, Spring Boot, and national banking switch rails.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 text-xs">
+            <div>
+              <h4 className="font-bold text-[#1C1917] mb-2.5">Projects</h4>
+              <ul className="space-y-1.5 text-[#57534E]">
+                <li>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.anbesabank.anbesa_plus"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#1C1917] transition-colors"
+                  >
+                    Anbesa Plus
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.eaglelionsystems.connectethiopia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#1C1917] transition-colors"
+                  >
+                    CBE Connect
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.eaglelionsystems.starpay"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#1C1917] transition-colors"
+                  >
+                    Star Pay
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-[#1C1917] mb-2.5">Connect</h4>
+              <ul className="space-y-1.5 text-[#57534E]">
+                <li>
+                  <a
+                    href="https://github.com/habeshacoder"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#1C1917] transition-colors"
+                  >
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://linkedin.com/in/adonias-haile-668312322"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#1C1917] transition-colors"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://wa.me/251989858377"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#1C1917] transition-colors"
+                  >
+                    WhatsApp
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-[#1C1917] mb-2.5">Coding</h4>
+              <ul className="space-y-1.5 text-[#57534E]">
+                <li>
+                  <a
+                    href="https://leetcode.com/u/Adonias_Haile/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#1C1917] transition-colors"
+                  >
+                    LeetCode
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.hackerrank.com/profile/adoniashaile1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#1C1917] transition-colors"
+                  >
+                    HackerRank
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://codeforces.com/profile/Adonias_Haile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#1C1917] transition-colors"
+                  >
+                    Codeforces
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
+
+        <div className="max-w-6xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#57534E]">
+          <p className="m-0">
+            &copy; {new Date().getFullYear()} Adonias Haile · All rights
+            reserved.
+          </p>
+          <p className="m-0">Clean, accessible minimalist bento architecture.</p>
+        </div>
       </footer>
 
-      {/* Global Interactive Command Palette (⌘K) Modal */}
+      {/* ================= COMMAND PALETTE MODAL (⌘K) ================= */}
       {isCommandOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in-50 duration-150">
-          <div
-            className="w-full max-w-lg rounded-2xl bg-gray-900 border border-gray-800 shadow-2xl overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Search Input */}
-            <div className="relative border-b border-gray-800 px-4 py-3 flex items-center">
-              <Search className="w-4 h-4 text-gray-400 mr-2.5" />
+        <div className="fixed inset-0 z-50 bg-[#1C1917]/40 backdrop-blur-sm flex items-start justify-center pt-24 px-4">
+          <div className="bg-white rounded-2xl border border-[#E5E3DF] p-5 shadow-xl max-w-lg w-full animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center gap-2 pb-3 border-b border-[#E5E3DF]">
+              <Search className="w-4 h-4 text-[#57534E]" />
               <input
                 type="text"
-                placeholder="Type a command or jump to section..."
+                placeholder="Type a section or technology..."
                 value={commandSearch}
                 onChange={(e) => setCommandSearch(e.target.value)}
                 autoFocus
-                className="w-full bg-transparent text-sm text-gray-100 placeholder-gray-500 focus:outline-none"
+                aria-label="Search sections or technologies"
+                className="w-full text-sm text-[#1C1917] placeholder:text-[#57534E] focus:outline-none"
               />
               <button
                 onClick={() => setIsCommandOpen(false)}
-                className="text-xs text-gray-400 hover:text-white px-1.5 py-0.5 rounded border border-gray-700 font-mono"
+                aria-label="Close command palette"
+                className="p-1 rounded-full text-[#57534E] hover:text-[#1C1917]"
               >
-                ESC
+                <X className="w-4 h-4" />
               </button>
             </div>
 
-            {/* Quick Actions List */}
-            <div className="max-h-80 overflow-y-auto p-2 space-y-1 text-xs">
-              <div className="px-2 py-1 text-[10px] font-mono uppercase text-gray-500">
-                Navigation
-              </div>
+            <div className="mt-3 space-y-1 max-h-64 overflow-y-auto">
               {[
-                {
-                  name: "Jump to Projects (6 Production Works)",
-                  action: () => scrollToSection("projects"),
-                  icon: <Briefcase className="w-4 h-4 text-orange-400" />,
-                },
-                {
-                  name: "Jump to Skills & Architecture",
-                  action: () => scrollToSection("skills"),
-                  icon: <Network className="w-4 h-4 text-amber-400" />,
-                },
-                {
-                  name: "Jump to Work Experience",
-                  action: () => scrollToSection("experience"),
-                  icon: <Building2 className="w-4 h-4 text-emerald-400" />,
-                },
-                {
-                  name: "Jump to Recommendations (8)",
-                  action: () => scrollToSection("testimonials"),
-                  icon: <Award className="w-4 h-4 text-purple-400" />,
-                },
-                {
-                  name: "Jump to Contact",
-                  action: () => scrollToSection("contact"),
-                  icon: <Mail className="w-4 h-4 text-cyan-400" />,
-                },
+                { id: "projects", label: "Featured Projects (6 Apps)" },
+                { id: "experience", label: "Career Experience" },
+                { id: "skills", label: "Tech Stack" },
+                { id: "testimonials", label: "Recommendations & Endorsements" },
+                { id: "philosophy", label: "Design Philosophy" },
+                { id: "contact", label: "Contact & Resume" },
               ]
                 .filter(
                   (item) =>
                     !commandSearch ||
-                    item.name
+                    item.label
                       .toLowerCase()
-                      .includes(commandSearch.toLowerCase()),
+                      .includes(commandSearch.toLowerCase())
                 )
-                .map((item, i) => (
+                .map((item) => (
                   <button
-                    key={i}
-                    onClick={item.action}
-                    className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-gray-200 hover:bg-gray-800 hover:text-white transition-colors"
+                    key={item.id}
+                    onClick={() => {
+                      setIsCommandOpen(false);
+                      scrollToSection(item.id);
+                    }}
+                    className="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-[#1C1917] hover:bg-[#FAF8F5] transition-colors flex items-center justify-between"
                   >
-                    {item.icon}
-                    <span>{item.name}</span>
+                    <span>{item.label}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#57534E]" />
                   </button>
                 ))}
+            </div>
 
-              <div className="px-2 py-1 pt-2 text-[10px] font-mono uppercase text-gray-500 border-t border-gray-800/80">
-                Quick Actions
-              </div>
-              {[
-                {
-                  name: "Download Latest Resume (PDF)",
-                  action: () => {
-                    window.open(
-                      "/documents/Adonias_Haile_J_Resume-latest.pdf",
-                      "_blank",
-                    );
-                    setIsCommandOpen(false);
-                  },
-                  icon: <Download className="w-4 h-4 text-orange-400" />,
-                },
-                {
-                  name: "Copy Email (adoniashaile1@gmail.com)",
-                  action: () => {
-                    copyToClipboard("adoniashaile1@gmail.com", "cmd-email");
-                    setIsCommandOpen(false);
-                  },
-                  icon: <Mail className="w-4 h-4 text-red-400" />,
-                },
-                {
-                  name: "Copy WhatsApp (+251 989 858 377)",
-                  action: () => {
-                    copyToClipboard("+251989858377", "cmd-phone");
-                    setIsCommandOpen(false);
-                  },
-                  icon: <Phone className="w-4 h-4 text-emerald-400" />,
-                },
-                {
-                  name: "Open GitHub Profile",
-                  action: () => {
-                    window.open("https://github.com/habeshacoder", "_blank");
-                    setIsCommandOpen(false);
-                  },
-                  icon: <Github className="w-4 h-4 text-gray-300" />,
-                },
-                {
-                  name: "Open LinkedIn Profile",
-                  action: () => {
-                    window.open(
-                      "https://linkedin.com/in/adonias-haile-668312322",
-                      "_blank",
-                    );
-                    setIsCommandOpen(false);
-                  },
-                  icon: <Linkedin className="w-4 h-4 text-blue-400" />,
-                },
-              ]
-                .filter(
-                  (item) =>
-                    !commandSearch ||
-                    item.name
-                      .toLowerCase()
-                      .includes(commandSearch.toLowerCase()),
-                )
-                .map((item, i) => (
-                  <button
-                    key={i}
-                    onClick={item.action}
-                    className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-gray-200 hover:bg-gray-800 hover:text-white transition-colors"
-                  >
-                    {item.icon}
-                    <span>{item.name}</span>
-                  </button>
-                ))}
+            <div className="mt-3 pt-3 border-t border-[#E5E3DF] flex items-center justify-between text-xs text-[#57534E] font-mono">
+              <span>Press ESC to close</span>
+              <span>Adonias Haile Portfolio</span>
             </div>
           </div>
         </div>

@@ -3,17 +3,26 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-[#1C1917] focus:ring-offset-2",
   {
     variants: {
       variant: {
         default:
-          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+          "border-[#E5E3DF] bg-white text-[#1C1917] shadow-sm hover:bg-[#F5F5F4]",
         secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive:
-          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-        outline: "text-foreground",
+          "border-transparent bg-[#F5F5F4] text-[#78716C] hover:bg-[#E7E5E4]",
+        dark:
+          "border-[#292524] bg-[#1C1917] text-white hover:bg-[#292524]",
+        amber:
+          "border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100",
+        emerald:
+          "border-emerald-200 bg-emerald-50 text-emerald-800 hover:bg-emerald-100",
+        sky:
+          "border-sky-200 bg-sky-50 text-sky-800 hover:bg-sky-100",
+        mono:
+          "border-[#E7E5E4] bg-[#FAF8F5] text-[#44403C] font-mono text-[11px]",
+        outline:
+          "border-[#E5E3DF] text-[#1C1917] bg-transparent",
       },
     },
     defaultVariants: {

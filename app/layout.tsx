@@ -1,33 +1,45 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Adonias Haile | Software Engineer & Flutter Specialist",
+  title: "Adonias Haile | Full-Stack Mobile & Fintech Engineer",
   description:
-    "Portfolio of Adonias Haile - Software Engineer specializing in Mobile (Flutter), Backend (Java Spring Boot, WSO2 MI, ISO 8583, Fayda, IPS), and DevOps. Based in Addis Ababa, Ethiopia.",
+    "Production portfolio of Adonias Haile - Full-Stack Mobile & Fintech Engineer specializing in Flutter, Java Spring Boot microservices, WSO2 Micro Integrator, ISO 8583 banking switch rails, Fayda National ID, and Instant Payment Systems (IPS). Based in Addis Ababa, Ethiopia.",
   keywords: [
     "Adonias Haile",
     "Software Engineer",
-    "Flutter Developer",
-    "Java Spring Boot",
     "Mobile Engineer",
-    "Fintech Integration",
+    "Flutter Developer",
+    "Fintech Engineer",
+    "Java Spring Boot",
     "WSO2 Micro Integrator",
     "ISO 8583",
     "Fayda National ID",
     "Instant Payment System",
-    "Docker",
-    "Software Engineer Ethiopia",
+    "Sopra Banking DBS",
+    "Eaglelion Systems",
+    "Lion International Bank",
+    "Bento Developer Portfolio",
   ],
-  authors: [{ name: "Adonias Haile", url: "https://adoniashaile.netlify.app" }],
+  authors: [{ name: "Adonias Haile", url: "https://github.com/habeshacoder" }],
   openGraph: {
-    title: "Adonias Haile | Software Engineer & Flutter Specialist",
+    title: "Adonias Haile | Full-Stack Mobile & Fintech Engineer",
     description:
-      "Software engineer specializing in Flutter mobile development, Java Spring Boot microservices, and fintech integrations.",
+      "Full-stack mobile & backend fintech software engineer. Building resilient banking platforms, digital wallets, and high-performance cross-platform applications.",
     url: "https://adoniashaile.netlify.app",
     siteName: "Adonias Haile Portfolio",
     locale: "en_US",
@@ -44,9 +56,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
       <body
-        className={`${inter.className} bg-gray-950 text-gray-100 antialiased selection:bg-orange-500 selection:text-white`}
+        className="font-sans bg-[#FDFCF8] text-[#1C1917] antialiased selection:bg-[#1C1917] selection:text-white min-h-screen"
         suppressHydrationWarning
       >
         {children}
