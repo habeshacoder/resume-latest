@@ -1,5 +1,8 @@
 "use client";
 
+// Adonias Haile Portfolio - Minimal Bento Design System
+// Clean document flow, WCAG-compliant semantics, zero overlapping antipatterns
+
 import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -760,8 +763,8 @@ export default function MinimalBentoPortfolio() {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-colors ${activeSection === item.id
-                    ? "bg-[#1C1917] text-white"
-                    : "text-[#57534E] hover:text-[#1C1917] hover:bg-[#F5F5F4]"
+                  ? "bg-[#1C1917] text-white"
+                  : "text-[#57534E] hover:text-[#1C1917] hover:bg-[#F5F5F4]"
                   }`}
               >
                 {item.label}
@@ -994,8 +997,8 @@ export default function MinimalBentoPortfolio() {
                   key={tab.id}
                   onClick={() => setProjectCategory(tab.id)}
                   className={`px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors whitespace-nowrap ${projectCategory === tab.id
-                      ? "bg-[#1C1917] text-white shadow-sm"
-                      : "text-[#57534E] hover:text-[#1C1917] hover:bg-[#F5F5F4]"
+                    ? "bg-[#1C1917] text-white shadow-sm"
+                    : "text-[#57534E] hover:text-[#1C1917] hover:bg-[#F5F5F4]"
                     }`}
                 >
                   {tab.label}
@@ -1309,8 +1312,8 @@ export default function MinimalBentoPortfolio() {
                 key={tab.id}
                 onClick={() => setSelectedSkillCategory(tab.id)}
                 className={`px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors whitespace-nowrap ${selectedSkillCategory === tab.id
-                    ? "bg-[#1C1917] text-white"
-                    : "bg-white border border-[#E5E3DF] text-[#57534E] hover:text-[#1C1917] hover:bg-[#FAF8F5]"
+                  ? "bg-[#1C1917] text-white"
+                  : "bg-white border border-[#E5E3DF] text-[#57534E] hover:text-[#1C1917] hover:bg-[#FAF8F5]"
                   }`}
               >
                 {tab.label}
@@ -1361,8 +1364,8 @@ export default function MinimalBentoPortfolio() {
               <button
                 onClick={() => setTestimonialViewMode("carousel")}
                 className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-colors ${testimonialViewMode === "carousel"
-                    ? "bg-[#1C1917] text-white"
-                    : "text-[#57534E] hover:text-[#1C1917]"
+                  ? "bg-[#1C1917] text-white"
+                  : "text-[#57534E] hover:text-[#1C1917]"
                   }`}
               >
                 Featured Slide
@@ -1370,8 +1373,8 @@ export default function MinimalBentoPortfolio() {
               <button
                 onClick={() => setTestimonialViewMode("grid")}
                 className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-colors ${testimonialViewMode === "grid"
-                    ? "bg-[#1C1917] text-white"
-                    : "text-[#57534E] hover:text-[#1C1917]"
+                  ? "bg-[#1C1917] text-white"
+                  : "text-[#57534E] hover:text-[#1C1917]"
                   }`}
               >
                 All ({testimonials.length})
@@ -1775,7 +1778,7 @@ export default function MinimalBentoPortfolio() {
             &copy; {new Date().getFullYear()} Adonias Haile · All rights
             reserved.
           </p>
-          <p className="m-0">Clean, accessible minimalist bento architecture.</p>
+          {/* <p className="m-0">Clean, accessible minimalist bento architecture.</p> */}
         </div>
       </footer>
 
