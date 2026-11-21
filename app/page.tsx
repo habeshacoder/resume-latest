@@ -133,7 +133,7 @@ export default function MinimalBentoPortfolio() {
       role: "Software Development Company",
       image: "/testimonials/qemer tech logo.png",
       content:
-        "Adonias is a skilled Full-Stack Mobile Developer, a true all-rounder in the world of mobile applications. He possesses the unique ability to handle every aspect of mobile development, from crafting intuitive user interfaces to building robust server-side infrastructure.",
+        "Adonias is a skilled Mobile Developer, a true all-rounder in the world of mobile applications. He possesses the unique ability to handle every aspect of mobile development, from crafting intuitive user interfaces to building robust server-side infrastructure.",
       url: "https://www.qemertech.com/team/adonias-haile/",
     },
     {
@@ -872,8 +872,8 @@ export default function MinimalBentoPortfolio() {
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             {/* Main Title */}
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#1C1917] leading-[1.15]">
-              Full-Stack Mobile &amp; <br />
-              Fintech Software Engineer
+              Mobile &amp; Fintech <br />
+              Software Engineer
             </h1>
 
             {/* Subtitle */}
@@ -1649,7 +1649,7 @@ export default function MinimalBentoPortfolio() {
               </span>
             </div>
             <p className="text-xs text-[#57534E] leading-relaxed">
-              Full-Stack Mobile &amp; Fintech Software Engineer specializing in
+              Mobile &amp; Fintech Software Engineer specializing in
               Flutter, Spring Boot, and national banking switch rails.
             </p>
           </div>

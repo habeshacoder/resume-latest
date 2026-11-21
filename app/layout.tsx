@@ -16,9 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adonias Haile | Full-Stack Mobile & Fintech Engineer",
+  title: "Adonias Haile | Mobile & Fintech Engineer",
   description:
-    "Production portfolio of Adonias Haile - Full-Stack Mobile & Fintech Engineer specializing in Flutter, Java Spring Boot microservices, WSO2 Micro Integrator, ISO 8583 banking switch rails, Fayda National ID, and Instant Payment Systems (IPS). Based in Addis Ababa, Ethiopia.",
+    "Production portfolio of Adonias Haile - Mobile & Fintech Engineer specializing in Flutter, Java Spring Boot microservices, WSO2 Micro Integrator, ISO 8583 banking switch rails, Fayda National ID, and Instant Payment Systems (IPS). Based in Addis Ababa, Ethiopia.",
   keywords: [
     "Adonias Haile",
     "Software Engineer",
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Adonias Haile", url: "https://github.com/habeshacoder" }],
   openGraph: {
-    title: "Adonias Haile | Full-Stack Mobile & Fintech Engineer",
+    title: "Adonias Haile | Mobile & Fintech Engineer",
     description:
-      "Full-stack mobile & backend fintech software engineer. Building resilient banking platforms, digital wallets, and high-performance cross-platform applications.",
+      "Mobile & backend fintech software engineer. Building resilient banking platforms, digital wallets, and high-performance cross-platform applications.",
     url: "https://adoniashaile.netlify.app",
     siteName: "Adonias Haile Portfolio",
     locale: "en_US",
