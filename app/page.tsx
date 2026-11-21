@@ -867,20 +867,20 @@ export default function MinimalBentoPortfolio() {
         {/* ================= HERO SECTION ================= */}
         <section
           id="home"
-          className="pt-12 sm:pt-20 pb-16 sm:pb-20 px-4 sm:px-6 max-w-6xl mx-auto"
+          className="pt-14 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-6 max-w-6xl mx-auto"
         >
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             {/* Main Title */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#1C1917] leading-[1.15]">
-              Mobile &amp; Fintech <br />
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#1C1917] leading-[1.08] max-w-4xl mx-auto">
+              Mobile &amp; Fintech <br className="hidden sm:inline" />
               Software Engineer
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-5 sm:mt-6 text-base sm:text-lg text-[#44403C] max-w-2xl font-normal leading-relaxed">
-              I craft high-throughput banking integrations, real-time transaction
-              switches, and polished mobile applications with clean architecture,
-              hardened security, and zero friction.
+            <p className="mt-5 sm:mt-6 text-base sm:text-lg text-[#44403C] max-w-2xl mx-auto font-normal leading-relaxed">
+              Engineering high-throughput banking switch rails, ISO 8583 payment
+              middleware, and resilient cross-platform mobile apps running in national
+              production.
             </p>
 
             {/* Action Button Group */}
@@ -914,9 +914,9 @@ export default function MinimalBentoPortfolio() {
             </div>
 
             {/* Hero Metrics Strip */}
-            <div className="mt-12 sm:mt-14 w-full bg-white border border-[#E5E3DF] rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 shadow-sm">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-                <div>
+            <div className="mt-12 sm:mt-16 w-full max-w-3xl bg-white border border-[#E5E3DF] rounded-2xl p-6 sm:p-7 shadow-sm">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[#E5E3DF] text-center">
+                <div className="pt-2 sm:pt-0">
                   <div className="text-3xl sm:text-4xl font-black text-[#1C1917] tracking-tight">
                     6+
                   </div>
@@ -925,7 +925,7 @@ export default function MinimalBentoPortfolio() {
                   </div>
                 </div>
 
-                <div>
+                <div className="pt-4 sm:pt-0 sm:pl-4">
                   <div className="text-3xl sm:text-4xl font-black text-[#1C1917] tracking-tight">
                     500K+
                   </div>
@@ -934,7 +934,7 @@ export default function MinimalBentoPortfolio() {
                   </div>
                 </div>
 
-                <div>
+                <div className="pt-4 sm:pt-0 sm:pl-4">
                   <div className="text-3xl sm:text-4xl font-black text-[#1C1917] tracking-tight">
                     99.9%
                   </div>
@@ -943,7 +943,7 @@ export default function MinimalBentoPortfolio() {
                   </div>
                 </div>
 
-                <div>
+                <div className="pt-4 sm:pt-0 sm:pl-4">
                   <div className="text-3xl sm:text-4xl font-black text-[#1C1917] tracking-tight">
                     3.86
                   </div>
@@ -963,10 +963,6 @@ export default function MinimalBentoPortfolio() {
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-semibold text-[#1C1917] mb-2">
-                <Sparkles className="w-3.5 h-3.5 text-[#1C1917]" />
-                <span>Production Software</span>
-              </div>
               <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#1C1917]">
                 Tools &amp; Platforms I&apos;ve Built
               </h2>
@@ -1007,7 +1003,7 @@ export default function MinimalBentoPortfolio() {
               return (
                 <div
                   key={project.title}
-                  className="bg-white border border-[#E5E3DF] rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:border-stone-400 transition-colors"
+                  className="bg-white border border-[#E5E3DF] rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:border-stone-400 transition-colors"
                 >
                   <div>
                     <div className="flex items-start justify-between gap-3 mb-2">
@@ -1140,10 +1136,6 @@ export default function MinimalBentoPortfolio() {
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-semibold text-[#1C1917] mb-2">
-                <Briefcase className="w-3.5 h-3.5 text-stone-700" />
-                <span>Career Trajectory</span>
-              </div>
               <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#1C1917]">
                 Professional Experience
               </h2>
@@ -1167,7 +1159,7 @@ export default function MinimalBentoPortfolio() {
             {experiences.map((exp) => (
               <div
                 key={exp.company + exp.period}
-                className="bg-white border border-[#E5E3DF] rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 shadow-sm"
+                className="bg-white border border-[#E5E3DF] rounded-2xl p-6 sm:p-7 shadow-sm"
               >
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 pb-4 border-b border-[#E5E3DF]">
                   <div>
@@ -1228,7 +1220,7 @@ export default function MinimalBentoPortfolio() {
             ))}
 
             {/* Academic Distinction Card (Flattened Clean Container, Zero Box-Within-Box) */}
-            <div className="bg-white border border-[#E5E3DF] rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 shadow-sm">
+            <div className="bg-white border border-[#E5E3DF] rounded-2xl p-6 sm:p-7 shadow-sm">
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                 <div className="flex items-start gap-3.5">
                   <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-[#E5E3DF] text-[#1C1917] flex items-center justify-center flex-shrink-0">
@@ -1265,10 +1257,6 @@ export default function MinimalBentoPortfolio() {
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-semibold text-[#1C1917] mb-2">
-                <Code className="w-3.5 h-3.5 text-[#1C1917]" />
-                <span>Core Tooling</span>
-              </div>
               <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#1C1917]">
                 Tech Stack
               </h2>
@@ -1338,10 +1326,6 @@ export default function MinimalBentoPortfolio() {
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-semibold text-[#1C1917] mb-2">
-                <Award className="w-3.5 h-3.5 text-stone-700" />
-                <span>Leadership Endorsements</span>
-              </div>
               <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#1C1917]">
                 Recommendations &amp; Endorsements
               </h2>
@@ -1375,7 +1359,7 @@ export default function MinimalBentoPortfolio() {
           </div>
 
           {testimonialViewMode === "carousel" ? (
-            <figure className="bg-white border border-[#E5E3DF] rounded-[24px] sm:rounded-[28px] p-6 sm:p-10 shadow-sm m-0">
+            <figure className="bg-white border border-[#E5E3DF] rounded-2xl p-6 sm:p-10 shadow-sm m-0">
               <blockquote className="text-base sm:text-lg text-[#1C1917] font-normal leading-relaxed m-0 p-0 border-none">
                 &ldquo;{testimonials[activeTestimonial].content}&rdquo;
               </blockquote>
@@ -1446,7 +1430,7 @@ export default function MinimalBentoPortfolio() {
               {testimonials.map((t, idx) => (
                 <figure
                   key={t.name + idx}
-                  className="bg-white border border-[#E5E3DF] rounded-[24px] p-6 flex flex-col justify-between shadow-sm m-0"
+                  className="bg-white border border-[#E5E3DF] rounded-2xl p-6 flex flex-col justify-between shadow-sm m-0"
                 >
                   <blockquote className="text-xs sm:text-sm text-[#44403C] leading-relaxed mb-5 m-0 p-0 border-none">
                     &ldquo;{t.content}&rdquo;
@@ -1492,50 +1476,46 @@ export default function MinimalBentoPortfolio() {
           className="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#E5E3DF] scroll-mt-20"
         >
           <div className="max-w-2xl mb-8">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E3DF] text-xs font-semibold text-[#1C1917] mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-stone-700" />
-              <span>Design &amp; Engineering</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#1C1917]">
-              Core Philosophy
+              Engineering Principles
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[#44403C]">
-              Guiding principles behind building reliable, high-performance systems and human-centered software.
+              Guiding disciplines behind building fault-tolerant fintech rails, scalable backends, and human-centered mobile software.
             </p>
           </div>
 
-          <div className="bg-white border border-[#E5E3DF] rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 shadow-sm">
+          <div className="bg-white border border-[#E5E3DF] rounded-2xl p-6 sm:p-8 shadow-sm">
             <h3 className="text-xl sm:text-2xl font-bold text-[#1C1917] tracking-tight">
-              Even mission-critical financial systems deserve a warm, human, and intuitive interface.
+              Mission-critical banking systems demand uncompromising precision, resilient architecture, and zero friction.
             </h3>
 
             <p className="mt-3 text-sm text-[#44403C] leading-relaxed">
-              Utility tools and core banking infrastructure don&apos;t have to feel clinical or intimidating. Every layout decision, contrast ratio, and micro-interaction is an intentional choice to make precision software feel approachable.
+              Financial switch rails and high-throughput transaction backbones do not need to be opaque or clinical. Every interface touchpoint, cryptographic keystore handshake, and micro-interaction is an intentional engineering choice to build trust and eliminate latency.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 pt-6 border-t border-[#E5E3DF]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6 pt-6 border-t border-[#E5E3DF]">
               <div>
-                <h4 className="text-xs font-bold text-[#1C1917]">
-                  01. Lo-Fi Precision
+                <h4 className="text-sm font-bold text-[#1C1917]">
+                  High-Throughput Integrity
                 </h4>
-                <p className="text-xs text-[#57534E] mt-1">
-                  Clean surfaces, high contrast, sub-second response times.
+                <p className="text-xs text-[#57534E] mt-1.5 leading-relaxed">
+                  Clean surfaces, high contrast, sub-second response times, and 60fps mobile execution.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold text-[#1C1917]">
-                  02. Hardened Reliability
+                <h4 className="text-sm font-bold text-[#1C1917]">
+                  Hardened Security Rails
                 </h4>
-                <p className="text-xs text-[#57534E] mt-1">
-                  Banking cryptography, ISO 8583 standards, zero dropped packets.
+                <p className="text-xs text-[#57534E] mt-1.5 leading-relaxed">
+                  Banking-grade cryptography, ISO 8583 standards, biometrics, and zero dropped packets.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold text-[#1C1917]">
-                  03. Intuitive UX
+                <h4 className="text-sm font-bold text-[#1C1917]">
+                  Frictionless Interaction
                 </h4>
-                <p className="text-xs text-[#57534E] mt-1">
-                  Accessible workflows that work on any mobile device or network.
+                <p className="text-xs text-[#57534E] mt-1.5 leading-relaxed">
+                  Accessible user flows engineered to perform reliably across any mobile device or network bandwidth.
                 </p>
               </div>
             </div>
@@ -1547,14 +1527,7 @@ export default function MinimalBentoPortfolio() {
           id="contact"
           className="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#E5E3DF] scroll-mt-20"
         >
-          <div className="bg-[#1C1917] border border-[#292524] rounded-[28px] sm:rounded-[36px] p-8 sm:p-12 text-white text-center flex flex-col items-center">
-            <Badge
-              variant="outline"
-              className="text-stone-300 border-stone-800 bg-stone-900 mb-4 text-xs px-3 py-1 font-semibold"
-            >
-              Let&apos;s Build Something Remarkable
-            </Badge>
-
+          <div className="bg-[#1C1917] border border-[#292524] rounded-3xl p-8 sm:p-14 text-white text-center flex flex-col items-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
               Precision Starts Here
             </h2>
@@ -1565,7 +1538,7 @@ export default function MinimalBentoPortfolio() {
               I&apos;m ready.
             </p>
 
-            <div className="mt-7 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto max-w-xs sm:max-w-none mx-auto">
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto max-w-xs sm:max-w-none mx-auto">
               <a
                 href="mailto:adoniashaile1@gmail.com"
                 className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 rounded-full bg-white text-[#1C1917] font-semibold text-xs sm:text-sm hover:bg-[#F5F5F4] transition-colors shadow-sm w-full sm:w-auto"
